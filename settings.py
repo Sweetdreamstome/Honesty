@@ -1,11 +1,19 @@
 from os import environ
 
 SESSION_CONFIGS = [
+    
     dict(
        name='HonestidadaPrueba',
        display_name="HonestidadAprueba",
        num_demo_participants=4,
        app_sequence=['Honesty']
+    ),
+
+    dict(
+       name='RuleFollowing',
+       display_name="RuleFollowing",
+       num_demo_participants=2,
+       app_sequence=['RuleFollowing']
     ),
 ]
 
