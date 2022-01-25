@@ -9,14 +9,15 @@ class Instructions(Page):
 
 class Time_Pressure(Page):
 
-    # form_model = 'player'
-    # form_fields = ['decision']
+    form_model = 'player'
+    form_fields = ['decision']
 
     def is_displayed(self):
         return self.group.treatment == 'Time Pressure'
 
     def vars_for_template(self):
         return dict(
+            grupo_asignado = self.player.grupo_asignado,
             tratamiento = self.group.treatment
         )
 
@@ -27,6 +28,7 @@ class Time_Delay(Page):
 
     def vars_for_template(self):
         return dict(
+            grupo_asignado = self.player.grupo_asignado,
             tratamiento = self.group.treatment
         )
 
