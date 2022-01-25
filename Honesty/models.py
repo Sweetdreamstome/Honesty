@@ -22,10 +22,11 @@ class Constants(BaseConstants):
     name_in_url = 'Honesty'
     players_per_group = 2
     num_rounds = 2
+
+    #constatnes del experimento
     comportamiento = ['Miente','No miente']
     grupo_asignado = ['A','B']
     tratamientos = ['Time Delay','Time Pressure']
-
 
 class Subsession(BaseSubsession):
     
@@ -42,7 +43,7 @@ class Subsession(BaseSubsession):
 
         tratamientos_lista = Constants.tratamientos.copy()
         for group, tratamiento in zip(self.get_groups(), tratamientos_lista):
-            
+
                 group.treatment = tratamiento
                 print(group.treatment)
 
@@ -63,7 +64,6 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     grupo_asignado = models.StringField(
-        doc = 'Grupo al fue asignado',
     )
     
     decision = models.StringField(
@@ -71,40 +71,50 @@ class Player(BasePlayer):
         choices = Constants.grupo_asignado
     )
 
-    comportamiento = models.StringField(
-        doc='Miente o no miente'
-    )
+    comportamiento = models.StringField()
+
+    def set_comportamiento(self):
+        
+        print(self.decision, self.grupo_asignado)
+
+        if self.decision == self.grupo_asignado:
+
+            self.comportamiento = Constants.comportamiento[1]
+
+        else:
+
+            self.comportamiento = Constants.comportamiento[0] 
 
     def other_player(self):
 
-        print(self.get_other_in_group())
         return self.get_others_in_group()[0]
 
     def set_payoff(self):
 
-        if self.decision == self.grupo_asignado:
-            self.comportamiento = Constants.grupo_asignado[0]
-        else:
-            self.comportamiento = Constants.grupo_asignado[1]
+        print(self.comportamiento)
+        print(self.get_others_in_group())
+        print(self.round_number)
+        print(self.comportamiento)
 
         payoff_matrix = {
             'Miente':
                 {
-                    'Miente': [13,13],
-                    'No miente': [13,8]
+                    'Miente': 13,
+                    'No miente': 13
                 },
             'No miente':
                 {
-                    'Miente': [8,13],
-                    'No miente': [10,10]
+                    'Miente': 8,
+                    'No miente': 10
                 }
         }
 
         self.payoff = payoff_matrix[self.comportamiento][self.other_player().comportamiento]
 
-        #randomizando el payoff obtenido
-        random_round = random.randint(1,Constants.num_rounds)
+        print(self.payoff)
 
-        self.participant.payoff = self.inround(random_round).payoff
+        #randomizando el payoff obtenido final
+        random_round = random.randint(1,Constants.num_rounds)
+        self.participant.payoff = self.in_round(random_round).payoff
 
 
