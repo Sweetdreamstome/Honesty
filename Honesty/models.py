@@ -42,14 +42,17 @@ class Subsession(BaseSubsession):
 
         tratamientos_lista = Constants.tratamientos.copy()
         for group, tratamiento in zip(self.get_groups(), tratamientos_lista):
+            
                 group.treatment = tratamiento
                 print(group.treatment)
 
-        # for player in self.get_players():
-        #     lista = Constants.grupo_asignado.copy()
-        #     random.shuffle(lista)
-        #     player.participant.grupo_asignado = lista[0]
-        #     print(player.participant.grupo_asignado)
+        assing_groups = Constants.grupo_asignado.copy()
+        for group in self.get_groups():
+
+            p1 , p2  =  group.get_players()
+            random.shuffle(assing_groups)
+            p1.grupo_asignado, p2.grupo_asignado = assing_groups
+            print(p1.grupo_asignado,p2.grupo_asignado)
         
 class Group(BaseGroup):
     
@@ -59,12 +62,12 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-    # grupo_asignado = models.StringField(
-    #     doc = 'Grupo al fue asignado',
-    # )
+    grupo_asignado = models.StringField(
+        doc = 'Grupo al fue asignado',
+    )
     
     decision = models.StringField(
-        widget = widgets.RadioSelect,
+        widget = widgets.RadioSelectHorizontal,
         choices = Constants.grupo_asignado
     )
 
@@ -79,7 +82,7 @@ class Player(BasePlayer):
 
     def set_payoff(self):
 
-        if self.decision == self.participant.grupo_asignado:
+        if self.decision == self.grupo_asignado:
             self.comportamiento = Constants.grupo_asignado[0]
         else:
             self.comportamiento = Constants.grupo_asignado[1]
