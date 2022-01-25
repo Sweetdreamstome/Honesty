@@ -5,12 +5,14 @@
 {% block content %}
 
 <p>
-    Fuiste asignado al grupo: 
+    Fuiste asignado al grupo: {{ grupo_asignado }}
 </p>
 
 <p>
     Estas en el tratamiento: {{ tratamiento }}
 </p>
+
+{{ formfield 'decision'}}
 
     {% next_button %}
 
