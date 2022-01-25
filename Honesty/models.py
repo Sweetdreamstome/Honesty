@@ -11,10 +11,16 @@ from otree.api import (
 import random
 
 
-author = 'Your name here'
+author = 'Grecia Barandiaran & Sergio Mejia '
 
 doc = """
-Your app description
+
+Concurso de Investigacion 2021
+
+Test about Honesty 
+
+Apps: Honesty, Rule Following & Tanaka (2010)
+
 """
 
 
@@ -62,6 +68,38 @@ class Group(BaseGroup):
     )
 
 class Player(BasePlayer):
+
+    #breve cuestionario inicial
+
+    nombres = models.StringField(
+        label = 'Indica tus nombres:'
+    )
+
+    apellido_paterno = models.StringField(
+        label = 'Indica tu apellido paterno:'
+    )
+
+    apellido_materno = models.StringField(
+        label = 'Indica tu apellido materno:'
+    )
+
+    edad = models.IntegerField(
+        label = 'Indica tu edad:',
+        choices = [i for i in range(18,40)]
+    )
+
+    #variable de interes 
+    sexo = models.StringField(
+        label = 'Indica tu sexo:',
+        widget = widgets.RadioSelectHorizontal,
+        choices = ['Hombre','Mujer'],
+        default = '0'
+    )
+
+    participado_antes = models.StringField(
+        label = 'Has participado antes en un experimento del E2LabUP',
+        choices =['Si', 'No']
+    )
 
     grupo_asignado = models.StringField(
     )
@@ -115,6 +153,11 @@ class Player(BasePlayer):
 
         #randomizando el payoff obtenido final
         random_round = random.randint(1,Constants.num_rounds)
+
+        print(random_round)
+
         self.participant.payoff = self.in_round(random_round).payoff
+
+        print(self.participant.payoff)
 
 
