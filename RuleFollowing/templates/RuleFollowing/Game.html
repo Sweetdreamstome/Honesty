@@ -5,35 +5,163 @@
         <style>
 
             .box {
-            display: grid;
-            width: 630px;
-            grid-template-columns: 100px 100px;
-            align-self: right;
+            padding:50px;
+            width: 850px;
+            height: 250px;
+            grid-template-columns: 80px 10px 80px;
             justify-content: space-between;
+            display: flex;
+            border: 5px solid white;
             }
 
-            #beba1 {
-            width: 300px;
-            height: 230px;
+            #startpoint{
+            width: 100px;
+            height: 100px;
+            top:50%;
+            border: 5px solid white;
+            margin:76px;
+            }
+
+            #target1 {
+            width: 205px;
+            height: 180px;
             border: 5px solid rgb(30, 87, 212);
             border-top-color: white;
             }
 
-            #beba2 {
-            width: 300px;
-            height: 230px;
+            #target2 {
+            width: 205px;
+            height: 180px;
             border: 5px solid rgb(211, 221, 71);
             border-top-color: white;
+            }
+
+            #dragtarget1 {
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            background-color: black;
             }
 
         </style>
     </head>
     <body>
 
+        <h5 id = 'mensaje_final'></h5>
+
         <div class = 'box'>
-            <div id='beba1'></div>
-            <div id='beba2'></div>
+
+            <div id='target1'>
+                <p id='ball_counter1'></p>
+            </div>
+
+            <div id='startpoint'>
+                <div class = 'bolita' draggable='true' id = "dragtarget1"></div>
+            </div>
+
+            <div id='target2'>
+                <p id = "ball_counter2"></p>
+            </div>
+
         </div>
+
+        <script>
+
+            console.log('Nro de bolas en la caja inicial al inicio:',document.getElementById('startpoint').childElementCount);
+
+            document.addEventListener('dragstart',function(event){
+                event.dataTransfer.setData('div',event.target.id);
+            });
+
+            document.addEventListener("dragend", function(event) {
+
+            
+            if ((document.getElementById('target1').childElementCount+document.getElementById('target2').childElementCount) == 12)
+                {
+                    for (let bola of document.getElementsByClassName('bolita'))
+                    {
+                        bola.removeAttribute("draggable");
+                    }
+
+                    console.log('Se acabaron las bolitas');  
+                    document.getElementById('mensaje_final').innerHTML = 'Ya coloco 10 bolitas, por favor dar click al boton "Siguiente"';
+                }
+            else
+                {
+                    var new_ball = document.createElement('div');
+                    var parent = document.getElementById('startpoint');
+                    var new_id_number = 0;
+                    var new_id = "";
+
+                    console.log('Caja de partida:', document.getElementById('startpoint').childElementCount);
+                    console.log('Caja azul:',document.getElementById('target1').childElementCount);
+                    console.log('Caja amarilla: ',document.getElementById('target2').childElementCount);
+
+                    new_id_number = Math.random()*(20-1)+1;
+                    new_id = 'dragtarget' + new_id_number;
+                    
+                    console.log('Nuevo Id para el nueva bolita',new_id);
+
+                    new_ball.setAttribute('id',new_id);
+                    new_ball.setAttribute('draggable','true');
+                    
+                    new_ball.className = 'bolita';
+                    new_ball.style.display = 'inline-block';
+                    new_ball.style.borderRadius = '50%';
+                    new_ball.style.height = '20px';
+                    new_ball.style.width = '20px';
+                    new_ball.style.backgroundColor = 'black';
+
+                    parent.appendChild(new_ball);
+                }; 
+
+                document.getElementById('ball_counter1').innerHTML = ''+(document.getElementById('target1').childElementCount - 1)
+                document.getElementById('ball_counter2').innerHTML = ''+(document.getElementById('target2').childElementCount - 1)
+            });
+
+            document.addEventListener("dragenter", function(event) {
+                if ( event.target.id == "target2" ) {
+                    event.target.style.border = "3px dotted yellow";
+                }
+
+                if ( event.target.id == "target1" ) {
+                    event.target.style.border = "3px dotted blue";
+                }
+            });
+
+            document.addEventListener("dragover", function(event) {
+                event.preventDefault();
+            });
+
+            document.addEventListener("dragleave", function(event) {
+                if ( event.target.id == "target1" ) {
+                    event.target.style.border = "";
+                }
+
+                if ( event.target.id == "target2" ) {
+                    event.target.style.border = "";
+                }
+            });
+
+            document.addEventListener("drop", function(event) {
+                event.preventDefault();
+
+                if ( event.target.id == "target1" ) {
+                    event.target.style.border = "";
+                    var data = event.dataTransfer.getData("div");
+                    event.target.appendChild(document.getElementById(data));
+                    console.log('dropreamos el div en el cuadro azul');
+                }
+
+                if ( event.target.id == "target2" ) {
+                    event.target.style.border = "";
+                    var data = event.dataTransfer.getData("div");
+                    event.target.appendChild(document.getElementById(data));
+                    console.log('dropreamos el div en el cuadro amarillo');
+                }
+            });
+
+        </script>
 
     </body>
 </html>
