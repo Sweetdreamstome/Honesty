@@ -68,13 +68,22 @@
         <input type="hidden" name = "blue_balls" id='blue_balls'>
         <input type = "hidden" name = "yellow_balls" id='yellow_balls'>
 
-        <button id = "boton" class="otree-btn-next btn btn-primary" hidden>Next</button>
+        <button id = "boton" class="otree-btn-next btn btn-primary" hidden>Siguiente</button>
 
         <script>
 
             document.addEventListener('dragstart',function(event){
-                console.log(event.target.id);
-                event.dataTransfer.setData('div',event.target.id);
+
+                if (document.getElementById(event.target.id).parentElement.id == ("target1" || "target2"))
+                {
+                    console.log("No puede mover el elemento que ya puso");
+                }
+                else 
+                {
+                    console.log(event.target.id);
+                    event.dataTransfer.setData('div',event.target.id);
+                }
+                
             });
 
             document.addEventListener("dragend", function(event) {
@@ -82,8 +91,15 @@
                 var sum_boxes = document.getElementById('target1').childElementCount + document.getElementById('target2').childElementCount 
                 var num_balls_limit = 10 //aca se pone el numero maximo de bolas que pueden colocar
                 
+                var bolitas = document.getElementsByClassName('bolita');
+
                 if (document.getElementById("startpoint").childElementCount == 0)
                 {
+
+                    for (let ball of bolitas)
+                    {
+                        ball.removeAttribute("draggable");
+                    }
                     if (sum_boxes == num_balls_limit+2)
                     {
                         document.getElementById('blue_balls').value = document.getElementById('target1').childElementCount-1;
@@ -158,7 +174,6 @@
                 if ( event.target.id == "target1" ) {
                     event.target.style.border = "";
                     var data = event.dataTransfer.getData("div");
-                    document.getElementById(data).setAttribute("draggable","false");
                     event.target.appendChild(document.getElementById(data));
                     console.log('dropreamos el div en el cuadro azul');
                 }
@@ -166,7 +181,6 @@
                 if ( event.target.id == "target2" ) {
                     event.target.style.border = "";
                     var data = event.dataTransfer.getData("div");
-                    document.getElementById(data).setAttribute("draggable","false");
                     event.target.appendChild(document.getElementById(data));
                     console.log('dropreamos el div en el cuadro amarillo');
                 }
