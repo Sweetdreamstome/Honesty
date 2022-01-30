@@ -3,7 +3,12 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 class Game(Page):
-    pass
+    
+    form_model = 'player'
+    form_fields = [
+        'blue_balls',
+        'yellow_balls'
+    ]
 
 class Instructions(Page):
     pass
@@ -12,12 +17,16 @@ class ResultsWaitPage(WaitPage):
     pass
 
 class Payoffs(Page):
-    pass
+    
+    def vars_for_template(self):
+        return dict(
+            blue_balls = self.player.blue_balls,
+            yellow_balls = self.player.yellow_balls
+        )
 
 
 page_sequence = [
-    Game,
-    Instructions, 
-    ResultsWaitPage, 
+    Instructions,
+    Game,  
     Payoffs
     ]
