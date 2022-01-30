@@ -65,6 +65,11 @@
 
         </div>
 
+        <input type="hidden" name = "blue_balls" id='blue_balls'>
+        <input type = "hidden" name = "yellow_balls" id='yellow_balls'>
+
+        <button id = "boton" class="otree-btn-next btn btn-primary" hidden>Next</button>
+
         <script>
 
             document.addEventListener('dragstart',function(event){
@@ -75,13 +80,18 @@
             document.addEventListener("dragend", function(event) {
             
                 var sum_boxes = document.getElementById('target1').childElementCount + document.getElementById('target2').childElementCount 
-                var num_balls_limit = 10
+                var num_balls_limit = 10 //aca se pone el numero maximo de bolas que pueden colocar
                 
                 if (document.getElementById("startpoint").childElementCount == 0)
                 {
                     if (sum_boxes == num_balls_limit+2)
                     {
+                        document.getElementById('blue_balls').value = document.getElementById('target1').childElementCount-1;
+                        document.getElementById('yellow_balls').value = document.getElementById('target2').childElementCount-1;
+                        
                         document.getElementById("mensaje_final").innerHTML = "Se acabaron las bolitas, por favor dar click en 'Siguiente' "
+
+                        boton = document.getElementById('boton').removeAttribute('hidden')
                     }
                     else
                     {
@@ -162,8 +172,7 @@
                 }
             });
 
-        </script>
-
+        </script>   
     </body>
 </html>
 {{ endblock }}

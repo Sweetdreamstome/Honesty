@@ -2,10 +2,13 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+    Resultados
 {% endblock %}
 
 {% block content %}
+
+    <p>Cantidad de bolas azules: {{ blue_balls }}</p>
+    <p>Cantidad de bolas amarillas: {{ yellow_balls }}</p>
 
     {% next_button %}
 {% endblock %}
