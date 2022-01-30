@@ -67,53 +67,52 @@
 
         <script>
 
-            console.log('Nro de bolas en la caja inicial al inicio:',document.getElementById('startpoint').childElementCount);
-
             document.addEventListener('dragstart',function(event){
+                console.log(event.target.id);
                 event.dataTransfer.setData('div',event.target.id);
             });
 
             document.addEventListener("dragend", function(event) {
-
             
-            if ((document.getElementById('target1').childElementCount+document.getElementById('target2').childElementCount) == 12)
+                var sum_boxes = document.getElementById('target1').childElementCount + document.getElementById('target2').childElementCount 
+                var num_balls_limit = 10
+                
+                if (document.getElementById("startpoint").childElementCount == 0)
                 {
-                    for (let bola of document.getElementsByClassName('bolita'))
+                    if (sum_boxes == num_balls_limit+2)
                     {
-                        bola.removeAttribute("draggable");
+                        document.getElementById("mensaje_final").innerHTML = "Se acabaron las bolitas, por favor dar click en 'Siguiente' "
                     }
+                    else
+                    {
+                        var new_ball = document.createElement('div');
+                        var parent = document.getElementById('startpoint');
+                        var new_id_number = 0;
+                        var new_id = "";
 
-                    console.log('Se acabaron las bolitas');  
-                    document.getElementById('mensaje_final').innerHTML = 'Ya coloco 10 bolitas, por favor dar click al boton "Siguiente"';
+                        console.log('Caja de partida:', document.getElementById('startpoint').childElementCount);
+                        console.log('Caja azul:',document.getElementById('target1').childElementCount);
+                        console.log('Caja amarilla: ',document.getElementById('target2').childElementCount);
+
+                        new_id_number = Math.random()*(20-1)+1;
+                        new_id = 'dragtarget' + new_id_number;
+                        
+                        console.log('Nuevo Id para el nueva bolita',new_id);
+
+                        new_ball.setAttribute('id',new_id);
+                        new_ball.setAttribute('draggable','true');
+                        
+                        new_ball.className = 'bolita';
+                        new_ball.style.display = 'inline-block';
+                        new_ball.style.borderRadius = '50%';
+                        new_ball.style.height = '20px';
+                        new_ball.style.width = '20px';
+                        new_ball.style.backgroundColor = 'black';
+
+                        parent.appendChild(new_ball);
+                        
+                    }
                 }
-            else
-                {
-                    var new_ball = document.createElement('div');
-                    var parent = document.getElementById('startpoint');
-                    var new_id_number = 0;
-                    var new_id = "";
-
-                    console.log('Caja de partida:', document.getElementById('startpoint').childElementCount);
-                    console.log('Caja azul:',document.getElementById('target1').childElementCount);
-                    console.log('Caja amarilla: ',document.getElementById('target2').childElementCount);
-
-                    new_id_number = Math.random()*(20-1)+1;
-                    new_id = 'dragtarget' + new_id_number;
-                    
-                    console.log('Nuevo Id para el nueva bolita',new_id);
-
-                    new_ball.setAttribute('id',new_id);
-                    new_ball.setAttribute('draggable','true');
-                    
-                    new_ball.className = 'bolita';
-                    new_ball.style.display = 'inline-block';
-                    new_ball.style.borderRadius = '50%';
-                    new_ball.style.height = '20px';
-                    new_ball.style.width = '20px';
-                    new_ball.style.backgroundColor = 'black';
-
-                    parent.appendChild(new_ball);
-                }; 
 
                 document.getElementById('ball_counter1').innerHTML = ''+(document.getElementById('target1').childElementCount - 1)
                 document.getElementById('ball_counter2').innerHTML = ''+(document.getElementById('target2').childElementCount - 1)
@@ -149,6 +148,7 @@
                 if ( event.target.id == "target1" ) {
                     event.target.style.border = "";
                     var data = event.dataTransfer.getData("div");
+                    document.getElementById(data).setAttribute("draggable","false");
                     event.target.appendChild(document.getElementById(data));
                     console.log('dropreamos el div en el cuadro azul');
                 }
@@ -156,6 +156,7 @@
                 if ( event.target.id == "target2" ) {
                     event.target.style.border = "";
                     var data = event.dataTransfer.getData("div");
+                    document.getElementById(data).setAttribute("draggable","false");
                     event.target.appendChild(document.getElementById(data));
                     console.log('dropreamos el div en el cuadro amarillo');
                 }
