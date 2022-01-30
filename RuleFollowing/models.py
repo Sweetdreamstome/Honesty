@@ -30,4 +30,11 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    
+    blue_balls = models.IntegerField(
+        label = "Cantidad de bolas azules"
+    )
+
+    yellow_balls = models.IntegerField(
+        label = "Cantidad de bolas amarillas"
+    )
