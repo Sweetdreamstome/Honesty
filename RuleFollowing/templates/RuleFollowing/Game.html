@@ -4,7 +4,7 @@
     <head>
         <style>
 
-            .box {
+            #box {
             padding:50px;
             width: 850px;
             height: 250px;
@@ -32,7 +32,7 @@
             #target2 {
             width: 205px;
             height: 180px;
-            border: 5px solid rgb(211, 221, 71);
+            border: 5px solid rgb(250, 225, 0);
             border-top-color: white;
             }
 
@@ -47,26 +47,41 @@
     </head>
     <body>
 
-        <h5 id = 'mensaje_final'></h5>
+        <p>
+            <strong>Importante:</strong> Para poder colocar la pelota dentro de una de las cestas, haga "click" en la pelota del medio y arrastrelo hasta una de las cestas
+            luego suelta el "click" y la pelota caera dentro de la canasta deseada. 
+            <strong>Tomar en cuenta que una vez que hayas colocado la pelota en una de las cestas no podras volver a seleccionarla</strong>
+        </p>
 
-        <div class = 'box'>
+        <p>Si le quedo claro las indicaciones, por favor dar click en "empezar" </p>
 
-            <div id='target1'>
-                <p id='ball_counter1'></p>
+        <button type = 'button' onclick="document.getElementById('dragtarget1').removeAttribute('hidden')">Empezar</button>
+
+        <p id='balls_left' style='color:purple; text-align: center'></p>
+
+        <p id = 'mensaje_final' style='color:red; text-align: center'></p>
+
+        <div id = 'box' >
+
+            <div id='target1' draggable="false">
+                <p id='ball_counter1' draggable="false"></p>
             </div>
 
-            <div id='startpoint'>
-                <div class = 'bolita' draggable='true' id = "dragtarget1"></div>
+            <div id='startpoint' draggable="false">
+                <div class = 'bolita' draggable='true' id = "dragtarget1" hidden></div>
             </div>
 
-            <div id='target2'>
-                <p id = "ball_counter2"></p>
+            <div id='target2' draggable="false">
+                <p id = "ball_counter2" draggable="false"></p>
             </div>
 
         </div>
 
-        <input type="hidden" name = "blue_balls" id='blue_balls'>
-        <input type = "hidden" name = "yellow_balls" id='yellow_balls'>
+        <input type="hidden" name = "blue_balls" id='blue_balls' value='0'>
+        <input type = "hidden" name = "yellow_balls" id='yellow_balls' value = '0'>
+
+        <br>
+        <br>
 
         <button id = "boton" class="otree-btn-next btn btn-primary" hidden>Siguiente</button>
 
@@ -74,15 +89,22 @@
 
             document.addEventListener('dragstart',function(event){
 
-                if (document.getElementById(event.target.id).parentElement.id == ("target1" || "target2"))
+                if (event.target.className == 'bolita')
                 {
-                    console.log("No puede mover el elemento que ya puso");
+                    var validator = document.getElementById(event.target.id).parentElement.id == "target1" || document.getElementById(event.target.id).parentElement.id == "target2";
+                    
+                    if (validator)
+                    {
+                        console.log("No puede mover el elemento que ya puso");
+                    }
+                    else 
+                    {
+                        console.log(event.target.id);
+                        event.dataTransfer.setData('div',event.target.id);
+                        console.log(event.dataTransfer.setData('div',event.target.id));
+                    }
                 }
-                else 
-                {
-                    console.log(event.target.id);
-                    event.dataTransfer.setData('div',event.target.id);
-                }
+                
                 
             });
 
@@ -105,7 +127,7 @@
                         document.getElementById('blue_balls').value = document.getElementById('target1').childElementCount-1;
                         document.getElementById('yellow_balls').value = document.getElementById('target2').childElementCount-1;
                         
-                        document.getElementById("mensaje_final").innerHTML = "Se acabaron las bolitas, por favor dar click en 'Siguiente' "
+                        document.getElementById("mensaje_final").innerHTML = 'Se acabaron las bolitas, por favor dar click en "Siguiente" '
 
                         boton = document.getElementById('boton').removeAttribute('hidden')
                     }
@@ -133,15 +155,25 @@
                         new_ball.style.borderRadius = '50%';
                         new_ball.style.height = '20px';
                         new_ball.style.width = '20px';
-                        new_ball.style.backgroundColor = 'black';
+
+                        var first_color = Math.random()*(255-40)+40; 
+                        var second_color = Math.random()*(255-40)+40; 
+                        var third_color = Math.random()*(255-40)+40; 
+
+                        new_ball.style.backgroundColor = "rgb("+first_color+","+second_color+","+third_color+")";
 
                         parent.appendChild(new_ball);
                         
                     }
                 }
 
-                document.getElementById('ball_counter1').innerHTML = ''+(document.getElementById('target1').childElementCount - 1)
-                document.getElementById('ball_counter2').innerHTML = ''+(document.getElementById('target2').childElementCount - 1)
+                var balls_blue = document.getElementById('target1').childElementCount - 1;
+                var balls_yellow = document.getElementById('target2').childElementCount - 1
+
+                document.getElementById('ball_counter1').innerHTML = ''+(balls_blue);
+                document.getElementById('ball_counter2').innerHTML = ''+(balls_yellow);
+
+                document.getElementById('balls_left').innerHTML = 'Pelotas restantes: '+(num_balls_limit - balls_blue-balls_yellow)
             });
 
             document.addEventListener("dragenter", function(event) {
