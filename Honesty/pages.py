@@ -14,13 +14,18 @@ class Initial_demograp(Page):
         'participado_antes'
         ]
 
+    def is_displayed(self):
+        return self.player.round_number == 1
+
 class StartWaitPage(WaitPage):
 
     def is_displayed(self):
         return (self.player.sexo + self.player.other_player().sexo) != '00'  
 
 class Instructions(Page):
-    pass
+    
+    def is_displayed(self):
+        return self.player.round_number == 1
 
 class Time_Pressure(Page):
 
@@ -30,13 +35,11 @@ class Time_Pressure(Page):
     def is_displayed(self):
         return self.group.treatment == 'Time Pressure'
 
-    timeout_seconds = 30
-
     def vars_for_template(self):
         return dict(
             grupo_asignado = self.player.grupo_asignado,
             tratamiento = self.group.treatment,
-            sexo_pareja = self.player.other_player().sexo
+            sexo_pareja = self.player.other_player().get_sexo()
         )
 
 class Time_Delay(Page):
@@ -45,15 +48,13 @@ class Time_Delay(Page):
     form_fields = ['decision']
     
     def is_displayed(self):
-        return self.group.treatment == 'Time Delay'
-
-    timeout_seconds = 20    
+        return self.group.treatment == 'Time Delay' 
 
     def vars_for_template(self):
         return dict(
             grupo_asignado = self.player.grupo_asignado,
             tratamiento = self.group.treatment,
-            sexo_pareja = self.player.other_player().sexo
+            sexo_pareja = self.player.other_player().get_sexo()
         )
 
 #tratamiento que falta codear
@@ -77,7 +78,7 @@ class Payoffs(Page):
     def vars_for_template(self):
 
         return dict(
-            final_payoff = self.player.participant.payoff
+            final_payoff = self.player.final_payoff
         )
 
 

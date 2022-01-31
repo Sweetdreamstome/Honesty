@@ -109,7 +109,13 @@ class Player(BasePlayer):
         choices = Constants.grupo_asignado
     )
 
+    final_payoff = models.CurrencyField()
+
     comportamiento = models.StringField()
+
+    def get_sexo(self):
+
+        return self.in_round(1).sexo
 
     def set_comportamiento(self):
         
@@ -156,8 +162,7 @@ class Player(BasePlayer):
 
         print(random_round)
 
-        self.participant.payoff = self.in_round(random_round).payoff
+        self.final_payoff = self.in_round(1).payoff #cambiar esto a aleatorio (random_round)
 
-        print(self.participant.payoff)
 
 
