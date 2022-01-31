@@ -32,9 +32,9 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     
     blue_balls = models.IntegerField(
-        label = "Cantidad de bolas azules"
+        label = "Cantidad de pelotas en la canasta azul",
     )
 
     yellow_balls = models.IntegerField(
-        label = "Cantidad de bolas amarillas"
+        label = "Cantidad de pelotas en la canasta amarilla",
     )
