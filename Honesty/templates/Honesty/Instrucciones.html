@@ -1,0 +1,47 @@
+{% block title %}
+    Juego 1 
+{% endblock %}
+
+{% block content %}
+
+<h5>Instrucciones</h5>
+
+<p>
+    En este estudio se jugarán 5 rondas de un juego. Jugará con otra persona 
+    que se encuentra en la sesión. Esta persona será elegida al azar y será su 
+    pareja durante el resto del juego. 
+</p>
+
+<p>
+    Se le presentará una imagen del nombre de uno de los grupos formados (A o B). 
+    Debajo de la imagen usted tendrá que rellenar un espacio en blanco con el grupo 
+    al cual usted fue asignado (A o B). 
+</p>
+<p>    
+    Lo que usted coloque dentro del recuadro definirá el pago que recibirá cada uno. 
+    Si coloca el grupo al cual fue asignado tal y como se especifica en la tarea, 
+    usted y su pareja recibirán 10 soles. En caso contrario usted recibirá un pago 
+    de 13 soles mientras que su pareja recibirá un pago de 8 soles.  
+</p>    
+
+{% if group.treatment == 'Time Pressure' %}
+<p>
+    En este caso usted tendra que tomar una decision dentro de un <strong>intervalo de 30 segundos</strong>. El cronometro aparecera
+    en la parte superior de su pantalla. Usted podra enviar su decision antes de que el tiempo haya culminado si es que asi lo desea.
+</p>
+{% endif %}
+
+{% if group.treatment == 'Time Delay' %}
+<p>
+    En este caso usted tendra que tomar una decision dentro de un <strong>intervalo de 10 segundos</strong>. El cronometro aparecera
+    en la parte superior de su pantalla. El boton "Siguiente" aparecera luego de haber pasado los 10 segundos 
+</p>
+{% endif %}
+
+<p>
+Si terminaste de leer y de entender las instrucciones, por favor dale al boton "Siguiente"
+</p>
+
+    {% next_button %}
+
+{% endblock %}

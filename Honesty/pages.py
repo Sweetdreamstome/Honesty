@@ -22,8 +22,13 @@ class StartWaitPage(WaitPage):
     def is_displayed(self):
         return (self.player.sexo + self.player.other_player().sexo) != '00'  
 
-class Instructions(Page):
+class General(Page):
     
+    def is_displayed(self):
+        return self.player.round_number == 1
+
+class Instrucciones(Page):
+
     def is_displayed(self):
         return self.player.round_number == 1
 
@@ -85,7 +90,8 @@ class Payoffs(Page):
 page_sequence = [
                 Initial_demograp,
                 StartWaitPage,
-                Instructions,
+                General,
+                Instrucciones,
                 Time_Pressure,
                 Time_Delay,
                 ResultsWaitPage,

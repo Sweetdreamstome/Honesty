@@ -162,7 +162,7 @@ class Player(BasePlayer):
 
         print(random_round)
 
-        self.final_payoff = self.in_round(1).payoff #cambiar esto a aleatorio (random_round)
+        self.final_payoff = self.in_round(2).payoff #cambiar esto a aleatorio (random_round)
 
 
 
