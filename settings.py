@@ -15,6 +15,13 @@ SESSION_CONFIGS = [
        num_demo_participants=2,
        app_sequence=['RuleFollowing']
     ),
+
+    dict(
+       name='tanaka2010',
+       display_name="Tanaka",
+       num_demo_participants=2,
+       app_sequence=['measure_task']
+    ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs

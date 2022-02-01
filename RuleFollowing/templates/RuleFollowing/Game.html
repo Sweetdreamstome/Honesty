@@ -55,7 +55,7 @@
 
         <p>Si le quedo claro las indicaciones, por favor dar click en "Empezar" y la pelota sera arrastrable</p>
 
-        <button type = 'button' onclick="document.getElementById('dragtarget1').setAttribute('class','bolita')">Empezar</button>
+        <button id = 'empezar' type = 'button'>Empezar</button>
 
         <p id='balls_left' style='color:purple; text-align: center'></p>
 
@@ -86,6 +86,13 @@
         <button id = "boton" class="otree-btn-next btn btn-primary" hidden>Siguiente</button>
 
         <script>
+
+            document.getElementById('empezar').addEventListener('click',function(){
+
+                this.disabled = true;
+                document.getElementById('dragtarget1').setAttribute('class','bolita');
+
+            })
 
             document.addEventListener('dragstart',function(event){
 
