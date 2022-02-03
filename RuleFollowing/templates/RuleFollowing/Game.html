@@ -5,42 +5,52 @@
         <style>
 
             #box {
-            padding:50px;
-            width: 850px;
-            height: 250px;
-            grid-template-columns: 80px 10px 80px;
-            justify-content: space-between;
-            display: flex;
-            border: 5px solid white;
+                padding:50px;
+                width: 850px;
+                height: 250px;
+                grid-template-columns: 30px 50px 50px;
+                justify-content: space-between;
+                display: flex;
+                border: 5px solid white;
             }
 
             #startpoint{
-            width: 100px;
-            height: 100px;
-            top:50%;
-            border: 5px solid white;
-            margin:76px;
+                width: 100px;
+                height: 100px;
+                top:50%;
+                border: 5px solid white;
+                margin:75px;
+                margin-right: 10px;
             }
 
             #target1 {
-            width: 205px;
-            height: 180px;
-            border: 5px solid rgb(30, 87, 212);
-            border-top-color: white;
+                width: 250px;
+                height: 180px;
+                padding-top: 100px;
+                border: 5px solid rgb(30, 87, 212);
+                border-top-color: white;
+                display: flex;
+                flex-wrap: wrap-reverse;
+                flex-direction: row ;
             }
 
             #target2 {
-            width: 205px;
-            height: 180px;
-            border: 5px solid rgb(250, 225, 0);
-            border-top-color: white;
+                width: 250px;
+                height: 180px;
+                padding-top: 100px;
+                border: 5px solid rgb(250, 225, 0);
+                border-top-color: white;
+                display: flex;
+                flex-wrap: wrap-reverse;
+                flex-direction: row ;
             }
 
             #dragtarget1 {
-            border-radius: 50%;
-            height: 20px;
-            width: 20px;
-            background-color: black;
+                height: 20px;
+                width: 20px;
+                background-color: black;
+                border-radius: 50%;
+                bottom : 0;
             }
 
         </style>
@@ -48,9 +58,9 @@
     <body>
 
         <p>
-            <strong>Importante:</strong> Para poder colocar la pelota dentro de una de las cestas, haga "click" en la pelota del medio y arrastrelo hasta una de las cestas
+            <strong>Importante:</strong> Para poder colocar la pelota dentro de una de las canastas, haga "click" en la pelota del medio y arrastrelo hasta una de las canastas
             luego suelta el "click" y la pelota caera dentro de la canasta deseada. 
-            <strong>Tomar en cuenta que una vez que hayas colocado la pelota en una de las cestas no podras volver a seleccionarla</strong>
+            <strong>Tomar en cuenta que una vez que hayas colocado la pelota en una de las canasta no podras volver a seleccionarla</strong>
         </p>
 
         <p>Si le quedo claro las indicaciones, por favor dar click en "Empezar" y la pelota sera arrastrable</p>
@@ -64,7 +74,6 @@
         <div id = 'box' >
 
             <div id='target1'>
-                <p id='ball_counter1' style='color:blue'></p>
             </div>
 
             <div id='startpoint'>
@@ -72,7 +81,6 @@
             </div>
 
             <div id='target2'>
-                <p id = "ball_counter2" style='color:rgb(143, 143, 5)'></p>
             </div>
 
         </div>
@@ -110,7 +118,7 @@
                     {
                         console.log(event.target.id);
                         event.dataTransfer.setData('div',event.target.id);
-                        console.log(event.dataTransfer.setData('div',event.target.id));
+                        console.log(event.dataTransfer.setData('text',event.target.id));
                     }
                 }
                 
@@ -119,7 +127,7 @@
             document.addEventListener("dragend", function(event) {
             
                 var sum_boxes = document.getElementById('target1').childElementCount + document.getElementById('target2').childElementCount 
-                var num_balls_limit = 10 //aca se pone el numero maximo de bolas que pueden colocar
+                var num_balls_limit = 100 //aca se pone el numero maximo de bolas que pueden colocar
                 
                 var bolitas = document.getElementsByClassName('bolita');
 
@@ -130,10 +138,10 @@
                     {
                         ball.removeAttribute("draggable");
                     }
-                    if (sum_boxes == num_balls_limit+2)
+                    if (sum_boxes == num_balls_limit)
                     {
-                        document.getElementById('blue_balls').value = document.getElementById('target1').childElementCount-1;
-                        document.getElementById('yellow_balls').value = document.getElementById('target2').childElementCount-1;
+                        document.getElementById('blue_balls').value = document.getElementById('target1').childElementCount;
+                        document.getElementById('yellow_balls').value = document.getElementById('target2').childElementCount;
                         
                         document.getElementById("mensaje_final").innerHTML = 'Se acabaron las bolitas, por favor dar click en "Siguiente" '
 
@@ -159,7 +167,7 @@
                         new_ball.setAttribute('draggable','true');
                         
                         new_ball.className = 'bolita';
-                        new_ball.style.display = 'inline-block';
+                        new_ball.style.bottom = '0'
                         new_ball.style.borderRadius = '50%';
                         new_ball.style.height = '20px';
                         new_ball.style.width = '20px';
@@ -175,8 +183,8 @@
                     }
                 }
 
-                var balls_blue = document.getElementById('target1').childElementCount - 1;
-                var balls_yellow = document.getElementById('target2').childElementCount - 1
+                var balls_blue = document.getElementById('target1').childElementCount;
+                var balls_yellow = document.getElementById('target2').childElementCount;
 
                 document.getElementById('ball_counter1').innerHTML = ''+(balls_blue);
                 document.getElementById('ball_counter2').innerHTML = ''+(balls_yellow);
@@ -213,7 +221,7 @@
 
                 if ( event.target.id == "target1" ) {
                     event.target.style.border = "";
-                    var data = event.dataTransfer.getData("div");
+                    var data = event.dataTransfer.getData("text");
                     event.target.appendChild(document.getElementById(data));
                     console.log('dropreamos el div en el cuadro azul');
                 }
