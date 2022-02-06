@@ -33,30 +33,29 @@
 
 <div class="card bg-light" id = 'container' style='color:rgb(209, 5, 5)'>
     <h4 id = 'text'>Tiempo restante</h4> 
-    <h3 id="clock" role="timer" aria-live="off">30</h3>
+    <h3 id="clock" role="timer" aria-live="off" >30</h3>
 </div>
 
 <table class ='table'>
     <thead>
         <th>Ronda</th>
+        <th>Tu Grupo Asignado</th>
         <th>Sexo de tu pareja</th>
-        <th>Grupo Asignado</th>
     </thead>
     <thbody>
         <tr>
             <td>{{ player.round_number }} </td>
-            <td> {{ sexo_pareja }} </td>
             <td> {{ grupo_asignado }} </td>
+            <td> {{ sexo_pareja }} </td>
         </tr>
     </thbody>
 </table>
 
-<div class="d-grid gap-2 d-md-block">
-    <p>Fuiste asignado al grupo....... </p>
+<div >
+    <p>Indica al grupo al cual fuiste asignado: </p>
     <button class="btn btn-primary" id = 'A' type = 'button'>A</button>
     <button class="btn btn-primary" id = 'B' type = 'button'>B</button>
 </div>
-
 
 <input id = 'decision' name = 'decision' hidden>
 
@@ -65,14 +64,18 @@
     {% next_button %}
 
     <script>
-      
+
     function startTimer(timerName) 
     {
   
-    let timer = document.getElementById(timerName),
+    var timer = document.getElementById(timerName),
+
        seconds = parseInt(timer.innerText);
-  
-    timer.innerText = --seconds
+
+        if (seconds > 0)
+        {
+            timer.innerText = --seconds
+        }
     
         if (seconds) 
         {
@@ -83,11 +86,40 @@
         }
     }
 
+    var reload = true
+    setInterval(function()
+    {
+        let counter = document.getElementById('clock');
+        let reset = false
+
+        if ((performance.navigation.type == performance.navigation.TYPE_RELOAD) && (reload)) 
+        {
+            reload = false
+            reset = true
+        }
+
+        if (sessionStorage.getItem('left')) //si no se guardo nada
+        {
+            
+            if (reset)
+            {
+        
+                counter.innerHTML = sessionStorage.getItem('left');
+
+                reset = false
+                
+            }
+            
+        }
+
+        sessionStorage.setItem('left',counter.innerHTML);
+    
+    },1000);
+   
     document.getElementById("A").addEventListener("click", function(){
         document.getElementById('B').disabled = false;
         this.disabled = true;
-        document.getElementById('decision').value = 'A'
-
+        document.getElementById('decision').value = 'A';
     });
 
     document.getElementById("B").addEventListener("click", function(){
@@ -97,13 +129,14 @@
     
     });
 
-    setTimeout(
-        function () 
-        {
-            alert("Ya pasaron los 30 segundos, por favor tome una decision y dele click a Siguiente");
-        },
-        30*1000 
+    setInterval(
+        function()
+            { 
+                alert('Ya pasaron 30 segundos, por favor tome una decisión y dele click a "Siguiente"') 
+            },
+        40*1000
     );
+
         </script>
 </body>
 {% endblock %}

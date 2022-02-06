@@ -66,6 +66,9 @@ class Time_Delay(Page):
 class Information(Page):
     pass
 
+class RoundWaitPage(WaitPage):
+    pass 
+
 class ResultsWaitPage(WaitPage):
 
     def after_all_players_arrive(self):
@@ -88,12 +91,13 @@ class Payoffs(Page):
 
 
 page_sequence = [
-                Initial_demograp,
-                StartWaitPage,
-                General,
+                # Initial_demograp,
+                # StartWaitPage,
+                # General,
                 Instrucciones,
                 Time_Pressure,
                 Time_Delay,
+                # RoundWaitPage,
                 ResultsWaitPage,
                 Payoffs
                 ]
