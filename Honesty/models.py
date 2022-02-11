@@ -11,7 +11,7 @@ from otree.api import (
 import random
 
 
-author = 'Grecia Barandiaran & Sergio Mejia '
+author = ' Grecia Barandiaran & Sergio Mejia '
 
 doc = """
 
@@ -27,12 +27,12 @@ Apps: Honesty, Rule Following & Tanaka (2010)
 class Constants(BaseConstants):
     name_in_url = 'Honesty'
     players_per_group = 2
-    num_rounds = 2
+    num_rounds = 3
 
     #constatnes del experimento
     comportamiento = ['Miente','No miente']
     grupo_asignado = ['A','B']
-    tratamientos = ['Time Delay','Time Pressure']
+    tratamientos = ['Time Delay','Time Pressure','Information']
 
 class Subsession(BaseSubsession):
     
@@ -48,24 +48,34 @@ class Subsession(BaseSubsession):
             self.group_like_round(1)
 
         tratamientos_lista = Constants.tratamientos.copy()
+        #random.shuffle(tratamientos_lista)
+        print(tratamientos_lista)
         for group, tratamiento in zip(self.get_groups(), tratamientos_lista):
 
-                group.treatment = tratamiento
-                print(group.treatment)
-
+                group.treatment = tratamiento               
+        
+        # Creando los subgrupos de 2 personas (parejas)
         assing_groups = Constants.grupo_asignado.copy()
         for group in self.get_groups():
 
-            p1 , p2  =  group.get_players()
-            random.shuffle(assing_groups)
-            p1.grupo_asignado, p2.grupo_asignado = assing_groups
-            print(p1.grupo_asignado,p2.grupo_asignado)
-        
+            players = group.get_players()
+            
+            i = 0 
+            while (i < 1): # Maximo 2 porque se estan formando parejas
+
+                random.shuffle(assing_groups)
+                p1 , p2 = players[0], players[1]
+                p1.grupo_asignado, p2.grupo_asignado = assing_groups
+                p1.sub_group, p2.sub_group = i , i
+
+                players.remove(p1)
+                players.remove(p2)
+                
+                i += 1
+            
 class Group(BaseGroup):
     
-    treatment = models.StringField(
-        doc = 'tratamiento'
-    )
+    treatment = models.StringField()
 
 class Player(BasePlayer):
 
@@ -101,12 +111,13 @@ class Player(BasePlayer):
         choices =['Si', 'No']
     )
 
-    grupo_asignado = models.StringField(
-    )
+    grupo_asignado = models.StringField()
+
+    sub_group = models.IntegerField()
     
     decision = models.StringField(
         widget = widgets.RadioSelectHorizontal,
-        choices = Constants.grupo_asignado
+        choices = Constants.grupo_asignado,
     )
 
     final_payoff = models.CurrencyField()
@@ -116,6 +127,14 @@ class Player(BasePlayer):
     def get_sexo(self):
 
         return self.in_round(1).sexo
+    
+    def get_partner_sexo(self):
+
+        for other in self.get_others_in_group():
+            
+            if other.sub_group == self.sub_group: 
+
+                return other.get_sexo()
 
     def set_comportamiento(self):
         
@@ -129,16 +148,7 @@ class Player(BasePlayer):
 
             self.comportamiento = Constants.comportamiento[0] 
 
-    def other_player(self):
-
-        return self.get_others_in_group()[0]
-
     def set_payoff(self):
-
-        print(self.comportamiento)
-        print(self.get_others_in_group())
-        print(self.round_number)
-        print(self.comportamiento)
 
         payoff_matrix = {
             'Miente':
@@ -153,14 +163,16 @@ class Player(BasePlayer):
                 }
         }
 
-        self.payoff = payoff_matrix[self.comportamiento][self.other_player().comportamiento]
+        for other in self.get_others_in_group():
+            
+            if other.sub_group == self.sub_group: 
+
+                self.payoff = payoff_matrix[self.comportamiento][other.comportamiento]
 
         print(self.payoff)
 
         #randomizando el payoff obtenido final
-        random_round = random.randint(1,Constants.num_rounds)
-
-        print(random_round)
+        # random_round = random.randint(1,Constants.num_rounds)
 
         self.final_payoff = self.in_round(2).payoff #cambiar esto a aleatorio (random_round)
 

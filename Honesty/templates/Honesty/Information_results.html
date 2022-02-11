@@ -1,0 +1,30 @@
+{% block title %}
+    Information 
+{% endblock %}
+
+{% block content %}
+
+<h5>Resultados</h5>
+
+<h5>Ronda {{ player.round_number }} </h5>
+<table class = 'table'>
+    <thead>
+        <th>Jugador</th>
+        <th>Grupo Asignado</th>
+        <th>Decision</th>        
+    </thead>
+
+    <tbody>
+        {% for jugador in player_list %}
+        <tr>
+            <td> {{ jugador.numero }} </td>
+            <td> {{ jugador.grupo_asignado }} </td>
+            <td> {{ jugador.decision }} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+    {% next_button %}
+
+{% endblock %}
