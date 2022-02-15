@@ -8,10 +8,13 @@
                 padding:50px;
                 width: 850px;
                 height: 250px;
-                grid-template-columns: 30px 50px 50px;
                 justify-content: space-between;
                 display: flex;
                 border: 5px solid white;
+                padding-top: 20px;
+                margin-top: 10px;
+                padding-left: 60px;
+                padding-right: 37px;
             }
 
             #startpoint{
@@ -20,13 +23,13 @@
                 top:50%;
                 border: 5px solid white;
                 margin:75px;
-                margin-right: 10px;
+                margin-right: 17px;
             }
 
             #target1 {
-                width: 250px;
-                height: 180px;
-                padding-top: 100px;
+                width: 210px;
+                height: 200px;
+                padding-top: 150px;
                 border: 5px solid rgb(30, 87, 212);
                 border-top-color: white;
                 display: flex;
@@ -35,9 +38,9 @@
             }
 
             #target2 {
-                width: 250px;
-                height: 180px;
-                padding-top: 100px;
+                width: 210px;
+                height: 200px;
+                padding-top: 150px;
                 border: 5px solid rgb(250, 225, 0);
                 border-top-color: white;
                 display: flex;
@@ -50,48 +53,57 @@
                 width: 20px;
                 background-color: black;
                 border-radius: 50%;
-                bottom : 0;
             }
 
             .otree-body {
-        max-width:940px
+                max-width:940px
             }
 
         </style>
     </head>
-    <body>
-
-        <p>
-            <strong>Importante:</strong> Para poder colocar la pelota dentro de una de las canastas, haga "click" en la pelota del medio y arrastrela hasta una de las canastas
-            luego suelta el "click" y la pelota caera dentro de la canasta deseada. 
-            <strong>Tomar en cuenta que una vez que hayas colocado la pelota en una de las canastas no podras volver a seleccionarla</strong>
-        </p>
+    <body onload='randomize()'>
+        <div class="card bg-light">
+            <p>
+                <strong>Importante:</strong> Para poder colocar la pelota dentro de una de las canastas, haga "click" en la pelota del medio y arrastrela hasta una de las canastas
+                luego suelta el "click" y la pelota caera dentro de la canasta deseada. 
+                <strong>Tomar en cuenta que una vez que hayas colocado la pelota en una de las canastas no podras volver a seleccionarla</strong>
+            </p>
+        </div>
 
         <p>Si le quedo claro las indicaciones, por favor dar click en "Empezar" y la pelota sera arrastrable</p>
 
-        <button id = 'empezar' type="button" class="btn btn-warning">Empezar</button>
+        <button id = 'empezar' type="button" class="btn btn-secondary">Empezar</button>
         
         <h5 id = 'mensaje_final' style="color: rgb(196, 28, 28);text-align: center;"></h5>
 
-        <table class = 'table'>
+        <table class = 'table table-borderless' style ='margin-top: 35px;'>
             <thead>
                 <th></th><th></th><th></th><th></th>
-                <th style="color: blue; text-align:center ;">Azul</th>
-                <th></th><th></th><th></th><th></th>
+                <th style="color: rgb(81, 62, 245); text-align:center ;" id = 'left'>Canasta Azul</th>
+                <th></th><th></th><th></th><th></th><th></th>
                 <th style="color: rgb(20, 3, 20);text-align:center">Restantes</th>
-                <th></th><th></th><th></th><th></th>
-                <th style="color: rgb(204, 216, 29);text-align:center">Amarillo</th>
-                <th></th><th></th><th></th><th></th>
+                <th></th><th></th><th></th><th></th><th></th>
+                <th style="color: rgb(204, 216, 29);text-align:center" id = 'right'>Canasta Amarilla</th>
+                <th></th><th></th><th></th><th></th><th></th>
             </thead>
             <tbody>
-                <tr>
+                <tr style='border-top-color: 5px solid black;'>
                     <td></td><td></td><td></td><td></td>
                     <td style="color: rgb(126, 126, 235);text-align:center"><strong id = 'ball_counter1'></strong></td>
-                    <td></td><td></td><td></td><td></td>
-                    <td style="color: rgb(31, 2, 34);text-align:center"><strong id = 'balls_left'>10</strong></td>
-                    <td></td><td></td><td></td><td></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td style="color: rgb(31, 2, 34);text-align:center"><strong id = 'balls_left'>100</strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
                     <td style="color: rgb(204, 216, 29);text-align:center"><strong id = 'ball_counter2'></strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr style='border-top-color: 5px solid black;'>
                     <td></td><td></td><td></td><td></td>
+                    <td style="color: rgb(126, 126, 235);text-align:center"><strong>S/. 0.15</strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td style="color: rgb(204, 216, 29);text-align:center"><strong>S/. 0.30</strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
                 </tr>
             </tbody>
         </table>
@@ -117,6 +129,25 @@
         <button id = "boton" class="otree-btn-next btn btn-primary" hidden>Siguiente</button>
 
         <script>
+
+            // function randomize()
+            // {
+
+            //     let lista = {{ color }}
+            //     console.log(lista);
+
+            //     // flex-direction: row-reverse;
+            //     if (lista[0] == 'yellow')
+            //     {
+            //         document.getElementById('box').style.flexDirection = 'row-reverse'
+            //         document.getElementById('left').innerText = 'Canasta Amarilla';
+            //         document.getElementById('left').style.color = 'rgb(204, 216, 29)';
+            //         document.getElementById('')
+            //     }else{
+
+            //     }
+
+            // }
 
             document.getElementById('empezar').addEventListener('click',function(){
 

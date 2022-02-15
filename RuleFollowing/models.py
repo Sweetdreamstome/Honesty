@@ -9,9 +9,14 @@ from otree.api import (
     currency_range,
 )
 
-
 doc = """
-Your app description
+
+Concurso de Investigacion
+
+Grecia & Sergio
+
+Rule Following App
+
 """
 
 

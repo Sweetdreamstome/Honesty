@@ -6,7 +6,7 @@ SESSION_CONFIGS = [
        name='HonestidadaPrueba',
        display_name="HonestidadAprueba",
        num_demo_participants=6,
-       app_sequence=['Honesty']
+       app_sequence=['Honesty','RuleFollowing','measure_task']
     ),
 
     dict(
