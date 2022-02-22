@@ -10,38 +10,37 @@ class Instrucciones(Page):
 
 class Roll(Page):
 
-    timeout_seconds = 3
-    timer_text = 'Die rolling.......'
-
-class Decision(Page):
-
     form_model = 'player'
     form_fields = [
-        'die'
+        'die_report'
     ]
 
     def vars_for_template(self):
 
         return dict(
-            result = self.player.result
+           die_result = self.player.die_result
         )
 
     def before_next_page(self):
         self.player.set_payoff()
 
 class Results(Page):
+
+    def is_displayed(self):
+        return self.player.round_number == 2
     
     def vars_for_template(self):
 
+        report_round = self.player.in_previous_rounds()[-1]
+
         return dict(
-            payoff = self.player.payoff,
-            resultado = self.player.result,
-            die = self.player.die
+            payoff = report_round.payoff,
+            resultado = report_round.die_result,
+            die = report_round.die_report
         )
 
 page_sequence = [
                 Instrucciones,
                 Roll,
-                Decision,
                 Results
                  ]

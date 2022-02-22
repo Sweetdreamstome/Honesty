@@ -19,26 +19,25 @@ class Constants(BaseConstants):
     name_in_url = 'DieRoll'
     players_per_group = None
     num_rounds = 2
-    choices = [1,2,3,4,5,6]
-
+   
 class Subsession(BaseSubsession):
     
     def creating_session(self):
-        for player in self.get_players():
-            player.result = random.choice(Constants.choices)
-            print(player.result)
+        for player in self.get_players(): 
+            player.die_result = random.choice([1,2,3,4,5,6])
+            print(player.die_result)
 
 class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
 
-    result = models.IntegerField()
+    die_result = models.IntegerField()
     
-    die = models.IntegerField(
-        label = 'Reporte el resultado del dado',
-        choices = [1,2,3,4,5,6]
+    die_report = models.IntegerField(
+        label = 'Haga click en "Lanzar!" y luego reporte el valor del dado',
+        choices = [0,1,2,3,4,5,6]
     )
 
     def set_payoff(self):
-        self.payoff = 0 if self.die == 6 else self.die*2
+        self.payoff = 0 if self.die_report == 6 else self.die_report*2
