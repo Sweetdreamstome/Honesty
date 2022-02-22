@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Instrucciones
+{% endblock %}
+
+{% block content %}
+
+    <p>Experimento de dados:</p> 
+
+    <p>En este experimento, usted "lanzará virtualmente" un dado y el pago que recibirá será proporcional al resultado que reporte del lanzamiento del dado, de tal manera que:</p>
+
+    <ol>
+        <li>Si usted reporta el número 1, su pago será 1 x S/ 2 = S/ 2</li>
+        <li>Si usted reporta el número 2, su pago será 2 x S/ 2 = S/ 4</li>
+        <li>Si usted reporta el número 3, su pago será 3 x S/ 2 = S/ 6</li>
+        <li>Si usted reporta el número 4, su pago será 4 x S/ 2 = S/ 8</li>
+        <li>Si usted reporta el número 5, su pago será 5 x S/ 2 = S/ 10</li>
+        <li>Si usted reporta el número 6, su pago será 0</li>
+    </ol>
+
+    <p>
+        Usted lanzará el dado virtualmente DOS VECES. Usted deberá reportar el resultado del PRIMER lanzamiento 
+        (el segundo lanzamiento tiene el propósito de asegurar que el dado funcione correctamente). 
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

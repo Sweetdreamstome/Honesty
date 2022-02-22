@@ -154,9 +154,9 @@ class Payoffs(Page):
         )
 
 page_sequence = [
-                # Initial_demograp, #cuestionario inicial 
-                # StartWaitPage, #waitpage para que todos los del grupo avance en orden
-                # General, #bienvenida
+                Initial_demograp, #cuestionario inicial 
+                StartWaitPage, #waitpage para que todos los del grupo avance en orden
+                General, #bienvenida
                 Instrucciones, #instrucciones del juego (dependiendo del tratamiento)
                 StartWaitPage, #para mantener el orden
                 Information_results, # a partir de ronda 1
