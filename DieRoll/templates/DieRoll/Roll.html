@@ -9,9 +9,6 @@
     <style>
 
 #rolly {
-  position: relative;
-  top:80px;
-  left:180px;
   padding: 15px 50px;
   color: #fff;
   background-color: #79766e;
@@ -21,6 +18,8 @@
   box-shadow: 1px 3px #50514F;
   outline: none;
   transition: .3s; 
+  margin-top: 40px;
+  margin-left: -30px;
 }
 
 button:hover{
@@ -30,10 +29,11 @@ button:hover{
 }
 
 .game {
-    margin-left: 100px;
-    padding:100px;
-    width: auto;
-    height: 100%; 
+    margin-top: -50px;
+    margin-left: 300px;
+    padding:80px;
+    width: 300px;
+    height: 350px; 
 }
 
 .dice {
@@ -51,12 +51,6 @@ button:hover{
   border-radius: 20px;
   background-color: #160606;
   box-shadow: inset 2px 2px #0e0103;
-}
-
-.dice-one {
-  position: absolute;
-  left: 700px; 
-  top:130px
 }
 
 .side {
@@ -140,8 +134,20 @@ button:hover{
   </head>
   <body>
 
+    {% if player.round_number == 1 %}
+
+    <p><strong>Importante</strong>: Haga click en el botón "Lanzar!" para lanzar el dado y luego reporte su valor</p>
+
+    {% else %}
+
+    <p>
+      <strong>Importante</strong>: Haga click en el botón "Lanzar!" para lanzar el dado.<strong> Recuerde que este segundo lanzamiento 
+      es solo para corroborar el correcto funcionamiento del dado</strong>
+    </p>
+    {% endif %}
+
     <div class="game">
-          <div id='dice1' class="dice dice-one">
+          <div id='dice1' class="dice">
             <div id="dice-one-side-one" class='side one'>
               <div class="dot one-1"></div>
             </div>
@@ -180,19 +186,29 @@ button:hover{
       </div> 
 
       {% if player.round_number == 1 %}
+        <div id = 'reporte' style="margin-top:-30px" hidden>
+          <label>Reporte el valor del dado: </label>
+          <select class="form-select form-select-sm" name = 'die_report' id = 'die_report'>
+            <option>-------</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+          </select>
 
-        {{ formfield 'die_report'  }}
+          <p></p>
+
+          <button class="otree-btn-next btn btn-primary">Siguiente</button>
+        </div>
 
       {% else %}
-
-        <p><strong>Recuerde que este segundo lanzamiento es solo para corroborar el correcto funcionamiento del dado</strong></p>
-
-        <input name = 'die_result' id = 'die_result' value = '0' hidden>
-        <input name = 'die_report' id = 'die_report' value = '0' hidden>
-
+        <div id = 'reporte' style="margin-top:-30px" hidden>
+          <button class="otree-btn-next btn btn-primary">Siguiente</button>
+          <input name = 'die_report' id = 'die_report' value = '0' hidden>
+        </div>
       {% endif %}
-      
-      {% next_button %}
   
     <script>
         var elDiceOne = document.getElementById('dice1');
@@ -202,6 +218,8 @@ button:hover{
         elComeOut.onclick = function () {rollDice();};
 
         function rollDice() {
+
+          document.getElementById('reporte').removeAttribute('hidden','hidden')
 
           var show = 0;
           switch (diceOne){

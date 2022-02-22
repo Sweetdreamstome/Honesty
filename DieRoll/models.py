@@ -35,7 +35,6 @@ class Player(BasePlayer):
     die_result = models.IntegerField()
     
     die_report = models.IntegerField(
-        label = 'Haga click en "Lanzar!" y luego reporte el valor del dado',
         choices = [0,1,2,3,4,5,6]
     )
 
