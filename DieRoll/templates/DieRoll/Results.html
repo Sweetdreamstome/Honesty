@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Resultados
+{% endblock %}
+
+{% block content %}
+
+    <p>En el primer lanzamiento el valor del dado fue igual a: <strong>{{ resultado }}</strong></p>
+
+    <p>Tu reportaste un valor igual a: <strong>{{ die }}</strong></p>
+
+    {% if die == 6 %}
+        <p>Dado que reportaste <strong>un valor igual a 6</strong>, tu pago será igual a <strong>{{ payoff }}</strong></p>
+    {% else %}
+        <p>Tu pago por tu elección será igual a: <strong>{{ die }} x 2 = {{ payoff }}</strong></p>
+    {% endif %}
+ 
+    {% next_button %}
+{% endblock %}
+
+
