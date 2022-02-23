@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Resultados
+{% endblock %}
+
+{% block content %}
+    <p>
+    <table class="table" style="width:500px; margin-top:20px;">
+
+    <tr><td>Decisión elegida para el pago:</td><td>&nbsp;&nbsp;{{ player.random_lottery }}</td></tr>
+
+    <tr><td>Lotería pagada:</td><td>&nbsp;&nbsp;{{ player.selected_lottery }}</td></tr>
+
+    <tr><td>Monto obtenido:</td><td>&nbsp;&nbsp;{{ player.payoff }}</td></tr>
+
+    <tr><td>Monto a recibir (incluyendo bonus por participar):</td><td>&nbsp;&nbsp;{{ f_p }}</td></tr>
+
+    </table>
+
+    </p>
+    {% next_button %}
+{% endblock %}
+
+

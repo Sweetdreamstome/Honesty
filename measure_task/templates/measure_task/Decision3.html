@@ -1,0 +1,172 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Serie 3
+{% endblock %}
+
+{% block content %}
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-g1fv{background-color:#333333;color:#ffffff;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0449{background-color:#333333;color:#ffffff;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-fymr{font-weight:bold;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-g1fv">Alternativa</th>
+    <th class="tg-0449" colspan="2">Lotería A</th>
+    <th class="tg-0449" colspan="2">Lotería B</th>
+  </tr>
+  <tr>
+    <td class="tg-fymr">29</td>
+    <td class="tg-0pky">25 solex con 50% de seguridad</td>
+    <td class="tg-0pky">-4 solex con 50% de seguridad</td>
+    <td class="tg-0pky">30 solex con 50% de seguridad</td>
+    <td class="tg-0pky">-21 solex con 50% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">30</td>
+    <td class="tg-0pky">4 solex con 50% de seguridad</td>
+    <td class="tg-0pky">-4 solex con 50% de seguridad</td>
+    <td class="tg-0pky">30 solex con 50% de seguridad</td>
+    <td class="tg-0pky">-21 solex con 50% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">31</td>
+    <td class="tg-0pky">1 solex con 50% de seguridad</td>
+    <td class="tg-0pky">-4 solex con 50% de seguridad</td>
+    <td class="tg-0pky">30 solex con 50% de seguridad</td>
+    <td class="tg-0pky">-21 solex con 50% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">32</td>
+    <td class="tg-0pky">1 solex con 50% de seguridad</td>
+    <td class="tg-0pky">-4 solex con 50% de seguridad</td>
+    <td class="tg-0pky">30 solex con 50% de seguridad</td>
+    <td class="tg-0pky">-16 solex con 50% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">33</td>
+    <td class="tg-0pky">1 solex con 50% de seguridad</td>
+    <td class="tg-0pky">-8 solex con 50% de seguridad</td>
+    <td class="tg-0pky">30 solex con 50% de seguridad</td>
+    <td class="tg-0pky">-16 solex con 50% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">34</td>
+    <td class="tg-0pky">1 solex con 50% de seguridad</td>
+    <td class="tg-0pky">-8 solex con 50% de seguridad</td>
+    <td class="tg-0pky">30 solex con 50% de seguridad</td>
+    <td class="tg-0pky">-14 solex con 50% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">35</td>
+    <td class="tg-0pky">1 solex con 50% de seguridad</td>
+    <td class="tg-0pky">-8 solex con 50% de seguridad</td>
+    <td class="tg-0pky">30 solex con 50% de seguridad</td>
+    <td class="tg-0pky">-11 solex con 50% de seguridad</td>
+  </tr>
+</table>
+
+<br>
+
+<label for="slider" class="form-label">Mueva el deslizador para escoger el numero de loterias para A como para B</label>
+
+<input type="range" style='width:500px;' id="slider" min = '0' step = '1' max = '7' oninput="{
+  choice_A.innerText = (this.value != '0') ? parseInt(this.value)+28 : 'Ninguna';
+  choice_B.innerText = (parseInt(this.value)+1 != 8) ? parseInt(this.value)+1+28 : 'Ninguna';
+  sombrear()}" >
+
+<p></p>
+<label>Escojo la lotería A desde la opción 29 hasta la opción:</label>
+<label><strong id = 'choice_A'></strong></label>
+<label> y Escojo la lotería B desde la opción:</label>
+<label><strong id = 'choice_B'></strong></label>
+  
+<p></p>
+
+<input name = 'first_choice_3' id = 'first_choice_3' hidden>
+<input name = 'second_choice_3' id = 'second_choice_3' hidden>
+
+{{ formfield_errors 'first_choice_3' }}
+{{ formfield_errors 'second_choice_3' }}
+
+{% next_button %}
+
+<script>
+
+  function sombrear()
+  {
+    const selected_value_A = document.getElementById('slider').value;
+
+    console.log(selected_value_A.value)
+ 
+    document.getElementById('first_choice_3').value = parseInt(selected_value_A)+28 == 28 ? 0 : parseInt(selected_value_A) + 28;
+    paint(1,selected_value_A,'rgb(250, 243, 201)','A')
+  
+    document.getElementById('second_choice_3').value = parseInt(selected_value_A) + 29 == 36 ? 0 : parseInt(selected_value_A) + 29;
+    paint(parseInt(selected_value_A)+1,14,'rgb(250, 243, 201)','B')
+    
+  }
+
+  // orange: 'rgb(250, 223, 174)'
+  function paint(start,end,color,lottery)
+  {
+
+    let table = document.getElementsByTagName('table')[0];
+    let list_td = table.getElementsByTagName('tr');
+    //cleaning the color
+
+    if (lottery == 'A')
+    {
+      for (let td = 1; td < list_td.length; td ++)
+      {
+        let first = list_td[td].getElementsByTagName('td')[1];
+        let second = list_td[td].getElementsByTagName('td')[2]; 
+
+        first.style.backgroundColor = "white";
+        second.style.backgroundColor = "white";
+      }
+      
+      // assigning the color
+      for (let td = start ; td <= end; td ++ )
+      {
+        let first = list_td[td].getElementsByTagName('td')[1];
+        let second = list_td[td].getElementsByTagName('td')[2]; 
+
+        first.style.backgroundColor = color;
+        second.style.backgroundColor = color;
+        
+      }
+    }else
+    {
+      for (let td = 1; td < list_td.length; td ++)
+      {
+        let first = list_td[td].getElementsByTagName('td')[3];
+        let second = list_td[td].getElementsByTagName('td')[4]; 
+
+        first.style.backgroundColor = "white";
+        second.style.backgroundColor = "white";
+      }
+      
+      // assigning the color
+      for (let td = start ; td <= end; td ++ )
+      {
+        let first = list_td[td].getElementsByTagName('td')[3];
+        let second = list_td[td].getElementsByTagName('td')[4]; 
+
+        first.style.backgroundColor = color;
+        second.style.backgroundColor = color;
+        
+      }
+    }
+
+  }
+  
+</script>
+   
+{% endblock %}
