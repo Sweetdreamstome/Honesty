@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Resultados Generales
+{% endblock %}
+
+{% block content %}
+
+    <table class = 'table'>
+        <thead>
+            <th>Parte</th>
+            <th>Pago</th>
+        </thead>
+        <tbody>
+            {% for app, payoff in payoffs.items %}
+            <tr>
+                <td>{{ app }}</td>
+                <td>{{ payoff }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% next_button %}
+
+{% endblock %}
