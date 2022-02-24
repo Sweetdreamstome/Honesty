@@ -1,7 +1,14 @@
 from os import environ
 
+PARTICIPANT_FIELDS = ['payoff_RuleFollowing','payoff_DieRoll']
+
 SESSION_CONFIGS = [
-    
+    dict(
+       name='Taller',
+       display_name="Taller",
+       num_demo_participants=2,
+       app_sequence=['RuleFollowing','DieRoll']
+    ),
     dict(
        name='HonestidadaPrueba',
        display_name="HonestidadAprueba",
@@ -44,8 +51,8 @@ SESSION_CONFIG_DEFAULTS = dict(
 LANGUAGE_CODE = 'es'
 
 # e.g. EUR, GBP, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'USD'
-USE_POINTS = True
+REAL_WORLD_CURRENCY_CODE = ''
+USE_POINTS = False
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
