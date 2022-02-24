@@ -24,20 +24,13 @@ class Game(Page):
     def before_next_page(self):
         self.player.set_payoff()
 
-# class Processing(Page):
-
-#     timeout_seconds = 1
-
-#     def before_next_page(self):
-#         self.player.set_payoff()
-
 class Payoffs(Page):
     
     def vars_for_template(self):
         return dict(
             pay_blue = self.player.pay_blue,
             pay_yellow = self.player.pay_yellow,
-            pago_final = self.player.pago_final,
+            pago_final = self.player.payoff,
             blue_balls = self.player.blue_balls,
             yellow_balls = self.player.yellow_balls,
         )
@@ -45,6 +38,5 @@ class Payoffs(Page):
 page_sequence = [
     Instructions,
     Game,  
-    # Processing,
     Payoffs
     ]
