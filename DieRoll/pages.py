@@ -39,8 +39,22 @@ class Results(Page):
             die = report_round.die_report
         )
 
+class General_results(Page):
+
+    def is_displayed(self):
+        return self.player.round_number == 2
+
+    def vars_for_template(self):
+
+        payoffs = {app:self.player.participant.vars['payoff_'+app] for app in self.session.config['app_sequence']}
+
+        return dict(
+            payoffs = payoffs 
+        )
+
 page_sequence = [
                 Instrucciones,
                 Roll,
-                Results
+                Results,
+                General_results
                  ]
