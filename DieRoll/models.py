@@ -40,3 +40,5 @@ class Player(BasePlayer):
 
     def set_payoff(self):
         self.payoff = 0 if self.die_report == 6 else self.die_report*2
+        if self.round_number == 2:
+            self.participant.vars['payoff_DieRoll'] = self.in_previous_rounds()[-1].payoff

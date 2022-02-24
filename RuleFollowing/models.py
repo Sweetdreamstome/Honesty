@@ -43,3 +43,13 @@ class Player(BasePlayer):
     yellow_balls = models.IntegerField(
         label = "Cantidad de pelotas en la canasta amarilla",
     )
+
+    pay_blue = models.FloatField()
+    pay_yellow = models.FloatField()
+
+    pago_final = models.FloatField()
+
+    def set_payoff(self):
+
+        self.payoff = round(self.pay_blue + self.pay_yellow,2)
+        self.participant.vars['payoff_RuleFollowing'] = self.payoff
