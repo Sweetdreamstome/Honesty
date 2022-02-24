@@ -62,15 +62,15 @@
         </style>
     </head>
     <body onload='randomize()'>
-        <div class="card bg-light">
+        <div class="card bg-light" style="padding:10px;margin-bottom: 8px;">
             <p>
-                <strong>Importante:</strong> Para poder colocar la pelota dentro de una de las canastas, haga "click" en la pelota del medio y arrastrela hasta una de las canastas
-                luego suelta el "click" y la pelota caera dentro de la canasta deseada. 
-                <strong>Tomar en cuenta que una vez que hayas colocado la pelota en una de las canastas no podras volver a seleccionarla</strong>
+                <strong>Importante:</strong> Para poder colocar la bolita dentro de una de las canastas, haga "click" en la bolita del medio y arrástrela hasta una de las canastas
+                luego suelta el "click" y la bolita caera dentro de la canasta deseada. 
+                <strong>Tomar en cuenta que una vez que hayas colocado la bolita en una de las canastas no podras volver a seleccionarla</strong>
             </p>
         </div>
 
-        <p>Si le quedo claro las indicaciones, por favor dar click en "Empezar" y la pelota sera arrastrable</p>
+        <p>Si le quedo claro las indicaciones, por favor dar click en "Empezar" y la bolita sera arrastrable</p>
 
         <button id = 'empezar' type="button" class="btn btn-secondary">Empezar</button>
         
@@ -98,11 +98,11 @@
                 </tr>
                 <tr style='border-top-color: 5px solid black;'>
                     <td></td><td></td><td></td><td></td>
-                    <td style="color: rgb(126, 126, 235);text-align:center"><strong>S/. 0.15</strong></td>
+                    <td style="color: rgb(126, 126, 235);text-align:center"><strong id = 'payi_blue'></strong></td>
                     <td></td><td></td><td></td><td></td><td></td>
                     <td></td>
                     <td></td><td></td><td></td><td></td><td></td>
-                    <td style="color: rgb(204, 216, 29);text-align:center"><strong>S/. 0.30</strong></td>
+                    <td style="color: rgb(204, 216, 29);text-align:center"><strong id = 'payi_yellow'></strong></td>
                     <td></td><td></td><td></td><td></td><td></td>
                 </tr>
             </tbody>
@@ -123,6 +123,9 @@
         <input type="hidden" name = "blue_balls" id='blue_balls'>
         <input type = "hidden" name = "yellow_balls" id='yellow_balls'>
 
+        <input type="hidden" name = "pay_blue" id='pay_blue'>
+        <input type = "hidden" name = "pay_yellow" id='pay_yellow'>
+
         <br>
         <br>
 
@@ -133,7 +136,7 @@
             // function randomize()
             // {
 
-            //     let lista = {{ color }}
+            //     
             //     console.log(lista);
 
             //     // flex-direction: row-reverse;
@@ -181,7 +184,7 @@
             document.addEventListener("dragend", function(event) {
             
                 var sum_boxes = document.getElementById('target1').childElementCount + document.getElementById('target2').childElementCount 
-                var num_balls_limit = 100 //aca se pone el numero maximo de bolas que pueden colocar
+                var num_balls_limit = 10 //aca se pone el numero maximo de bolas que pueden colocar
                 
                 var bolitas = document.getElementsByClassName('bolita');
 
@@ -240,6 +243,15 @@
 
                 document.getElementById('ball_counter1').innerHTML = ''+balls_blue;
                 document.getElementById('ball_counter2').innerHTML = ''+balls_yellow;
+
+                var pago_blue = (Math.round(0.15*balls_blue * 100) / 100);
+                var pago_yellow = (Math.round(0.30*balls_yellow * 100) / 100)
+
+                document.getElementById('payi_blue').innerText = 'S/ ' + pago_blue;
+                document.getElementById('payi_yellow').innerText = 'S/ ' + pago_yellow;
+
+                document.getElementById('pay_blue').value = pago_blue;
+                document.getElementById('pay_yellow').value = pago_yellow
 
                 document.getElementById('balls_left').innerHTML = ''+(num_balls_limit - balls_blue-balls_yellow)
 

@@ -7,9 +7,13 @@
 
 {% block content %}
 
-    <p style='color:blue'>Cantidad de pelotas en la canasta azul: <strong>{{ blue_balls }}</strong></p>
-    <p style='color:rgb(233, 233, 43)'>Cantidad de pelotas en la canasta amarilla: <strong>{{ yellow_balls }}</strong></p>
+    <p style='color:blue'>Cantidad de bolitas en la canasta azul: <strong>{{ blue_balls }}</strong></p>
+    <p style='color:rgb(233, 233, 43)'>Cantidad de bolitas en la canasta amarilla: <strong>{{ yellow_balls }}</strong></p>
 
+    <p>Pago final sería: <strong style="color:blue">{{ pay_blue }}</strong> + <strong style="color:rgb(233, 233, 43)">{{ pay_yellow }}</strong> = {{ pago_final }}</p>
+
+
+    {% next_button %}
 {% endblock %}
 
 
