@@ -80,4 +80,4 @@ SECRET_KEY = '2o8v%ejs+*dx7oii07kq2^$^!2ge68neft5()@go@ysky6bs47'
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree']
 
-DEBUG = True
+DEBUG = False
