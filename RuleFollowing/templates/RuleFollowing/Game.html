@@ -27,22 +27,20 @@
             }
 
             #target1 {
+                border: 5px solid rgb(30, 87, 212); border-top-color: white;
                 width: 210px;
                 height: 200px;
                 padding-top: 150px;
-                border: 5px solid rgb(30, 87, 212);
-                border-top-color: white;
                 display: flex;
                 flex-wrap: wrap-reverse;
                 flex-direction: row ;
             }
 
             #target2 {
+                border: 5px solid rgb(250, 225, 0); border-top-color: white;
                 width: 210px;
                 height: 200px;
                 padding-top: 150px;
-                border: 5px solid rgb(250, 225, 0);
-                border-top-color: white;
                 display: flex;
                 flex-wrap: wrap-reverse;
                 flex-direction: row ;
@@ -61,12 +59,12 @@
 
         </style>
     </head>
-    <body onload='randomize()'>
+    <body>
         <div class="card bg-light" style="padding:10px;margin-bottom: 8px;">
             <p>
-                <strong>Importante:</strong> Para poder colocar la bolita dentro de una de las canastas, haga "click" en la bolita del medio y arrástrela hasta una de las canastas
-                luego suelta el "click" y la bolita caera dentro de la canasta deseada. 
-                <strong>Tomar en cuenta que una vez que hayas colocado la bolita en una de las canastas no podrás volver a seleccionarla</strong>
+                <strong>Importante:</strong> Para poder colocar la bolita dentro de una de las cestas, haga "click" en la bolita del medio y arrástrela hasta una de las cestas
+                luego suelta el "click" y la bolita caera dentro de la cesta deseada. 
+                <strong>Tomar en cuenta que una vez que hayas colocado la bolita en una de las cestas no podrás volver a seleccionarla</strong>
             </p>
         </div>
 
@@ -76,14 +74,15 @@
         
         <h5 id = 'mensaje_final' style="color: rgb(196, 28, 28);text-align: center;"></h5>
 
+        {% if color %}
         <table class = 'table table-borderless' style ='margin-top: 35px;'>
             <thead>
                 <th></th><th></th><th></th><th></th>
-                <th style="color: rgb(81, 62, 245); text-align:center ;" id = 'left'>Canasta Azul</th>
+                <th style="color: rgb(81, 62, 245); text-align:center ;" id = 'left'>Cesta Azul</th>
                 <th></th><th></th><th></th><th></th><th></th>
                 <th style="color: rgb(20, 3, 20);text-align:center">Restantes</th>
                 <th></th><th></th><th></th><th></th><th></th>
-                <th style="color: rgb(204, 216, 29);text-align:center" id = 'right'>Canasta Amarilla</th>
+                <th style="color: rgb(204, 216, 29);text-align:center" id = 'right'>Cesta Amarilla</th>
                 <th></th><th></th><th></th><th></th><th></th>
             </thead>
             <tbody>
@@ -110,15 +109,60 @@
 
         <div id = 'box' >
 
-            <div id='target1'></div>
+            <div style = 'border: 5px solid rgb(30, 87, 212); border-top-color: white;' id='target1'></div>
 
             <div id='startpoint'>
                 <div draggable='true' id = "dragtarget1"></div>
             </div>
 
-            <div id='target2'></div>
+            <div style = 'border: 5px solid rgb(250, 225, 0); border-top-color: white;' id='target2'></div>
 
         </div>
+        {% else %}
+            <table class = 'table table-borderless' style ='margin-top: 35px;'>
+            <thead>
+                <th></th><th></th><th></th>
+                <th style="color: rgb(204, 216, 29);text-align:center" id = 'right'>Cesta Amarilla</th>
+                <th></th><th></th><th></th><th></th>
+                <th style="color: rgb(20, 3, 20);text-align:center">Restantes</th>
+                <th></th><th></th><th></th><th></th><th></th>
+                <th style="color: rgb(81, 62, 245); text-align:center ;" id = 'left'>Cesta Azul</th>
+                <th></th><th></th><th></th><th></th><th></th>
+            </thead>
+            <tbody>
+                <tr style='border-top-color: 5px solid black;'>
+                    <td></td><td></td><td></td>
+                    <td style="color: rgb(204, 216, 29);text-align:center"><strong id = 'ball_counter2'></strong></td>
+                    <td></td><td></td><td></td><td></td>
+                    <td style="color: rgb(31, 2, 34);text-align:center"><strong id = 'balls_left'>100</strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td style="color: rgb(126, 126, 235);text-align:center"><strong id = 'ball_counter1'></strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr style='border-top-color: 5px solid black;'>
+                    <td></td><td></td><td></td>
+                    <td style="color: rgb(204, 216, 29);text-align:center"><strong id = 'payi_yellow'></strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td style="color: rgb(126, 126, 235);text-align:center"><strong id = 'payi_blue'></strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id = 'box' >
+
+            <div style = 'border: 5px solid rgb(250, 225, 0);border-top-color: white;' id='target2'></div>
+
+            <div id='startpoint'>
+                <div draggable='true' id = "dragtarget1"></div>
+            </div>
+
+            <div style = 'border: 5px solid rgb(30, 87, 212);border-top-color: white;' id='target1'></div>
+
+        </div>
+        {% endif %}
 
         <input type="hidden" name = "blue_balls" id='blue_balls'>
         <input type = "hidden" name = "yellow_balls" id='yellow_balls'>
@@ -132,25 +176,6 @@
         <button id = "boton" class="otree-btn-next btn btn-primary" hidden>Siguiente</button>
 
         <script>
-
-            // function randomize()
-            // {
-
-            //     
-            //     console.log(lista);
-
-            //     // flex-direction: row-reverse;
-            //     if (lista[0] == 'yellow')
-            //     {
-            //         document.getElementById('box').style.flexDirection = 'row-reverse'
-            //         document.getElementById('left').innerText = 'Canasta Amarilla';
-            //         document.getElementById('left').style.color = 'rgb(204, 216, 29)';
-            //         document.getElementById('')
-            //     }else{
-
-            //     }
-
-            // }
 
             document.getElementById('empezar').addEventListener('click',function(){
 
@@ -184,7 +209,7 @@
             document.addEventListener("dragend", function(event) {
             
                 var sum_boxes = document.getElementById('target1').childElementCount + document.getElementById('target2').childElementCount 
-                var num_balls_limit = 10 //aca se pone el numero maximo de bolas que pueden colocar
+                var num_balls_limit = 100 //aca se pone el numero maximo de bolas que pueden colocar
                 
                 var bolitas = document.getElementsByClassName('bolita');
 
