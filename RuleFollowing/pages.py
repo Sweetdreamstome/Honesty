@@ -16,10 +16,10 @@ class Game(Page):
         'pay_yellow'
     ]
 
-    # def vars_for_template(self):
-    #     return dict(
-    #         color = random.shuffle(['blue','yellow'])
-    #     )
+    def vars_for_template(self):
+        return dict(
+            color = self.player.color_order
+        )
 
     def before_next_page(self):
         self.player.set_payoff()

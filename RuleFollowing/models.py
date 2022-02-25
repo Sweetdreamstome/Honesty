@@ -8,6 +8,7 @@ from otree.api import (
     Currency as c,
     currency_range,
 )
+import random
 
 doc = """
 
@@ -27,14 +28,25 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
+    
+    def creating_session(self):
 
+        colors = ['blue','yellow']
+
+        for player in self.get_players():
+
+            random.shuffle(colors)
+            player.color_order = (colors[0] == 'blue')
+
+            orden = "blue-yellow" if player.color_order else "yellow-blue"
+            print(orden) 
 
 class Group(BaseGroup):
     pass
 
-
 class Player(BasePlayer):
+
+    color_order = models.BooleanField()
     
     blue_balls = models.IntegerField(
         label = "Cantidad de pelotas en la canasta azul",
