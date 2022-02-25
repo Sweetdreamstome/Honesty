@@ -52,9 +52,15 @@ class General_results(Page):
             payoffs = payoffs 
         )
 
+class Final(Page):
+    
+    def is_displayed(self):
+        return self.player.round_number == 2
+
 page_sequence = [
                 Instrucciones,
                 Roll,
                 Results,
-                General_results
+                General_results,
+                Final
                  ]
