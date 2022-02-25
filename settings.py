@@ -7,7 +7,7 @@ SESSION_CONFIGS = [
        name='Taller',
        display_name="Taller",
        num_demo_participants=2,
-       app_sequence=['RuleFollowing','DieRoll'],
+       app_sequence=['initial_page','RuleFollowing','DieRoll'],
        app_names = {'RuleFollowing':'Primera','DieRoll':'Segunda'}
     ),
     dict(
