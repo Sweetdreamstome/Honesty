@@ -5,8 +5,8 @@ PARTICIPANT_FIELDS = ['payoff_RuleFollowing','payoff_DieRoll']
 SESSION_CONFIGS = [
     dict(
        name='Taller',
-       display_name="Taller",
-       num_demo_participants=2,
+       display_name="Taller_Experimental",
+       num_demo_participants=7,
        app_sequence=['initial_page','RuleFollowing','DieRoll'],
        app_names = {'RuleFollowing':'Primera','DieRoll':'Segunda'}
     ),
