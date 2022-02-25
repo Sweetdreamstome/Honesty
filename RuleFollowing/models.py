@@ -47,8 +47,6 @@ class Player(BasePlayer):
     pay_blue = models.FloatField()
     pay_yellow = models.FloatField()
 
-    pago_final = models.FloatField()
-
     def set_payoff(self):
 
         self.payoff = round(self.pay_blue + self.pay_yellow,2)

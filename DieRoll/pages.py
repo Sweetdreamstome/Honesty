@@ -46,7 +46,7 @@ class General_results(Page):
 
     def vars_for_template(self):
 
-        payoffs = {self.session.config['app_names'][app]:self.player.participant.vars['payoff_'+app] for app in self.session.config['app_sequence']}
+        payoffs = {self.session.config['app_names'][app]:self.player.participant.vars['payoff_'+app] for app in self.session.config['app_sequence'][1:]}
 
         return dict(
             payoffs = payoffs 
