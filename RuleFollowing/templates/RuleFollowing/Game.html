@@ -1,0 +1,330 @@
+{{ block content }}
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            #box {
+                padding:50px;
+                width: 850px;
+                height: 250px;
+                justify-content: space-between;
+                display: flex;
+                border: 5px solid white;
+                padding-top: 20px;
+                margin-top: 10px;
+                padding-left: 60px;
+                padding-right: 37px;
+            }
+
+            #startpoint{
+                width: 100px;
+                height: 100px;
+                top:50%;
+                border: 5px solid white;
+                margin:75px;
+                margin-right: 17px;
+            }
+
+            #target1 {
+                border: 5px solid rgb(30, 87, 212); border-top-color: white;
+                width: 210px;
+                height: 200px;
+                padding-top: 150px;
+                display: flex;
+                flex-wrap: wrap-reverse;
+                flex-direction: row ;
+            }
+
+            #target2 {
+                border: 5px solid rgb(250, 225, 0); border-top-color: white;
+                width: 210px;
+                height: 200px;
+                padding-top: 150px;
+                display: flex;
+                flex-wrap: wrap-reverse;
+                flex-direction: row ;
+            }
+
+            #dragtarget1 {
+                height: 20px;
+                width: 20px;
+                background-color: black;
+                border-radius: 50%;
+            }
+
+            .otree-body {
+                max-width:940px
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="card bg-light" style="padding:10px;margin-bottom: 8px;">
+            <p>
+                <strong>Importante:</strong> Para poder colocar la bolita dentro de una de las cestas, haga "click" en la bolita del medio y arrástrela hasta una de las cestas
+                luego suelta el "click" y la bolita caera dentro de la cesta deseada. 
+                <strong>Tomar en cuenta que una vez que hayas colocado la bolita en una de las cestas no podrás volver a seleccionarla</strong>
+            </p>
+        </div>
+
+        <p>Si le quedó claro las indicaciones, por favor dar click en "Empezar" y la bolita será arrastrable</p>
+
+        <button id = 'empezar' type="button" class="btn btn-secondary">Empezar</button>
+        
+        <h5 id = 'mensaje_final' style="color: rgb(196, 28, 28);text-align: center;"></h5>
+
+        {% if color %}
+        <table class = 'table table-borderless' style ='margin-top: 35px;'>
+            <thead>
+                <th></th><th></th><th></th><th></th>
+                <th style="color: rgb(81, 62, 245); text-align:center ;" id = 'left'>Cesta Azul</th>
+                <th></th><th></th><th></th><th></th><th></th>
+                <th style="color: rgb(20, 3, 20);text-align:center">Restantes</th>
+                <th></th><th></th><th></th><th></th><th></th>
+                <th style="color: rgb(204, 216, 29);text-align:center" id = 'right'>Cesta Amarilla</th>
+                <th></th><th></th><th></th><th></th><th></th>
+            </thead>
+            <tbody>
+                <tr style='border-top-color: 5px solid black;'>
+                    <td></td><td></td><td></td><td></td>
+                    <td style="color: rgb(126, 126, 235);text-align:center"><strong id = 'ball_counter1'></strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td style="color: rgb(31, 2, 34);text-align:center"><strong id = 'balls_left'>100</strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td style="color: rgb(204, 216, 29);text-align:center"><strong id = 'ball_counter2'></strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr style='border-top-color: 5px solid black;'>
+                    <td></td><td></td><td></td><td></td>
+                    <td style="color: rgb(126, 126, 235);text-align:center"><strong id = 'payi_blue'></strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td style="color: rgb(204, 216, 29);text-align:center"><strong id = 'payi_yellow'></strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id = 'box' >
+
+            <div style = 'border: 5px solid rgb(30, 87, 212); border-top-color: white;' id='target1'></div>
+
+            <div id='startpoint'>
+                <div draggable='true' id = "dragtarget1"></div>
+            </div>
+
+            <div style = 'border: 5px solid rgb(250, 225, 0); border-top-color: white;' id='target2'></div>
+
+        </div>
+        {% else %}
+            <table class = 'table table-borderless' style ='margin-top: 35px;'>
+            <thead>
+                <th></th><th></th><th></th>
+                <th style="color: rgb(204, 216, 29);text-align:center" id = 'right'>Cesta Amarilla</th>
+                <th></th><th></th><th></th><th></th>
+                <th style="color: rgb(20, 3, 20);text-align:center">Restantes</th>
+                <th></th><th></th><th></th><th></th><th></th>
+                <th style="color: rgb(81, 62, 245); text-align:center ;" id = 'left'>Cesta Azul</th>
+                <th></th><th></th><th></th><th></th><th></th>
+            </thead>
+            <tbody>
+                <tr style='border-top-color: 5px solid black;'>
+                    <td></td><td></td><td></td>
+                    <td style="color: rgb(204, 216, 29);text-align:center"><strong id = 'ball_counter2'></strong></td>
+                    <td></td><td></td><td></td><td></td>
+                    <td style="color: rgb(31, 2, 34);text-align:center"><strong id = 'balls_left'>100</strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td style="color: rgb(126, 126, 235);text-align:center"><strong id = 'ball_counter1'></strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr style='border-top-color: 5px solid black;'>
+                    <td></td><td></td><td></td>
+                    <td style="color: rgb(204, 216, 29);text-align:center"><strong id = 'payi_yellow'></strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td style="color: rgb(126, 126, 235);text-align:center"><strong id = 'payi_blue'></strong></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id = 'box' >
+
+            <div style = 'border: 5px solid rgb(250, 225, 0);border-top-color: white;' id='target2'></div>
+
+            <div id='startpoint'>
+                <div draggable='true' id = "dragtarget1"></div>
+            </div>
+
+            <div style = 'border: 5px solid rgb(30, 87, 212);border-top-color: white;' id='target1'></div>
+
+        </div>
+        {% endif %}
+
+        <input type="hidden" name = "blue_balls" id='blue_balls'>
+        <input type = "hidden" name = "yellow_balls" id='yellow_balls'>
+
+        <input type="hidden" name = "pay_blue" id='pay_blue'>
+        <input type = "hidden" name = "pay_yellow" id='pay_yellow'>
+
+        <br>
+        <br>
+
+        <button id = "boton" class="otree-btn-next btn btn-primary" hidden>Siguiente</button>
+
+        <script>
+
+            document.getElementById('empezar').addEventListener('click',function(){
+
+                this.disabled = true;
+                document.getElementById('dragtarget1').setAttribute('class','bolita');
+
+            })
+
+            document.addEventListener('dragstart',function(event){
+
+                console.log(event.target);
+
+                if (event.target.className == 'bolita')
+                {
+                    var validator = document.getElementById(event.target.id).parentElement.id == "target1" || document.getElementById(event.target.id).parentElement.id == "target2";
+                    
+                    if (validator)
+                    {
+                        console.log("No puede mover el elemento que ya puso");
+                    }
+                    else 
+                    {
+                        console.log(event.target.id);
+                        event.dataTransfer.setData('div',event.target.id);
+                        console.log(event.dataTransfer.setData('text',event.target.id));
+                    }
+                }
+                
+            });
+
+            document.addEventListener("dragend", function(event) {
+            
+                var sum_boxes = document.getElementById('target1').childElementCount + document.getElementById('target2').childElementCount 
+                var num_balls_limit = 100 //aca se pone el numero maximo de bolas que pueden colocar
+                
+                var bolitas = document.getElementsByClassName('bolita');
+
+                if (document.getElementById("startpoint").childElementCount == 0)
+                {
+
+                    for (let ball of bolitas)
+                    {
+                        ball.removeAttribute("draggable");
+                    }
+                    if (sum_boxes == num_balls_limit)
+                    {
+                        document.getElementById('blue_balls').value = document.getElementById('target1').childElementCount;
+                        document.getElementById('yellow_balls').value = document.getElementById('target2').childElementCount;
+                        
+                        document.getElementById("mensaje_final").innerHTML = 'Se acabaron las bolitas, por favor dar click en "Siguiente" '
+
+                        boton = document.getElementById('boton').removeAttribute('hidden')
+                    }
+                    else
+                    {
+                        var new_ball = document.createElement('div');
+                        var parent = document.getElementById('startpoint');
+                        var new_id_number = 0;
+                        var new_id = "";
+
+                        console.log('Caja de partida:', document.getElementById('startpoint').childElementCount);
+                        console.log('Caja azul:',document.getElementById('target1').childElementCount);
+                        console.log('Caja amarilla: ',document.getElementById('target2').childElementCount);
+
+                        new_id_number = Math.random()*(20-1)+1;
+                        new_id = 'dragtarget' + new_id_number;
+                        
+                        console.log('Nuevo Id para el nueva bolita',new_id);
+
+                        new_ball.setAttribute('id',new_id);
+                        new_ball.setAttribute('draggable','true');
+                        
+                        new_ball.className = 'bolita';
+                        new_ball.style.bottom = '0'
+                        new_ball.style.borderRadius = '50%';
+                        new_ball.style.height = '20px';
+                        new_ball.style.width = '20px';
+
+                        new_ball.style.backgroundColor = "black";
+
+                        parent.appendChild(new_ball);
+                        
+                    }
+                }
+
+                var balls_blue = document.getElementById('target1').childElementCount;
+                var balls_yellow = document.getElementById('target2').childElementCount;
+
+                console.log(balls_blue,balls_yellow)
+
+                document.getElementById('ball_counter1').innerHTML = ''+balls_blue;
+                document.getElementById('ball_counter2').innerHTML = ''+balls_yellow;
+
+                var pago_blue = (Math.round(0.15*balls_blue * 100) / 100);
+                var pago_yellow = (Math.round(0.30*balls_yellow * 100) / 100)
+
+                document.getElementById('payi_blue').innerText = 'S/ ' + pago_blue;
+                document.getElementById('payi_yellow').innerText = 'S/ ' + pago_yellow;
+
+                document.getElementById('pay_blue').value = pago_blue;
+                document.getElementById('pay_yellow').value = pago_yellow
+
+                document.getElementById('balls_left').innerHTML = ''+(num_balls_limit - balls_blue-balls_yellow)
+
+            });
+
+            document.addEventListener("dragenter", function(event) {
+                if ( event.target.id == "target2" ) {
+                    event.target.style.border = "3px dotted yellow";
+                }
+
+                if ( event.target.id == "target1" ) {
+                    event.target.style.border = "3px dotted blue";
+                }
+            });
+
+            document.addEventListener("dragover", function(event) {
+                event.preventDefault();
+            });
+
+            document.addEventListener("dragleave", function(event) {
+                if ( event.target.id == "target1" ) {
+                    event.target.style.border = "";
+                }
+
+                if ( event.target.id == "target2" ) {
+                    event.target.style.border = "";
+                }
+            });
+
+            document.addEventListener("drop", function(event) {
+                event.preventDefault();
+
+                if ( event.target.id == "target1" ) {
+                    event.target.style.border = "";
+                    var data = event.dataTransfer.getData("text");
+                    event.target.appendChild(document.getElementById(data));
+                    console.log('dropreamos el div en el cuadro azul');
+                }
+
+                if ( event.target.id == "target2" ) {
+                    event.target.style.border = "";
+                    var data = event.dataTransfer.getData("div");
+                    event.target.appendChild(document.getElementById(data));
+                    console.log('dropreamos el div en el cuadro amarillo');
+                }
+            });
+
+        </script>   
+    </body>
+</html>
+{{ endblock }}

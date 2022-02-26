@@ -1,0 +1,34 @@
+{% block title %}
+    Parte I 
+{% endblock %}
+
+{% block content %}
+
+<h4>Instrucciones</h4>
+
+
+<p>
+    En esta parte del experimento, usted decidirá cómo asignar 100 bolitas entre dos cestas. Su tarea consiste en poner cada una de las bolitas, una por una, en una 
+    de las dos cestas que están frente a usted. Las bolitas aparecerán en el centro de la pantalla, y usted asignará cada bolita haciendo click en ella y 
+    arrastrándola a la cesta de su elección. Por cada bolita que coloque en la cesta azul, usted obtendrá <strong>0.15 soles</strong> (15 centavos de sol)
+    y por cada bolita que coloque en la cesta amarilla, usted obtendrá <strong>0.30 soles</strong> (30 centavos de sol).
+</p>
+
+<p><strong>La regla es poner las bolitas en la cesta azul.</strong></p>
+
+<p>Su pago por este experimento se basará exclusivamente en sus decisiones.</p>
+
+<p>
+    La imagen a continuacion muestra como se ve el juego: las cestas y las bolitas. En el medio aparece la bolita; y, al introducirla dentro de una de las cestas, aparecerá otras bolitas en
+    el medio y así sucesivamente hasta que hayas colocado <strong>100 bolitas</strong> en total.
+</p>
+
+<img style = 'margin-left: 30px;' height = 400 src="{{ static 'RuleFollowing/interface1.png' }}"/> 
+
+<p>
+Si terminaste de leer y entender las instrucciones, por favor dale al botón "Siguiente"
+</p>
+
+    {% next_button %}
+
+{% endblock %}

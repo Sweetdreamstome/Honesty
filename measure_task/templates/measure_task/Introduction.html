@@ -2,12 +2,15 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+
 {% endblock %}
 
 {% block content %}
 
+    <p>
+    {% include Constants.instructions_template %}
+    </p>
+
     {% next_button %}
+
 {% endblock %}
-
-

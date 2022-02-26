@@ -1,0 +1,187 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ejemplo 1
+{% endblock %}
+
+{% block content %}
+
+<p align=”justify”>Este ejemplo es el mismo que la <b>Serie 1</b></p>
+
+<p align=”justify”>Observemos las dos loterías para cada pregunta. Hay distintas probabilidades asociados a los pagos de cada una.
+Debes escoger alguna de ellas en cada pregunta</p>
+
+<p align=”justify”>Observemos la Pregunta 1</p>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-g1fv{background-color:#333333;color:#ffffff;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0449{background-color:#333333;color:#ffffff;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-fymr{font-weight:bold;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-g1fv">Alternativa</th>
+    <th class="tg-0449" colspan="2">Lotería A</th>
+    <th class="tg-0449" colspan="2">Lotería B</th>
+  </tr>
+  <tr>
+    <td class="tg-fymr">1</td>
+    <td class="tg-0pky">40 solex con 30% de seguridad</td>
+    <td class="tg-0pky">10 solex con 70% de seguridad</td>
+    <td class="tg-0pky">68 solex con 10% de seguridad</td>
+    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+  </tr>
+</table>
+
+<p align=”justify”>
+  <br>
+  La computadora escogerá internamente un valor entre 10 posibles opciones: 1, 2, 3, ... 9, 10. <br><br>
+  Si un número <b>menor o igual a 3</b> es escogido, por ej., el número 1, los que hayan escogido la Lotería A
+  recibirán 40 solex y, quienes escogieron la Lotería B, recibirán 68 solex. <br><br>
+  Si el número 3 es elegido, los que hayan escogido la Lotería A recibirán 40 solex y, quienes escogieron la
+  Lotería B, recibirán 68 solex. <br><br>
+  Si un número <b>mayor a 3</b> es escogido, por ej., el número 6, los que hayan escogido la Lotería A recibirán
+  10 solex y, quienes escogieron la Lotería B, recibirán 5 solex. <br><br>
+</p>
+
+<p align=”justify”>
+  Supón que escoges la Lotería A desde la pregunta 1 a la 5, y la Lotería B desde la 6 a la 14. Entonces, tus respuestas
+  se pueden ilustrar de la siguiente manera
+</p>
+
+<p align=”justify”>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-ova7{font-weight:bold;font-style:italic;background-color:#000000;color:#ffffff;border-color:#000000;text-align:center;vertical-align:middle}
+.tg .tg-u3q6{font-weight:bold;background-color:#000000;color:#ffffff;border-color:#000000;text-align:left;vertical-align:top}
+.tg .tg-4f0n{background-color:#000000;color:#ffffff;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-m9r4{background-color:#ffffc7;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-u3q6">Alternativa</th>
+    <th class="tg-4f0n" colspan="2"><span style="font-weight:700;font-style:italic">Lotería A</span><br><br></th>
+    <th class="tg-ova7" colspan="2">Lotería B</th>
+  </tr>
+  <tr>
+    <td class="tg-0lax">1</td>
+    <td class="tg-m9r4">40 solex con 30% de seguridad</td>
+    <td class="tg-m9r4">10 solex con 70% de seguridad</td>
+    <td class="tg-0lax">68 solex con 10% de seguridad</td>
+    <td class="tg-0lax">5 solex con 90% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">2</td>
+    <td class="tg-m9r4">40 solex con 30% de seguridad</td>
+    <td class="tg-m9r4">10 solex con 70% de seguridad</td>
+    <td class="tg-0lax">75 solex con 10% de seguridad</td>
+    <td class="tg-0lax">5 solex con 90% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">3</td>
+    <td class="tg-m9r4">40 solex con 30% de seguridad</td>
+    <td class="tg-m9r4">10 solex con 70% de seguridad</td>
+    <td class="tg-0lax">83 solex con 10% de seguridad</td>
+    <td class="tg-0lax">5 solex con 90% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">4</td>
+    <td class="tg-m9r4">40 solex con 30% de seguridad</td>
+    <td class="tg-m9r4">10 solex con 70% de seguridad</td>
+    <td class="tg-0lax">93 solex con 10% de seguridad</td>
+    <td class="tg-0lax">5 solex con 90% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">5</td>
+    <td class="tg-m9r4">40 solex con 30% de seguridad</td>
+    <td class="tg-m9r4">10 solex con 70% de seguridad</td>
+    <td class="tg-0lax">106.5 solex con 10% de seguridad</td>
+    <td class="tg-0lax">5 solex con 90% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">6</td>
+    <td class="tg-0lax">40 solex con 30% de seguridad</td>
+    <td class="tg-0lax">10 solex con 70% de seguridad</td>
+    <td class="tg-m9r4">125 solex con 10% de seguridad</td>
+    <td class="tg-m9r4">5 solex con 90% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">7</td>
+    <td class="tg-0lax">40 solex con 30% de seguridad</td>
+    <td class="tg-0lax">10 solex con 70% de seguridad</td>
+    <td class="tg-m9r4">150 solex con 10% de seguridad</td>
+    <td class="tg-m9r4">5 solex con 90% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">8</td>
+    <td class="tg-0lax">40 solex con 30% de seguridad</td>
+    <td class="tg-0lax">10 solex con 70% de seguridad</td>
+    <td class="tg-m9r4">185 solex con 10% de seguridad</td>
+    <td class="tg-m9r4">5 solex con 90% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">9</td>
+    <td class="tg-0lax">40 solex con 30% de seguridad</td>
+    <td class="tg-0lax">10 solex con 70% de seguridad</td>
+    <td class="tg-m9r4">220 solex con 10% de seguridad</td>
+    <td class="tg-m9r4">5 solex con 90% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">10</td>
+    <td class="tg-0lax">40 solex con 30% de seguridad</td>
+    <td class="tg-0lax">10 solex con 70% de seguridad</td>
+    <td class="tg-m9r4">300 solex con 10% de seguridad</td>
+    <td class="tg-m9r4">5 solex con 90% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">11</td>
+    <td class="tg-0lax">40 solex con 30% de seguridad</td>
+    <td class="tg-0lax">10 solex con 70% de seguridad</td>
+    <td class="tg-m9r4">400 solex con 10% de seguridad</td>
+    <td class="tg-m9r4">5 solex con 90% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">12</td>
+    <td class="tg-0lax">40 solex con 30% de seguridad</td>
+    <td class="tg-0lax">10 solex con 70% de seguridad</td>
+    <td class="tg-m9r4">600 solex con 10% de seguridad</td>
+    <td class="tg-m9r4">5 solex con 90% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">13</td>
+    <td class="tg-0lax">40 solex con 30% de seguridad</td>
+    <td class="tg-0lax">10 solex con 70% de seguridad</td>
+    <td class="tg-m9r4">1000 solex con 10% de seguridad</td>
+    <td class="tg-m9r4">5 solex con 90% de seguridad</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">14</td>
+    <td class="tg-0lax">40 solex con 30% de seguridad</td>
+    <td class="tg-0lax">10 solex con 70% de seguridad</td>
+    <td class="tg-m9r4">1700 solex con 10% de seguridad</td>
+    <td class="tg-m9r4">5 solex con 90% de seguridad</td>
+  </tr>
+</table>
+</p>
+
+    <p align=”justify”>
+      Escojo la lotería A desde la opción 1 hasta la opción: <b>5</b> <br><br>
+      Escojo la lotería B desde la opción: <b>6</b>
+    </p>
+
+    <p align=”justify”>
+    {% next_button %}
+    </p>
+
+
+{% endblock %}

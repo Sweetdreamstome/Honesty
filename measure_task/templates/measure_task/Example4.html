@@ -1,0 +1,57 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ejemplo 4
+{% endblock %}
+
+{% block content %}
+
+<p align=”justify”>Observemos ahora a la <b>Serie 3</b>. Este ejemplo es el mismo que la pregunta 29 en la Serie 3</p>
+
+<p align=”justify”>
+Observemos las dos loterías para cada pregunta. Hay distintas probabilidades asociados a los pagos de cada una.
+Debes escoger alguna de ellas en cada pregunta
+</p>
+
+<p align=”justify”>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-ova7{font-weight:bold;font-style:italic;background-color:#000000;color:#ffffff;border-color:#000000;text-align:center;vertical-align:middle}
+.tg .tg-u3q6{font-weight:bold;background-color:#000000;color:#ffffff;border-color:#000000;text-align:left;vertical-align:top}
+.tg .tg-4f0n{background-color:#000000;color:#ffffff;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-u3q6">Alternativa</th>
+    <th class="tg-4f0n" colspan="2">Lotería A</th>
+    <th class="tg-ova7" colspan="2">Lotería B</th>
+  </tr>
+  <tr>
+    <td class="tg-0lax">29</td>
+    <td class="tg-0lax">25 solex con 50% de seguridad</td>
+    <td class="tg-0lax">-4 solex con 50% de seguridad</td>
+    <td class="tg-0lax">30 solex con 50% de seguridad</td>
+    <td class="tg-0lax">-21 solex con 50% de seguridad</td>
+  </tr>
+</table>
+</p>
+
+    <p align=”justify”>
+      La computadora escogerá internamente un valor entre 10 posibles opciones: 1, 2, 3, ... 9, 10. <br><br>
+      Si un número <b>menor o igual a 5</b> es escogido, por ej., el número 2, los que hayan escogido la Lotería A
+      recibirán 25 solex y, quienes escogieron la Lotería B, recibirán 30 solex. <br><br>
+      Si un número <b>mayor a 5</b> es escogido, por ej., el número 7, los que hayan escogido la Lotería A
+      perderán solex y, quienes escogieron la Lotería B, perderán 21 solex. <br><br>
+      Las <b>pérdidas</b> se restarán de una <b>dotación base</b> de 30 solex.
+    </p>
+
+    <p align=”justify”>
+    {% next_button %}
+    </p>
+
+
+{% endblock %}

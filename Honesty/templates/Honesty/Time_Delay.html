@@ -1,0 +1,151 @@
+{% block title %}
+    Time Delay
+{% endblock %}
+
+{% block content %}
+
+<head>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        #clock {
+            font-size: 35px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #text {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .otree-body {
+        max-width:900px
+    }
+
+    </style>
+</head>
+
+<body onload="startTimer('clock')">
+
+<div class="card bg-light" id = 'container' style='color:rgb(226, 6, 6)'>
+    <p id = 'text'>Tiempo restante</p> 
+    <p id="clock" role="timer" aria-live="off">10</p>
+</div>
+
+<table class ='table'>
+    <thead>
+        <th>Ronda</th>
+        <th>Grupo Asignado</th>
+        <th>Sexo de tu pareja</th>
+    </thead>
+    <thbody>
+        <tr>
+            <td>{{ player.round_number }} </td>
+            <td> {{ grupo_asignado }} </td>
+            <td> {{ sexo_pareja }} </td>
+        </tr>
+    </thbody>
+</table>
+
+
+<div class="d-grid gap-2 d-md-block">
+    <p>Indica al grupo al cual fuiste asignado:  </p>
+    <button class="btn btn-primary" id = 'A' type = 'button'>A</button>
+    <button class="btn btn-primary" id = 'B' type = 'button'>B</button>
+</div>
+
+
+<input id = 'decision' name = 'decision' hidden>
+
+<br>
+<br>
+
+<p id = "off" style='color:rgb(163, 6, 6);font-weight: bold;' hidden>Ya pasaron los 10 segundos, por favor tome una decision y dele click a "Siguiente" </p>
+<button id = "boton" class="otree-btn-next btn btn-primary" hidden>Siguiente</button>
+
+    <script>
+
+    function startTimer(timerName) 
+    {
+  
+    var timer = document.getElementById(timerName),
+
+       seconds = parseInt(timer.innerText);
+
+        if (seconds > 0)
+        {
+            timer.innerText = --seconds
+        }
+        
+        if (seconds == 0)
+        {
+            document.getElementById('off').removeAttribute('hidden');
+            document.getElementById('boton').removeAttribute('hidden');
+        }
+
+        if (seconds) 
+        {
+        setTimeout( function() 
+            {
+            startTimer(timerName);
+            }, 1000);
+        }
+    }
+
+    var reload = true
+    setInterval(function()
+    {
+        let counter = document.getElementById('clock');
+        let reset = false
+
+        if ((performance.navigation.type == performance.navigation.TYPE_RELOAD) && (reload)) 
+        {
+            reload = false
+            reset = true
+        }
+
+        if (sessionStorage.getItem('left')) //si no se guardo nada
+        {
+            
+            if (reset)
+            {
+        
+                counter.innerHTML = sessionStorage.getItem('left');
+
+                reset = false
+                
+            }
+            
+        }
+
+        sessionStorage.setItem('left',counter.innerHTML);
+    
+    },1000);
+
+    document.getElementById("A").addEventListener("click", function(){
+        document.getElementById('B').disabled = false;
+        this.disabled = true;
+        document.getElementById('decision').value = 'A'
+
+    });
+
+    document.getElementById("B").addEventListener("click", function(){
+        document.getElementById('A').disabled = false;
+        this.disabled = true;
+        document.getElementById('decision').value = 'B';
+    
+    });
+
+    setTimeout(
+        function () 
+        {
+            alert("Ya sobrepaso el tiempo establecido , por favor tome una decision y dele click a Siguiente");
+        },
+        20*1000 
+    );
+
+        </script>
+</body>
+{% endblock %}
