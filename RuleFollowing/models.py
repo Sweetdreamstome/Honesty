@@ -20,12 +20,10 @@ Rule Following App
 
 """
 
-
 class Constants(BaseConstants):
     name_in_url = 'RuleFollowing'
     players_per_group = None
     num_rounds = 1
-
 
 class Subsession(BaseSubsession):
     
