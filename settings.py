@@ -1,6 +1,6 @@
 from os import environ
 
-PARTICIPANT_FIELDS = ['payoff_RuleFollowing','payoff_DieRoll']
+PARTICIPANT_FIELDS = ['payoff_Honesty','payoff_RuleFollowing','payoff_DieRoll']
 
 SESSION_CONFIGS = [
     dict(
@@ -13,8 +13,8 @@ SESSION_CONFIGS = [
     dict(
        name='HonestidadaPrueba',
        display_name="HonestidadAprueba",
-       num_demo_participants=6,
-       app_sequence=['Honesty','RuleFollowing','measure_task']
+       num_demo_participants=12,
+       app_sequence=['Honesty','RuleFollowing','measure_task'],
     ),
 
     dict(
