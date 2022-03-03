@@ -42,6 +42,22 @@
     </tbody>
 </table>    
 
+{% if group.treatment == 'Time Pressure' %}
+
+<p>
+    En este caso usted tendra que tomar una decision dentro de un <strong>intervalo de 30 segundos</strong>. El cronometro aparecera
+    en la parte superior de su pantalla. Usted podra enviar su decision antes de que el tiempo haya culminado si es que asi lo desea.
+</p>
+
+{% elif group.treatment == 'Time Delay' %}
+
+<p>
+    En este caso usted tendra que tomar una decision dentro de un <strong>intervalo de 10 segundos</strong>. El cronometro aparecera
+    en la parte superior de su pantalla. El boton "Siguiente" aparecera luego de haber pasado los 10 segundos 
+</p>
+
+{% elif group.treatment == 'Information' %}
+
 <p>
     En este caso usted tendrá que indicar a qué grupo fue asignado (<strong>A</strong> o <strong>B</strong>). 
     Esto se repetirá por <strong>6 rondas</strong>. A partir de la segunda ronda, antes de realizar la decisión, 
@@ -50,18 +66,6 @@
     tabla con las decisiones que realizaron sus compañeros en la ronda 4
 </p>
 
-{% if group.treatment == 'Time Pressure' %}
-<p>
-    En este caso usted tendra que tomar una decision dentro de un <strong>intervalo de 30 segundos</strong>. El cronometro aparecera
-    en la parte superior de su pantalla. Usted podra enviar su decision antes de que el tiempo haya culminado si es que asi lo desea.
-</p>
-{% endif %}
-
-{% if group.treatment == 'Time Delay' %}
-<p>
-    En este caso usted tendra que tomar una decision dentro de un <strong>intervalo de 10 segundos</strong>. El cronometro aparecera
-    en la parte superior de su pantalla. El boton "Siguiente" aparecera luego de haber pasado los 10 segundos 
-</p>
 {% endif %}
 
 <p>

@@ -27,7 +27,7 @@ Apps: Honesty, Rule Following & Tanaka (2010)
 class Constants(BaseConstants):
     name_in_url = 'Honesty'
     players_per_group = 4
-    num_rounds = 5
+    num_rounds = 6
 
     #constatnes del experimento
     comportamiento = ['Miente','No miente']
