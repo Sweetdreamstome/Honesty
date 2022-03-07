@@ -1,45 +1,75 @@
 {% block title %}
-    Juego 1 
+    Parte 1 
 {% endblock %}
 
 {% block content %}
 
-<h5>Instrucciones</h5>
+<h4>Instrucciones</h4>
 
 <p>
-    En este estudio se jugarán 5 rondas de un juego. Jugará con otra persona 
-    que se encuentra en la sesión. Esta persona será elegida al azar y será su 
-    pareja durante el resto del juego. 
+    En esta parte del experimento, usted participará con una pareja. Para ello, se 
+    le asignará aleatoriamente a un grupo, <strong>A</strong> o <strong>B</strong>. Luego, se le asignará una pareja que pertenece 
+    al grupo opuesto. Por ejemplo, si usted fue asignado(a) al grupo <strong>A</strong>, su pareja pertenecerá al grupo <strong>B</strong>; y, 
+    viceversa. Su pareja será elegida al azar y será la misma persona durante el resto de esta parte del experimento.
 </p>
 
 <p>
-    Se le presentará una imagen del nombre de uno de los grupos formados (A o B). 
-    Debajo de la imagen usted tendrá que rellenar un espacio en blanco con el grupo 
-    al cual usted fue asignado (A o B). 
+    Más adelante, se le pedirá que indique a qué grupo fue asignado(a) (<strong>A</strong> o <strong>B</strong>), 
+    mientras que a su pareja también se le pedirá lo mismo. 
 </p>
+
 <p>    
-    Lo que usted coloque dentro del recuadro definirá el pago que recibirá cada uno. 
-    Si coloca el grupo al cual fue asignado tal y como se especifica en la tarea, 
-    usted y su pareja recibirán 10 soles. En caso contrario usted recibirá un pago 
-    de 13 soles mientras que su pareja recibirá un pago de 8 soles.  
+    Los pagos, en cada ronda, dependerán de la decisión que ambos tomen, como se muestra en la siguiente matriz.   
 </p>    
 
+<table class = 'table'>
+    <thead>
+        <th>Usted / Pareja</th>
+        <th>Indica su grupo</th>
+        <th>Indica el grupo contrario</th>     
+    </thead>
+    <tbody>
+        <tr>
+            <td>Indica su grupo</td>
+            <td>(10, 10)</td>
+            <td>(8, 13)</td>
+        </tr>
+        <tr>
+            <td>Indica el grupo contrario</td>
+            <td>(13, 8)</td>
+            <td>(13, 13)</td>
+        </tr>
+    </tbody>
+</table>    
+
 {% if group.treatment == 'Time Pressure' %}
+
 <p>
     En este caso usted tendra que tomar una decision dentro de un <strong>intervalo de 30 segundos</strong>. El cronometro aparecera
     en la parte superior de su pantalla. Usted podra enviar su decision antes de que el tiempo haya culminado si es que asi lo desea.
 </p>
-{% endif %}
 
-{% if group.treatment == 'Time Delay' %}
+{% elif group.treatment == 'Time Delay' %}
+
 <p>
     En este caso usted tendra que tomar una decision dentro de un <strong>intervalo de 10 segundos</strong>. El cronometro aparecera
     en la parte superior de su pantalla. El boton "Siguiente" aparecera luego de haber pasado los 10 segundos 
 </p>
+
+{% elif group.treatment == 'Information' %}
+
+<p>
+    En este caso usted tendrá que indicar a qué grupo fue asignado (<strong>A</strong> o <strong>B</strong>). 
+    Esto se repetirá por <strong>6 rondas</strong>. A partir de la segunda ronda, antes de realizar la decisión, 
+    se le presentará una <strong>tabla con las decisiones que realizaron sus compañeros en la ronda pasada</strong>. 
+    Por ejemplo, si usted se encuentra en la ronda 5, antes de tomar su decisión se le presentará una 
+    tabla con las decisiones que realizaron sus compañeros en la ronda 4
+</p>
+
 {% endif %}
 
 <p>
-Si terminaste de leer y de entender las instrucciones, por favor dale al boton "Siguiente"
+Si terminaste de leer y de entender las instrucciones, por favor dale al botón "Siguiente"
 </p>
 
     {% next_button %}

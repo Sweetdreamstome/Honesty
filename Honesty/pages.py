@@ -100,7 +100,10 @@ class Information_results(Page):
             filter_list.append(player_dic)
 
         return dict(
-            player_list = filter_list
+            player_list = filter_list,
+            your_group = self.player.in_previous_rounds()[-1].grupo_asignado,
+            your_decision = self.player.in_previous_rounds()[-1].decision,
+            round = self.player.round_number - 1
         )
 
 class Information_decision(Page):
@@ -155,7 +158,7 @@ class Payoffs(Page):
 
 page_sequence = [
                 Initial_demograp, #cuestionario inicial 
-                StartWaitPage, #waitpage para que todos los del grupo avance en orden
+                StartWaitPage, #waitpage para que todos los del grupo avancen en orden
                 General, #bienvenida
                 Instrucciones, #instrucciones del juego (dependiendo del tratamiento)
                 StartWaitPage, #para mantener el orden

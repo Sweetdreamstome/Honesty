@@ -89,3 +89,5 @@ class Player(BasePlayer):
                 self.payoff = lotteries[0][self.random_lottery - 1]["high_paym_B"]
             elif 1 < self.random_draw <= 10:
                 self.payoff = lotteries[0][self.random_lottery - 1]["low_paym_B"]
+
+        self.participant.vars["payoff_measure_task"] = self.payoff

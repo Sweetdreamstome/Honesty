@@ -1,6 +1,10 @@
 from os import environ
 
-PARTICIPANT_FIELDS = ['payoff_RuleFollowing','payoff_DieRoll']
+SESSION_CONFIG_DEFAULTS = dict(
+    real_world_currency_per_point=1.00, participation_fee=5.00, doc=""
+)
+
+PARTICIPANT_FIELDS = ['payoff_Honesty','payoff_RuleFollowing','payoff_DieRoll','payoff_measure_task']
 
 SESSION_CONFIGS = [
     dict(
@@ -13,8 +17,10 @@ SESSION_CONFIGS = [
     dict(
        name='HonestidadaPrueba',
        display_name="HonestidadAprueba",
-       num_demo_participants=6,
-       app_sequence=['Honesty','RuleFollowing','measure_task']
+       num_demo_participants=12,
+       app_sequence=['Honesty','RuleFollowing','measure_task','payments'],
+       app_names = {'Honesty':'Primera','RuleFollowing':'Segunda','measure_task':'Tercera'},
+       participant_fee = SESSION_CONFIG_DEFAULTS["participation_fee"]
     ),
 
     dict(
@@ -56,10 +62,6 @@ ROOMS = [
     ),
     dict(name='live_demo', display_name='Room for live demo (no participant labels)'),
 ]
-
-SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=1.00, participation_fee=5.00, doc=""
-)
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans

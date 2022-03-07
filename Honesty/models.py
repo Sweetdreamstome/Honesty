@@ -26,8 +26,8 @@ Apps: Honesty, Rule Following & Tanaka (2010)
 
 class Constants(BaseConstants):
     name_in_url = 'Honesty'
-    players_per_group = 2
-    num_rounds = 3
+    players_per_group = 4
+    num_rounds = 6
 
     #constatnes del experimento
     comportamiento = ['Miente','No miente']
@@ -61,7 +61,7 @@ class Subsession(BaseSubsession):
             players = group.get_players()
             
             i = 0 
-            while (i < 1): # Maximo 2 porque se estan formando parejas
+            while (i < 2): # Maximo 2 porque se estan formando parejas
 
                 random.shuffle(assing_groups)
                 p1 , p2 = players[0], players[1]
@@ -175,6 +175,7 @@ class Player(BasePlayer):
         # random_round = random.randint(1,Constants.num_rounds)
 
         self.final_payoff = self.in_round(2).payoff #cambiar esto a aleatorio (random_round)
+        self.participant.vars["payoff_Honesty"] = self.final_payoff
 
 
 

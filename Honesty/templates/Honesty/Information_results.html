@@ -4,9 +4,8 @@
 
 {% block content %}
 
-<h5>Resultados</h5>
+<h5>Resultados: Ronda {{ round }}</h5>
 
-<h5>Ronda {{ player.round_number }} </h5>
 <table class = 'table'>
     <thead>
         <th>Jugador</th>
@@ -22,6 +21,11 @@
             <td> {{ jugador.decision }} </td>
         </tr>
         {% endfor %}
+        <tr>
+            <td>Tú</td>
+            <td>{{ your_group }}</td>
+            <td>{{ your_decision }}</td>
+        </tr>
     </tbody>
 
 </table>
