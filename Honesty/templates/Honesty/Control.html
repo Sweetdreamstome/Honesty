@@ -28,11 +28,11 @@
 
 <body>
 
-<p>Las siguientes preguntas permitirán verificar si has comprendido las instrucciones de esta parte del experimento.</p>
+<p>Las siguientes preguntas permitirán verificar si ha comprendido las instrucciones de esta parte del experimento.</p>
 
 <p><b>Importante: </b>En total tendrás <b>3 intentos</b> para responder correctamente todas las preguntas.</p>
 
-<h4 id = "intentos"><b><u>Intentos Restantes: 3 </u></b></h4>
+<h5 id = "intentos"><b><u>Intentos Restantes: 3 </u></b></h5>
 
 <p>
     <b>1.</b> ¿A qué grupos puedes ser asignado? <label class = "verifiers"></label>
@@ -119,12 +119,12 @@
 
                             ++score 
                             $(verifiers[j]).css("color","green");
-                            $(verifiers[j]).html("Respuesta Correcta!")
+                            $(verifiers[j]).html("<b>Respuesta Correcta!</b>")
 
                         }else{
 
                             $(verifiers[j]).css("color","red");
-                            $(verifiers[j]).html("Respuesta Incorrecta!")
+                            $(verifiers[j]).html("<b>Respuesta Incorrecta!</b>")
 
                         }
                     }
@@ -137,11 +137,35 @@
             $("#intentos").html(`<u><b>Intentos Restantes: ${intentos} </u></b>`)
             
             if (intentos == 0) {
-                alert("Se acabaron los intentos, por favor mire las respuestas y pase a la siguiente página")
+                if (score == 5){
+                    $("#enviar").prop("hidden",true)
+                    $("#submit").prop("hidden",false)
+                }else{
+
+                    alert("Se acabaron los intentos, por favor mire las respuestas y pase a la siguiente página")
+                    
+                    for (j = 0; j < 5 ; j++)
+                    {
+                        var inputs = $(`input[name=form${j+1}]`)
+
+                        for (i = 0; i < inputs.length ; i++)
+                        {
+                            if ($(inputs[i]).val() == "1") {
+                                $(inputs[i]).prop("checked",true)
+                                $(verifiers[j]).css("color","green");
+                                $(verifiers[j]).html("<b>Respuesta Correcta!</b>")
+                            }
+                        }
+                    }
+
+                    $("#enviar").prop("hidden",true)
+                    $("#submit").prop("hidden",false)
+                    
+                }   
+            }else if ((score == 5) && (intentos > 0)){
                 $("#enviar").prop("hidden",true)
                 $("#submit").prop("hidden",false)
             }
-
         })
 
         
