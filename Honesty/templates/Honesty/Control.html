@@ -32,6 +32,8 @@
 
 <p><b>Importante: </b>En total tendrás <b>3 intentos</b> para responder correctamente todas las preguntas.</p>
 
+<h4 id = "intentos"><b><u>Intentos Restantes: 3 </u></b></h4>
+
 <p>
     <b>1.</b> ¿A qué grupos puedes ser asignado? <label class = "verifiers"></label>
 </p>
@@ -93,35 +95,56 @@
 <p></p>
 
 <button id = "enviar" class="otree-btn-next btn btn-primary" type = "button" >Enviar</button>
-
+<button id = "submit" class="otree-btn-next btn btn-primary" hidden>Siguiente</button>
     <script>
 
         var verifiers = $(".verifiers");
+        var intentos = 3;
+        var score = 0
 
         $("#enviar").click(function(){
+
+            score = 0
             
             for (j = 0; j < 5 ; j++)
             {
                 var inputs = $(`input[name=form${j+1}]`)
-                console.log(inputs)
 
                 for (i = 0; i < inputs.length ; i++)
                 {
                     if ($(inputs[i]).prop("checked")) 
                     {
-                        console.log("beba")
+                        
                         if ($(inputs[i]).val() == "1") {
+
+                            ++score 
                             $(verifiers[j]).css("color","green");
                             $(verifiers[j]).html("Respuesta Correcta!")
+
                         }else{
+
                             $(verifiers[j]).css("color","red");
                             $(verifiers[j]).html("Respuesta Incorrecta!")
+
                         }
                     }
                 }
             }
+
+            console.log(score)
+
+            --intentos;
+            $("#intentos").html(`<u><b>Intentos Restantes: ${intentos} </u></b>`)
+            
+            if (intentos == 0) {
+                alert("Se acabaron los intentos, por favor mire las respuestas y pase a la siguiente página")
+                $("#enviar").prop("hidden",true)
+                $("#submit").prop("hidden",false)
+            }
+
         })
 
+        
         
         
         
