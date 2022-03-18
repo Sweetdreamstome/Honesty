@@ -1,0 +1,132 @@
+{% block title %}
+    Preguntas de Control
+{% endblock %}
+
+{% block content %}
+
+<head>
+
+    <style>
+        #clock {
+            font-size: 35px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #text {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .otree-body {
+        max-width:900px
+    }
+
+    </style>
+</head>
+
+<body>
+
+<p>Las siguientes preguntas permitirán verificar si has comprendido las instrucciones de esta parte del experimento.</p>
+
+<p><b>Importante: </b>En total tendrás <b>3 intentos</b> para responder correctamente todas las preguntas.</p>
+
+<p>
+    <b>1.</b> ¿A qué grupos puedes ser asignado? <label class = "verifiers"></label>
+</p>
+
+<div class = "first_form">
+    <label><input name = "form1" type = "radio" value = "0"> A y C</label><br>
+    <label><input name = "form1" type = "radio" value = "0"> B y C</label><br>    
+    <label><input name = "form1" type = "radio" value = "1"> A y B</label> 
+</div>
+
+<br>
+
+<p>
+    <b>2.</b> ¿Cúal tu tarea en esta parte del experimento? <label class = "verifiers"></label>
+</p>
+
+<div class = "first_form">
+    <label><input name = "form2" type = "radio" value = "1"> Indicar a qué grupo pertenezco</label><br>
+    <label><input name = "form2" type = "radio" value = "0"> Indicar a qué grupo pertenece mi pareja</label><br>    
+    <label><input name = "form2" type = "radio" value = "0"> Ganar dinero</label>
+</div>
+
+<br>
+
+<p>
+    <b>3.</b> ¿Cuántos segundos tendrás para tomar una decisión? <label class = "verifiers"></label>
+</p>
+
+<div class = "first_form">
+    <label><input name = "form3" type = "radio" value = "1"> 30 segundos</label><br>
+    <label><input name = "form3" type = "radio" value = "0"> 10 segundos</label><br>    
+    <label><input name = "form3" type = "radio" value = "0"> No hay tiempo límite</label>
+</div>
+
+<br>
+
+<p>
+    <b>4.</b> Si tu perteneces al grupo A entonces tu pareja pertenece al grupo ..... <label class = "verifiers"></label>
+</p>
+
+<div class = "first_form">
+    <label><input name = "form4" type = "radio" value = "0"> A</label><br>
+    <label><input name = "form4" type = "radio" value = "1"> B</label><br>    
+    <label><input name = "form4" type = "radio" value = "0"> C</label>
+</div>
+
+<br>
+
+<p>
+    <b>5.</b> ¿Lo que tu decidas afecta la ganancia monetaria de tu pareja? <label class = "verifiers"></label>
+</p>
+
+<div class = "first_form">
+    <label><input name = "form5" type = "radio" value = "1"> Sí</label><br>
+    <label><input name = "form5" type = "radio" value = "0"> No</label><br>    
+    <label><input name = "form5" type = "radio" value = "0"> Depende de la ronda</label>
+</div>
+
+<p></p>
+
+<button id = "enviar" class="otree-btn-next btn btn-primary" type = "button" >Enviar</button>
+
+    <script>
+
+        var verifiers = $(".verifiers");
+
+        $("#enviar").click(function(){
+            
+            for (j = 0; j < 5 ; j++)
+            {
+                var inputs = $(`input[name=form${j+1}]`)
+                console.log(inputs)
+
+                for (i = 0; i < inputs.length ; i++)
+                {
+                    if ($(inputs[i]).prop("checked")) 
+                    {
+                        console.log("beba")
+                        if ($(inputs[i]).val() == "1") {
+                            $(verifiers[j]).css("color","green");
+                            $(verifiers[j]).html("Respuesta Correcta!")
+                        }else{
+                            $(verifiers[j]).css("color","red");
+                            $(verifiers[j]).html("Respuesta Incorrecta!")
+                        }
+                    }
+                }
+            }
+        })
+
+        
+        
+        
+
+
+    </script>
+</body>
+{% endblock %}

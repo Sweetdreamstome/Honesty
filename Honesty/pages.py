@@ -51,6 +51,12 @@ class Time_Pressure(Page):
             sexo_pareja = self.player.get_partner_sexo()
         )
 
+class Control(Page):
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
 class Time_Delay(Page):
 
     form_model = 'player'
@@ -157,16 +163,17 @@ class Payoffs(Page):
         )
 
 page_sequence = [
-                Initial_demograp, #cuestionario inicial 
-                StartWaitPage, #waitpage para que todos los del grupo avancen en orden
-                General, #bienvenida
-                Instrucciones, #instrucciones del juego (dependiendo del tratamiento)
-                StartWaitPage, #para mantener el orden
-                Information_results, # a partir de ronda 1
-                RoundWaitPage,
-                Information_decision, 
-                Time_Pressure, 
-                Time_Delay,
+                # Initial_demograp, #cuestionario inicial 
+                # StartWaitPage, #waitpage para que todos los del grupo avancen en orden
+                # General, #bienvenida
+                # Instrucciones, #instrucciones del juego (dependiendo del tratamiento)
+                # StartWaitPage, #para mantener el orden
+                # Information_results, # a partir de ronda 1
+                # RoundWaitPage,
+                # Information_decision, 
+                # Time_Pressure, 
+                # Time_Delay,
+                Control,
                 ResultsWaitPage, # calcula los payoff 
                 Payoffs
                 ]
