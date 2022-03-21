@@ -58,15 +58,43 @@
 
 <br>
 
-<p>
-    <b>3.</b> ¿Cuántos segundos tendrás para tomar una decisión? <label class = "verifiers"></label>
-</p>
+{% if group.treatment == 'Time Pressure' %}
 
-<div class = "first_form">
-    <label><input name = "form3" type = "radio" value = "1"> 30 segundos</label><br>
-    <label><input name = "form3" type = "radio" value = "0"> 10 segundos</label><br>    
-    <label><input name = "form3" type = "radio" value = "0"> No hay tiempo límite</label>
-</div>
+    <p>
+        <b>3.</b> ¿Cuántos segundos tendrás para tomar una decisión? <label class = "verifiers"></label>
+    </p>
+
+    <div class = "first_form">
+        <label><input name = "form3" type = "radio" value = "1"> 30 segundos</label><br>
+        <label><input name = "form3" type = "radio" value = "0"> 10 segundos</label><br>    
+        <label><input name = "form3" type = "radio" value = "0"> No hay tiempo límite</label>
+    </div>
+
+{% elif group.treatment == 'Time Delay' %}
+
+    <p>
+        <b>3.</b> ¿Cuántos segundos tendrás para tomar una decisión? <label class = "verifiers"></label>
+    </p>
+
+    <div class = "first_form">
+        <label><input name = "form3" type = "radio" value = "0"> 30 segundos</label><br>
+        <label><input name = "form3" type = "radio" value = "1"> 10 segundos</label><br>    
+        <label><input name = "form3" type = "radio" value = "0"> No hay tiempo límite</label>
+    </div>
+
+{% else %}
+
+    <p>
+        <b>3.</b> ¿Cuántos segundos tendrás para tomar una decisión? <label class = "verifiers"></label>
+    </p>
+
+    <div class = "first_form">
+        <label><input name = "form3" type = "radio" value = "0"> 30 segundos</label><br>
+        <label><input name = "form3" type = "radio" value = "1"> 10 segundos</label><br>    
+        <label><input name = "form3" type = "radio" value = "0"> No hay tiempo límite</label>
+    </div>
+
+{% endif %}
 
 <br>
 
@@ -96,9 +124,11 @@
 
 <button id = "enviar" class="otree-btn-next btn btn-primary" type = "button" >Enviar</button>
 <button id = "submit" class="otree-btn-next btn btn-primary" hidden>Siguiente</button>
+    
     <script>
 
         var verifiers = $(".verifiers");
+        var questions = $(".first_form");
         var intentos = 3;
         var score = 0
 
@@ -106,7 +136,7 @@
 
             score = 0
             
-            for (j = 0; j < 5 ; j++)
+            for (j = 0; j < questions.length ; j++)
             {
                 var inputs = $(`input[name=form${j+1}]`)
 
@@ -130,8 +160,6 @@
                     }
                 }
             }
-
-            console.log(score)
 
             --intentos;
             $("#intentos").html(`<u><b>Intentos Restantes: ${intentos} </u></b>`)
@@ -167,12 +195,6 @@
                 $("#submit").prop("hidden",false)
             }
         })
-
-        
-        
-        
-        
-
 
     </script>
 </body>
