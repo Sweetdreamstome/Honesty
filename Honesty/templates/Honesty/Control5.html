@@ -1,0 +1,99 @@
+{% block title %}
+    Preguntas de Control
+{% endblock %}
+
+{% block content %}
+
+<body>
+
+<h5 id = "intentos"><b><u>Intentos Restantes: 3 </u></b></h5>
+
+<p>
+    <b>5.</b> ¿Lo que tu decidas afecta la ganancia monetaria de tu pareja? <label class = "verifiers"></label>
+</p>
+
+<div class = "first_form">
+    <label><input name = "form1" type = "radio" value = "1"> Sí</label><br>
+    <label><input name = "form1" type = "radio" value = "0"> No</label><br>    
+    <label><input name = "form1" type = "radio" value = "0"> Depende de la ronda</label>
+</div>
+
+<p></p>
+
+<button id = "enviar" class="otree-btn-next btn btn-primary" type = "button" >Enviar</button>
+<button id = "submit" class="otree-btn-next btn btn-primary" hidden>Siguiente</button>
+    
+<script>
+
+    var verifiers = $(".verifiers");
+    var questions = $(".first_form");
+    var intentos = 3;
+    var score = 0
+
+    $("#enviar").click(function(){
+
+        score = 0
+        
+        for (j = 0; j < questions.length ; j++)
+        {
+            var inputs = $(`input[name=form${j+1}]`)
+
+            for (i = 0; i < inputs.length ; i++)
+            {
+                if ($(inputs[i]).prop("checked")) 
+                {
+                    
+                    if ($(inputs[i]).val() == "1") {
+
+                        ++score 
+                        $(verifiers[j]).css("color","green");
+                        $(verifiers[j]).html("<b>Respuesta Correcta!</b>")
+
+                    }else{
+
+                        $(verifiers[j]).css("color","red");
+                        $(verifiers[j]).html("<b>Respuesta Incorrecta!</b>")
+
+                    }
+                }
+            }
+        }
+
+        --intentos;
+        $("#intentos").html(`<u><b>Intentos Restantes: ${intentos} </u></b>`)
+        
+        if (intentos == 0) {
+            if (score == 1){
+                $("#enviar").prop("hidden",true)
+                $("#submit").prop("hidden",false)
+            }else{
+
+                alert("Se acabaron los intentos, por favor mire las respuestas y pase a la siguiente página")
+                
+                for (j = 0; j < questions.length ; j++)
+                {
+                    var inputs = $(`input[name=form${j+1}]`)
+
+                    for (i = 0; i < inputs.length ; i++)
+                    {
+                        if ($(inputs[i]).val() == "1") {
+                            $(inputs[i]).prop("checked",true)
+                            $(verifiers[j]).css("color","green");
+                            $(verifiers[j]).html("<b>Respuesta Correcta!</b>")
+                        }
+                    }
+                }
+
+                $("#enviar").prop("hidden",true)
+                $("#submit").prop("hidden",false)
+                
+            }   
+        }else if ((score == 1) && (intentos > 0)){
+            $("#enviar").prop("hidden",true)
+            $("#submit").prop("hidden",false)
+        }
+    })
+
+</script>
+</body>
+{% endblock %}

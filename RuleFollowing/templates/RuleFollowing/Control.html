@@ -35,88 +35,63 @@
 <h5 id = "intentos"><b><u>Intentos Restantes: 3 </u></b></h5>
 
 <p>
-    <b>1.</b> ¿A qué grupos puedes ser asignado? <label class = "verifiers"></label>
+    <b>1.</b> ¿Cuántas bolillas debe colocar? <label class = "verifiers"></label>
 </p>
 
 <div class = "first_form">
-    <label><input name = "form1" type = "radio" value = "0"> A y C</label><br>
-    <label><input name = "form1" type = "radio" value = "0"> B y C</label><br>    
-    <label><input name = "form1" type = "radio" value = "1"> A y B</label> 
+    <label><input name = "form1" type = "radio" value = "0"> 10</label><br>
+    <label><input name = "form1" type = "radio" value = "0"> 20</label><br>    
+    <label><input name = "form1" type = "radio" value = "1"> 100</label> 
 </div>
 
 <br>
 
 <p>
-    <b>2.</b> ¿Cúal tu tarea en esta parte del experimento? <label class = "verifiers"></label>
+    <b>2.</b> ¿En qué cesta debe colocar las bolillas? <label class = "verifiers"></label>
 </p>
 
 <div class = "first_form">
-    <label><input name = "form2" type = "radio" value = "1"> Indicar a qué grupo pertenezco</label><br>
-    <label><input name = "form2" type = "radio" value = "0"> Indicar a qué grupo pertenece mi pareja</label><br>    
-    <label><input name = "form2" type = "radio" value = "0"> Ganar dinero</label>
+    <label><input name = "form2" type = "radio" value = "1"> Azul</label><br>
+    <label><input name = "form2" type = "radio" value = "0"> Amarilla</label><br>    
+    <label><input name = "form2" type = "radio" value = "0"> En la Azul y en la Amarilla</label>
 </div>
 
 <br>
 
-{% if group.treatment == 'Time Pressure' %}
 
-    <p>
-        <b>3.</b> ¿Cuántos segundos tendrás para tomar una decisión? <label class = "verifiers"></label>
-    </p>
 
-    <div class = "first_form">
-        <label><input name = "form3" type = "radio" value = "1"> 30 segundos</label><br>
-        <label><input name = "form3" type = "radio" value = "0"> 10 segundos</label><br>    
-        <label><input name = "form3" type = "radio" value = "0"> No hay tiempo límite</label>
-    </div>
+<p>
+    <b>3.</b> ¿Cuánto tiempo tendrás para colocar todas las bolillas? <label class = "verifiers"></label>
+</p>
 
-{% elif group.treatment == 'Time Delay' %}
+<div class = "first_form">
+    <label><input name = "form3" type = "radio" value = "0"> 100 segundos</label><br>
+    <label><input name = "form3" type = "radio" value = "0"> 200 segundos</label><br>    
+    <label><input name = "form3" type = "radio" value = "1"> No hay tiempo límite</label>
+</div>
 
-    <p>
-        <b>3.</b> ¿Cuántos segundos tendrás para tomar una decisión? <label class = "verifiers"></label>
-    </p>
-
-    <div class = "first_form">
-        <label><input name = "form3" type = "radio" value = "0"> 30 segundos</label><br>
-        <label><input name = "form3" type = "radio" value = "1"> 10 segundos</label><br>    
-        <label><input name = "form3" type = "radio" value = "0"> No hay tiempo límite</label>
-    </div>
-
-{% else %}
-
-    <p>
-        <b>3.</b> ¿Cuántos segundos tendrás para tomar una decisión? <label class = "verifiers"></label>
-    </p>
-
-    <div class = "first_form">
-        <label><input name = "form3" type = "radio" value = "0"> 30 segundos</label><br>
-        <label><input name = "form3" type = "radio" value = "1"> 10 segundos</label><br>    
-        <label><input name = "form3" type = "radio" value = "0"> No hay tiempo límite</label>
-    </div>
-
-{% endif %}
 
 <br>
 
 <p>
-    <b>4.</b> Si tu perteneces al grupo A entonces tu pareja pertenece al grupo ..... <label class = "verifiers"></label>
+    <b>4.</b>  ¿Existe una penalidad por colocar una bolilla en la cesta amarilla?<label class = "verifiers"></label>
 </p>
 
 <div class = "first_form">
-    <label><input name = "form4" type = "radio" value = "0"> A</label><br>
-    <label><input name = "form4" type = "radio" value = "1"> B</label><br>    
-    <label><input name = "form4" type = "radio" value = "0"> C</label>
+    <label><input name = "form4" type = "radio" value = "0"> Sí</label><br>
+    <label><input name = "form4" type = "radio" value = "1"> No</label><br>    
+    <label><input name = "form4" type = "radio" value = "0"> No sé</label>
 </div>
 
 <br>
 
 <p>
-    <b>5.</b> ¿Lo que tu decidas afecta la ganancia monetaria de tu pareja? <label class = "verifiers"></label>
+    <b>5.</b> ¿Lo que tu decidas afecta la ganancia monetaria de los demás participantes? <label class = "verifiers"></label>
 </p>
 
 <div class = "first_form">
-    <label><input name = "form5" type = "radio" value = "1"> Sí</label><br>
-    <label><input name = "form5" type = "radio" value = "0"> No</label><br>    
+    <label><input name = "form5" type = "radio" value = "0"> Sí</label><br>
+    <label><input name = "form5" type = "radio" value = "1"> No</label><br>    
     <label><input name = "form5" type = "radio" value = "0"> Depende de la ronda</label>
 </div>
 

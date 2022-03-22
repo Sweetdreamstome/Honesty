@@ -7,10 +7,9 @@
 <h4>Instrucciones</h4>
 
 <p>
-    En esta parte del experimento, usted participará con una pareja. Para ello, se 
-    le asignará aleatoriamente a un grupo, <strong>A</strong> o <strong>B</strong>. Luego, se le asignará una pareja que pertenece 
-    al grupo opuesto. Por ejemplo, si usted fue asignado(a) al grupo <strong>A</strong>, su pareja pertenecerá al grupo <strong>B</strong>; y, 
-    viceversa. Su pareja será elegida al azar y será la misma persona durante el resto de esta parte del experimento.
+    En esta parte del experimento, usted será asignado(a) a un grupo <strong>A</strong> o <strong>B</strong>. Luego, se te asignará una pareja que pertenece 
+    al otro grupo. Por ejemplo, si usted fue asignado(a) al grupo <strong>A</strong>; su pareja pertenecerá al grupo <strong>B</strong>; y, 
+    viceversa. Esta persona será elegida al azar. Usted se enterará a qué grupo fue asignado una vez que pase de esta página y empiece la primera ronda                
 </p>
 
 <p>
@@ -19,7 +18,9 @@
 </p>
 
 <p>    
-    Los pagos, en cada ronda, dependerán de la decisión que ambos tomen, como se muestra en la siguiente matriz.   
+    La decisión que ambos tomen definirá el pago que recibirán al final de cada ronda. A continuación, 
+    se le mostrará muestra una matriz con los pagos que puede recibir, dependiendo de la decisión que realice 
+    usted y su pareja. 
 </p>    
 
 <table class = 'table'>
@@ -45,23 +46,23 @@
 {% if group.treatment == 'Time Pressure' %}
 
 <p>
-    En este caso usted tendra que tomar una decision dentro de un <strong>intervalo de 30 segundos</strong>. El cronometro aparecera
-    en la parte superior de su pantalla. Usted podra enviar su decision antes de que el tiempo haya culminado si es que asi lo desea.
+    En este caso usted tendra que tomar una decision dentro de un <strong>plazo de 30 segundos</strong>. El cronómetro aparecerá
+    en la parte superior de su pantalla. Usted podrá enviar su decisión antes de que el tiempo haya culminado si es que asi lo desea.
 </p>
 
 {% elif group.treatment == 'Time Delay' %}
 
 <p>
-    En este caso usted tendra que tomar una decision dentro de un <strong>intervalo de 10 segundos</strong>. El cronometro aparecera
-    en la parte superior de su pantalla. El boton "Siguiente" aparecera luego de haber pasado los 10 segundos 
+    En este caso usted tendra que tomar una decision dentro de un <strong>plazo de 10 segundos</strong>. El cronómetro aparecerá
+    en la parte superior de su pantalla. El botón "Siguiente" aparecerá luego de haber pasado los 10 segundos.
 </p>
 
 {% elif group.treatment == 'Information' %}
 
 <p>
     En este caso usted tendrá que indicar a qué grupo fue asignado (<strong>A</strong> o <strong>B</strong>). 
-    Esto se repetirá por <strong>6 rondas</strong>. A partir de la segunda ronda, antes de realizar la decisión, 
-    se le presentará una <strong>tabla con las decisiones que realizaron sus compañeros en la ronda pasada</strong>. 
+    Esto se repetirá por <strong>6 rondas</strong>. A partir de la segunda ronda, antes de indicar su decisión, 
+    se le presentará una <strong>tabla con las decisiones que realizaron los participantes en la ronda previa</strong>. 
     Por ejemplo, si usted se encuentra en la ronda 5, antes de tomar su decisión se le presentará una 
     tabla con las decisiones que realizaron sus compañeros en la ronda 4
 </p>

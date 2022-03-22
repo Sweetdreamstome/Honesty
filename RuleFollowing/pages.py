@@ -24,6 +24,12 @@ class Game(Page):
     def before_next_page(self):
         self.player.set_payoff()
 
+class Control(Page):
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
 class Payoffs(Page):
     
     def vars_for_template(self):
@@ -37,6 +43,7 @@ class Payoffs(Page):
 
 page_sequence = [
     Instructions,
+    Control,
     Game,  
     Payoffs
     ]

@@ -51,7 +51,37 @@ class Time_Pressure(Page):
             sexo_pareja = self.player.get_partner_sexo()
         )
 
-class Control(Page):
+class ControlQuestions(Page):
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control1(Page):
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control2(Page):
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control3(Page):
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control4(Page):
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control5(Page):
 
     def is_displayed(self):
 
@@ -173,7 +203,12 @@ page_sequence = [
                 # Information_decision, 
                 # Time_Pressure, 
                 # Time_Delay,
-                Control,
+                ControlQuestions,
+                Control1,
+                Control2,
+                Control3,
+                Control4,
+                Control5,
                 ResultsWaitPage, # calcula los payoff 
                 Payoffs
                 ]
