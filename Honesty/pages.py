@@ -2,7 +2,7 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
-class Initial_demograp(Page):
+class Demograp(Page):
 
     form_model = 'player'
     form_fields = [
@@ -208,7 +208,7 @@ class Payoffs(Page):
         )
 
 page_sequence = [
-                # Initial_demograp, #cuestionario inicial 
+                Demograp, #cuestionario inicial 
                 # StartWaitPage, #waitpage para que todos los del grupo avancen en orden
                 # General, #bienvenida
                 # Instrucciones, #instrucciones del juego (dependiendo del tratamiento)

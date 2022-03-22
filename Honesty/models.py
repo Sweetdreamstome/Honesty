@@ -61,7 +61,7 @@ class Subsession(BaseSubsession):
             players = group.get_players()
             
             i = 0 
-            while (i < 2): # Maximo 2 porque se estan formando parejas
+            while (i < 2): # Maximo 2 parejas 
 
                 random.shuffle(assing_groups)
                 p1 , p2 = players[0], players[1]
@@ -113,14 +113,44 @@ class Player(BasePlayer):
         default = '0'
     )
 
+    distrito_residencia = models.StringField(
+        label = 'Indica tu distrito de residencia',
+        choices = ["Miraflores"]
+    )
+
+    escala = models.IntegerField(
+        label = 'Indica en qué escala de pagos te encuentras:',
+        widget = widgets.RadioSelectHorizontal,
+        choices = [1,2,3,4,5,6]
+    )
+
+    ciclo = models.IntegerField(
+        label = 'Indica en qué ciclo te encuentras',
+        widget = widgets.RadioSelectHorizontal,
+        choices = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+    )
+
+    carrera = models.StringField(
+        label = '¿Qué carrera estás cursando?',
+        widget = widgets.RadioSelectHorizontal,
+        choices = ["Economía","Finanzas","Marketing","Ingenieria Empresarial", "Ingenieria de la Información",
+        "Administración de Empresas","Derecho Empresarial"]
+    )
+
+    nivel_estudios_padres = models.StringField(
+        label = 'Indica el nievl de estudio de tus padres',
+        widget = widgets.RadioSelectHorizontal,
+        choices = ["Secundaria Completa",""]
+    )
+
     participado_antes = models.StringField(
         label = 'Has participado antes en un experimento del E2LabUP',
         choices =['Si', 'No']
     )
 
-    grupo_asignado = models.StringField()
+    grupo_asignado = models.StringField() # A o B
 
-    sub_group = models.IntegerField()
+    sub_group = models.IntegerField() #id de pareja en el grupo
     
     decision = models.StringField(
         widget = widgets.RadioSelectHorizontal,
@@ -129,7 +159,7 @@ class Player(BasePlayer):
 
     final_payoff = models.CurrencyField()
 
-    comportamiento = models.StringField()
+    comportamiento = models.StringField() # que grupo indica A o B (miente o no miente)
 
     def get_sexo(self):
 
