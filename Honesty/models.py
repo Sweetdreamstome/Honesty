@@ -79,8 +79,15 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
+    # vars que cuentan numero de intentos
+    control1 = models.IntegerField()
+    control2 = models.IntegerField()
+    control3 = models.IntegerField()
+    control4 = models.IntegerField()
+    control5 = models.IntegerField()
+    
     #breve cuestionario inicial
-
+    
     nombres = models.StringField(
         label = 'Indica tus nombres:'
     )

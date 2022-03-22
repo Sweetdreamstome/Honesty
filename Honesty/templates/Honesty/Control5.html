@@ -22,6 +22,8 @@
 
 <button id = "enviar" class="otree-btn-next btn btn-primary" type = "button" >Enviar</button>
 <button id = "submit" class="otree-btn-next btn btn-primary" hidden>Siguiente</button>
+
+<input id = "control5" name = "control5" hidden>
     
 <script>
 
@@ -61,6 +63,7 @@
 
         --intentos;
         $("#intentos").html(`<u><b>Intentos Restantes: ${intentos} </u></b>`)
+        $("#control5").val(intentos)
         
         if (intentos == 0) {
             if (score == 1){

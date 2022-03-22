@@ -59,11 +59,17 @@ class ControlQuestions(Page):
 
 class Control1(Page):
 
+    form_model = 'player'
+    form_fields = ['control1']
+
     def is_displayed(self):
 
         return self.player.round_number == 1 
 
 class Control2(Page):
+
+    form_model = 'player'
+    form_fields = ['control2']
 
     def is_displayed(self):
 
@@ -71,17 +77,26 @@ class Control2(Page):
 
 class Control3(Page):
 
+    form_model = 'player'
+    form_fields = ['control3']
+
     def is_displayed(self):
 
         return self.player.round_number == 1 
 
 class Control4(Page):
 
+    form_model = 'player'
+    form_fields = ['control4']
+
     def is_displayed(self):
 
         return self.player.round_number == 1 
 
 class Control5(Page):
+
+    form_model = 'player'
+    form_fields = ['control5']
 
     def is_displayed(self):
 
