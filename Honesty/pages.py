@@ -11,6 +11,11 @@ class Demograp(Page):
         'apellido_materno',
         'edad',
         'sexo',
+        'distrito_residencia',
+        'escala',
+        'ciclo',
+        'carrera',
+        'nivel_estudios_padres'
         'participado_antes'
         ]
 
