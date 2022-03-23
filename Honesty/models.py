@@ -59,6 +59,7 @@ class Subsession(BaseSubsession):
         for group in self.get_groups():
 
             players = group.get_players()
+            random.shuffle(players) #aleatorizar parejas por cada ronda
             
             i = 0 
             while (i < 2): # Maximo 2 parejas 
@@ -87,18 +88,6 @@ class Player(BasePlayer):
     control5 = models.IntegerField()
     
     #breve cuestionario inicial
-    
-    nombres = models.StringField(
-        label = 'Indica tus nombres:'
-    )
-
-    apellido_paterno = models.StringField(
-        label = 'Indica tu apellido paterno:'
-    )
-
-    apellido_materno = models.StringField(
-        label = 'Indica tu apellido materno:'
-    )
 
     edad = models.IntegerField(
         label = 'Indica tu edad:',
@@ -120,31 +109,28 @@ class Player(BasePlayer):
 
     escala = models.IntegerField(
         label = 'Indica en qué escala de pagos te encuentras:',
-        widget = widgets.RadioSelectHorizontal,
         choices = [1,2,3,4,5,6]
     )
 
     ciclo = models.IntegerField(
         label = 'Indica en qué ciclo te encuentras',
-        widget = widgets.RadioSelectHorizontal,
         choices = [1,2,3,4,5,6,7,8,9,10,11,12,13]
     )
 
     carrera = models.StringField(
         label = '¿Qué carrera estás cursando?',
-        widget = widgets.RadioSelectHorizontal,
         choices = ["Economía","Finanzas","Marketing","Ingenieria Empresarial", "Ingenieria de la Información",
         "Administración de Empresas","Derecho Empresarial"]
     )
 
     nivel_estudios_padres = models.StringField(
         label = 'Indica el nievl de estudio de tus padres',
-        widget = widgets.RadioSelectHorizontal,
         choices = ["Secundaria Completa",""]
     )
 
     participado_antes = models.StringField(
         label = 'Has participado antes en un experimento del E2LabUP',
+        widget = widgets.RadioSelectHorizontal,
         choices =['Si', 'No']
     )
 

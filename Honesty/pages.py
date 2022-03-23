@@ -6,16 +6,13 @@ class Demograp(Page):
 
     form_model = 'player'
     form_fields = [
-        'nombres',
-        'apellido_paterno',
-        'apellido_materno',
         'edad',
         'sexo',
         'distrito_residencia',
         'escala',
         'ciclo',
         'carrera',
-        'nivel_estudios_padres'
+        'nivel_estudios_padres',
         'participado_antes'
         ]
 
