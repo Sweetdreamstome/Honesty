@@ -104,7 +104,56 @@ class Player(BasePlayer):
 
     distrito_residencia = models.StringField(
         label = 'Indica tu distrito de residencia',
-        choices = ["Miraflores"]
+        choices = ["Ancón",
+            "Ate",
+            "Barranco",
+            "Breña",
+            "Carabayllo",
+            "Chaclacayo",
+            "Chorrillos",
+            "Cieneguilla",
+            "Comas",
+            "El Agustino",
+            "Independencia",
+            "Jesús María",
+            "La Molina",
+            "La Victoria",
+            "Lima",
+            "Lince",
+            "Los Olivos",
+            "Lurigancho",
+            "Lurín",
+            "Magdalena del Mar",
+            "Miraflores",
+            "Pachacámac",
+            "Pucusana",
+            "Pueblo Libre",
+            "Puente Piedra",
+            "Punta Hermosa",
+            "Punta Negra",
+            "Rimac",
+            "San Bartolo",
+            "San Borja",
+            "San Isidro",
+            "San Juan de Lurigancho",
+            "San Juan de Miraflores",
+            "San Luis",
+            "San Martín de Porres",
+            "San Miguel",
+            "Santa Anita",
+            "Santa Maria del Mar",
+            "Santa Rosa",
+            "Santiago de Surco",
+            "Surquillo",
+            "Villa El Salvador",
+            "Villa María del Triunfo",
+            "Bellavista",
+            "Carmen de la Legua Reynoso",
+            "La Perla",
+            "La Punta",
+            "Ventanilla",
+            "Mi Perú"
+        ], 
     )
 
     escala = models.IntegerField(
@@ -125,7 +174,13 @@ class Player(BasePlayer):
 
     nivel_estudios_padres = models.StringField(
         label = 'Indica el nievl de estudio de tus padres',
-        choices = ["Secundaria Completa",""]
+        choices = [
+            "Primaria",
+            "Secundaria",
+            "Superior no universitaria",
+            "Superior universitaria",
+            "Post-grado universitario",
+            "Ninguno"]
     )
 
     participado_antes = models.StringField(
