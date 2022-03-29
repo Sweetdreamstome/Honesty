@@ -1,52 +1,93 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
-{% block title %}
-    Ejemplo 4
-{% endblock %}
-
 {% block content %}
 
-<p align=”justify”>Observemos ahora a la <b>Serie 3</b>. Este ejemplo es el mismo que la pregunta 29 en la Serie 3</p>
-
-<p align=”justify”>
-Observemos las dos loterías para cada pregunta. Hay distintas probabilidades asociados a los pagos de cada una.
-Debes escoger alguna de ellas en cada pregunta
+<p align=”justify”>Ahora miremos la <b>Serie 3</b>. En esta serie, usted puede perder dinero.
 </p>
 
 <p align=”justify”>
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg .tg-ova7{font-weight:bold;font-style:italic;background-color:#000000;color:#ffffff;border-color:#000000;text-align:center;vertical-align:middle}
-.tg .tg-u3q6{font-weight:bold;background-color:#000000;color:#ffffff;border-color:#000000;text-align:left;vertical-align:top}
-.tg .tg-4f0n{background-color:#000000;color:#ffffff;border-color:inherit;text-align:center;vertical-align:top}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
-<table class="tg">
+  Este ejemplo es el mismo que la pregunta 29 en la Serie 3. Hay dos planes A y B, para 
+  cada pregunta. Hay 10 bolillas numeradas 1,2,3,4,5,6,7,8,9 y 10 que determinan los pagos de cada plan.
+Usted debe escoger plan A o plan B en cada pregunta.
+</p>
+
+<p align=”justify”>
+  <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;
+    }
+    .tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top;text-align: center;}
+    .tg .tg-g1fv{background-color:#333333;color:#ffffff;border-color:inherit;text-align:center;vertical-align:top}
+    .tg .tg-0449{background-color:#333333;color:#ffffff;border-color:inherit;text-align:center;vertical-align:top;}
+    .tg .tg-fymr{font-weight:bold;border-color:inherit;text-align:left;vertical-align:top;text-align: center;}
+    .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;
+    text-align: center;}
+    .tg .tg-0lax{text-align:left;vertical-align:top;text-align: center;}
+    
+    .bolilla{
+      background-color:#fff;
+        border: 1px solid black;    
+        height:15px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:15px;
+        display: inline-block;
+        font-size: 10px;
+        text-align: center;
+    }
+    </style>
+<table class="tg" width = 980>
   <tr>
-    <th class="tg-u3q6">Alternativa</th>
-    <th class="tg-4f0n" colspan="2">Lotería A</th>
-    <th class="tg-ova7" colspan="2">Lotería B</th>
+    <th class="tg-g1fv">Alternativa</th>
+    <th class="tg-0449" colspan="2">Plan A</th>
+    <th class="tg-0449" colspan="2">Plan B</th>
   </tr>
   <tr>
-    <td class="tg-0lax">29</td>
-    <td class="tg-0lax">25 solex con 50% de seguridad</td>
-    <td class="tg-0lax">-4 solex con 50% de seguridad</td>
-    <td class="tg-0lax">30 solex con 50% de seguridad</td>
-    <td class="tg-0lax">-21 solex con 50% de seguridad</td>
+    <td class="tg-fymr">1</td>
+    <td class="tg-0pky">
+      25 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+    </td>
+    <td class="tg-0pky" >
+      -4 Solex |
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0pky">30 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+    </td>
+    <td class="tg-0pky">-21 Solex |
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
   </tr>
 </table>
 </p>
 
     <p align=”justify”>
-      La computadora escogerá internamente un valor entre 10 posibles opciones: 1, 2, 3, ... 9, 10. <br><br>
-      Si un número <b>menor o igual a 5</b> es escogido, por ej., el número 2, los que hayan escogido la Lotería A
-      recibirán 25 solex y, quienes escogieron la Lotería B, recibirán 30 solex. <br><br>
-      Si un número <b>mayor a 5</b> es escogido, por ej., el número 7, los que hayan escogido la Lotería A
-      perderán solex y, quienes escogieron la Lotería B, perderán 21 solex. <br><br>
-      Las <b>pérdidas</b> se restarán de una <b>dotación base</b> de 30 solex.
+      La computadora seleccionará al azar un valor entre 10 posibles opciones: 1, 2, 3, ... 9, 10. <br><br>
+      De esta manera, si el número 1,2,3,4 o 5 es seleccionado al azar por la computadora, 
+      quienes escogieron el plan A recibirán 25 Solex, y quienes escogieron el plan B, recibirán 30 Solex. <br><br>
+      Por otro lado, si el número 6,7,8,9 o 10 es seleccionado al azar por la computadora, quienes escogieron el plan A 
+      perderán 4 Solex y quienes escogieron el plan B, perderán 21 Solex. <br><br>
+      Las <b>pérdidas</b> se restarán de una <b>dotación base</b> de 30 Solex.
     </p>
 
     <p align=”justify”>

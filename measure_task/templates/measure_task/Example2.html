@@ -1,132 +1,481 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
-{% block title %}
-    Ejemplo 2
-{% endblock %}
-
 {% block content %}
 
-<p align=”justify”>Este ejemplo es el mismo que la <b>Serie 1</b></p>
-
 <p align=”justify”>
-  Supón que quieres escoger la Lotería A para todas las preguntas. Para ello, llena las casillas de la siguiente manera
+  Supongamos ahora que usted quiere escoger el plan A para todas las 14 preguntas. 
+  Para ello, llenará las casillas de la siguiente manera:
 </p>
 
 <p align=”justify”>
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg .tg-ova7{font-weight:bold;font-style:italic;background-color:#000000;color:#ffffff;border-color:#000000;text-align:center;vertical-align:middle}
-.tg .tg-u3q6{font-weight:bold;background-color:#000000;color:#ffffff;border-color:#000000;text-align:left;vertical-align:top}
-.tg .tg-4f0n{background-color:#000000;color:#ffffff;border-color:inherit;text-align:center;vertical-align:top}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-.tg .tg-ncd7{background-color:#ffffc7;border-color:inherit;text-align:left;vertical-align:top}
-</style>
-<table class="tg">
+  <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;
+    }
+    .tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top;text-align: center;}
+    .tg .tg-g1fv{background-color:#333333;color:#ffffff;border-color:inherit;text-align:center;vertical-align:top}
+    .tg .tg-0449{background-color:#333333;color:#ffffff;border-color:inherit;text-align:center;vertical-align:top;}
+    .tg .tg-fymr{font-weight:bold;border-color:inherit;text-align:left;vertical-align:top;text-align: center;}
+    .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;
+    text-align: center;}
+    .tg .tg-0lax{text-align:left;vertical-align:top;text-align: center;}
+    
+    .bolilla{
+      background-color:#fff;
+        border: 1px solid black;    
+        height:15px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:15px;
+        display: inline-block;
+        font-size: 10px;
+        text-align: center;
+    }
+    </style>
+<table class="tg" width = 980>
   <tr>
-    <th class="tg-u3q6">Alternativa</th>
-    <th class="tg-4f0n" colspan="2"><span style="font-weight:700;font-style:italic">Lotería A</span><br></th>
-    <th class="tg-ova7" colspan="2">Lotería B</th>
+    <th class="tg-g1fv">Alternativa</th>
+    <th class="tg-0449" colspan="2">Plan A</th>
+    <th class="tg-0449" colspan="2">Plan B</th>
   </tr>
   <tr>
-    <td class="tg-0pky">1</td>
-    <td class="tg-ncd7">40 solex con 30% de seguridad</td>
-    <td class="tg-ncd7">10 solex con 70% de seguridad</td>
-    <td class="tg-0pky">68 solex con 10% de seguridad</td>
-    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+    <td class="tg-fymr">1</td>
+    <td class="tg-0pky" style = "background-color: rgb(250, 243, 201);">
+      40 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+    </td>
+    <td class="tg-0pky" style = "background-color: rgb(250, 243, 201);">
+      10 Solex |
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0pky">68 Solex |
+      <div class = "bolilla">1</div>
+    </td>
+    <td class="tg-0pky">5 Solex |
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
   </tr>
   <tr>
-    <td class="tg-0pky">2</td>
-    <td class="tg-ncd7">40 solex con 30% de seguridad</td>
-    <td class="tg-ncd7">10 solex con 70% de seguridad</td>
-    <td class="tg-0pky">75 solex con 10% de seguridad</td>
-    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+    <td class="tg-fymr">2</td>
+    <td class="tg-0pky" style = "background-color: rgb(250, 243, 201);">40 Solex | 
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+    </td>
+    <td class="tg-0pky" style = "background-color: rgb(250, 243, 201);">10 Solex | 
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0pky">75 Solex | 
+      <div class = "bolilla">1</div>
+    </td>
+    <td class="tg-0pky">5 Solex |
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
   </tr>
   <tr>
-    <td class="tg-0pky">3</td>
-    <td class="tg-ncd7">40 solex con 30% de seguridad</td>
-    <td class="tg-ncd7">10 solex con 70% de seguridad</td>
-    <td class="tg-0pky">83 solex con 10% de seguridad</td>
-    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+    <td class="tg-fymr">3</td>
+    <td class="tg-0pky" style = "background-color: rgb(250, 243, 201);">40 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+    </td>
+    <td class="tg-0pky" style = "background-color: rgb(250, 243, 201);">10 solex |
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0pky">83 Solex |
+      <div class = "bolilla">1</div>
+    </td>
+    <td class="tg-0pky">5 Solex |
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
   </tr>
   <tr>
-    <td class="tg-0pky">4</td>
-    <td class="tg-ncd7">40 solex con 30% de seguridad</td>
-    <td class="tg-ncd7">10 solex con 70% de seguridad</td>
-    <td class="tg-0pky">93 solex con 10% de seguridad</td>
-    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+    <td class="tg-1wig">4</td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">40 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+    </td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">10 Solex | 
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0lax">93 Solex |
+      <div class = "bolilla">1</div>
+    </td>
+    <td class="tg-0lax">5 Solex |
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
   </tr>
   <tr>
-    <td class="tg-0pky">5</td>
-    <td class="tg-ncd7">40 solex con 30% de seguridad</td>
-    <td class="tg-ncd7">10 solex con 70% de seguridad</td>
-    <td class="tg-0pky">106.5 solex con 10% de seguridad</td>
-    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+    <td class="tg-1wig">5</td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">40 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+    </td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">10 Solex |
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0lax">106.5 Solex |
+      <div class = "bolilla">1</div>
+    </td>
+    <td class="tg-0lax">5 Solex |
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
   </tr>
   <tr>
-    <td class="tg-0pky">6</td>
-    <td class="tg-ncd7">40 solex con 30% de seguridad</td>
-    <td class="tg-ncd7">10 solex con 70% de seguridad</td>
-    <td class="tg-0pky">125 solex con 10% de seguridad</td>
-    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+    <td class="tg-1wig">6</td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">40 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+    </td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">10 Solex | 
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0lax">125 Solex |
+      <div class = "bolilla">1</div>
+    </td>
+    <td class="tg-0lax">5 Solex | 
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
   </tr>
   <tr>
-    <td class="tg-0pky">7</td>
-    <td class="tg-ncd7">40 solex con 30% de seguridad</td>
-    <td class="tg-ncd7">10 solex con 70% de seguridad</td>
-    <td class="tg-0pky">150 solex con 10% de seguridad</td>
-    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+    <td class="tg-1wig">7</td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">40 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+    </td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">10 Solex |
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0lax">150 Solex | 
+      <div class = "bolilla">1</div>
+    </td>
+    <td class="tg-0lax">5 Solex |
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
   </tr>
   <tr>
-    <td class="tg-0pky">8</td>
-    <td class="tg-ncd7">40 solex con 30% de seguridad</td>
-    <td class="tg-ncd7">10 solex con 70% de seguridad</td>
-    <td class="tg-0pky">185 solex con 10% de seguridad</td>
-    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+    <td class="tg-1wig">8</td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">40 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+    </td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">10 Solex |
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0lax">185 Solex | 
+      <div class = "bolilla">1</div>
+    </td>
+    <td class="tg-0lax">5 Solex |
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div> 
+    </td>
   </tr>
   <tr>
-    <td class="tg-0pky">9</td>
-    <td class="tg-ncd7">40 solex con 30% de seguridad</td>
-    <td class="tg-ncd7">10 solex con 70% de seguridad</td>
-    <td class="tg-0pky">220 solex con 10% de seguridad</td>
-    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+    <td class="tg-1wig">9</td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">40 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+    </td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">10 Solex |
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0lax">220 Solex |
+      <div class = "bolilla">1</div>
+    </td>
+    <td class="tg-0lax">5 Solex | 
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div> 
+    </td>
   </tr>
   <tr>
-    <td class="tg-0pky">10</td>
-    <td class="tg-ncd7">40 solex con 30% de seguridad</td>
-    <td class="tg-ncd7">10 solex con 70% de seguridad</td>
-    <td class="tg-0pky">300 solex con 10% de seguridad</td>
-    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+    <td class="tg-1wig">10</td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">40 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+    </td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">10 Solex |
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0lax">300 Solex | 
+      <div class = "bolilla">1</div>
+    </td>
+    <td class="tg-0lax">5 Solex |
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div> 
+    </td>
   </tr>
   <tr>
-    <td class="tg-0pky">11</td>
-    <td class="tg-ncd7">40 solex con 30% de seguridad</td>
-    <td class="tg-ncd7">10 solex con 70% de seguridad</td>
-    <td class="tg-0pky">400 solex con 10% de seguridad</td>
-    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+    <td class="tg-1wig">11</td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">40 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+    </td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">10 Solex |
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0lax">400 Solex |
+      <div class = "bolilla">1</div>
+    </td>
+    <td class="tg-0lax">5 Solex |
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div> 
+    </td>
   </tr>
   <tr>
-    <td class="tg-0pky">12</td>
-    <td class="tg-ncd7">40 solex con 30% de seguridad</td>
-    <td class="tg-ncd7">10 solex con 70% de seguridad</td>
-    <td class="tg-0pky">600 solex con 10% de seguridad</td>
-    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+    <td class="tg-1wig">12</td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">40 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+    </td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">10 Solex |
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0lax">600 Solex | 
+      <div class = "bolilla">1</div> 
+    </td>
+    <td class="tg-0lax">5 Solex |
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div> 
+    </td>
   </tr>
   <tr>
-    <td class="tg-0pky">13</td>
-    <td class="tg-ncd7">40 solex con 30% de seguridad</td>
-    <td class="tg-ncd7">10 solex con 70% de seguridad</td>
-    <td class="tg-0pky">1000 solex con 10% de seguridad</td>
-    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+    <td class="tg-1wig">13</td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">40 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+    </td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">10 Solex |
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0lax">1000 Solex
+      <div class = "bolilla">1</div>
+    </td>
+    <td class="tg-0lax">5 Solex | 
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div> 
+    </td>
   </tr>
   <tr>
-    <td class="tg-0pky">14</td>
-    <td class="tg-ncd7">40 solex con 30% de seguridad</td>
-    <td class="tg-ncd7">10 solex con 70% de seguridad</td>
-    <td class="tg-0pky">1700 solex con 10% de seguridad</td>
-    <td class="tg-0pky">5 solex con 90% de seguridad</td>
+    <td class="tg-1wig">14</td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">40 Solex |
+      <div class = "bolilla">1</div>
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+    </td>
+    <td class="tg-0lax" style = "background-color: rgb(250, 243, 201);">10 Solex |
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div>
+    </td>
+    <td class="tg-0lax">1700 Solex | 
+      <div class = "bolilla">1</div>
+    </td>
+    <td class="tg-0lax">5 Solex |
+      <div class = "bolilla">2</div>
+      <div class = "bolilla">3</div>
+      <div class = "bolilla">4</div>
+      <div class = "bolilla">5</div>
+      <div class = "bolilla">6</div>
+      <div class = "bolilla">7</div>
+      <div class = "bolilla">8</div>
+      <div class = "bolilla">9</div>
+      <div class = "bolilla">10</div> 
+    </td>
   </tr>
 </table>
 </p>

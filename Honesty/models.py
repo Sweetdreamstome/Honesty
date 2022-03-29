@@ -59,9 +59,10 @@ class Subsession(BaseSubsession):
         for group in self.get_groups():
 
             players = group.get_players()
+            random.shuffle(players) #aleatorizar parejas por cada ronda
             
             i = 0 
-            while (i < 2): # Maximo 2 porque se estan formando parejas
+            while (i < 2): # Maximo 2 parejas 
 
                 random.shuffle(assing_groups)
                 p1 , p2 = players[0], players[1]
@@ -79,19 +80,14 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
+    # vars que cuentan numero de intentos
+    control1 = models.IntegerField()
+    control2 = models.IntegerField()
+    control3 = models.IntegerField()
+    control4 = models.IntegerField()
+    control5 = models.IntegerField()
+    
     #breve cuestionario inicial
-
-    nombres = models.StringField(
-        label = 'Indica tus nombres:'
-    )
-
-    apellido_paterno = models.StringField(
-        label = 'Indica tu apellido paterno:'
-    )
-
-    apellido_materno = models.StringField(
-        label = 'Indica tu apellido materno:'
-    )
 
     edad = models.IntegerField(
         label = 'Indica tu edad:',
@@ -106,14 +102,96 @@ class Player(BasePlayer):
         default = '0'
     )
 
+    distrito_residencia = models.StringField(
+        label = 'Indica tu distrito de residencia',
+        choices = ["Ancón",
+            "Ate",
+            "Barranco",
+            "Breña",
+            "Carabayllo",
+            "Chaclacayo",
+            "Chorrillos",
+            "Cieneguilla",
+            "Comas",
+            "El Agustino",
+            "Independencia",
+            "Jesús María",
+            "La Molina",
+            "La Victoria",
+            "Lima",
+            "Lince",
+            "Los Olivos",
+            "Lurigancho",
+            "Lurín",
+            "Magdalena del Mar",
+            "Miraflores",
+            "Pachacámac",
+            "Pucusana",
+            "Pueblo Libre",
+            "Puente Piedra",
+            "Punta Hermosa",
+            "Punta Negra",
+            "Rimac",
+            "San Bartolo",
+            "San Borja",
+            "San Isidro",
+            "San Juan de Lurigancho",
+            "San Juan de Miraflores",
+            "San Luis",
+            "San Martín de Porres",
+            "San Miguel",
+            "Santa Anita",
+            "Santa Maria del Mar",
+            "Santa Rosa",
+            "Santiago de Surco",
+            "Surquillo",
+            "Villa El Salvador",
+            "Villa María del Triunfo",
+            "Bellavista",
+            "Carmen de la Legua Reynoso",
+            "La Perla",
+            "La Punta",
+            "Ventanilla",
+            "Mi Perú"
+        ], 
+    )
+
+    escala = models.IntegerField(
+        label = 'Indica en qué escala de pagos te encuentras:',
+        choices = [1,2,3,4,5,6]
+    )
+
+    ciclo = models.IntegerField(
+        label = 'Indica en qué ciclo te encuentras',
+        choices = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+    )
+
+    carrera = models.StringField(
+        label = '¿Qué carrera estás cursando?',
+        choices = ["Economía","Finanzas","Marketing","Ingenieria Empresarial", "Ingenieria de la Información",
+        "Administración de Empresas","Derecho Empresarial"]
+    )
+
+    nivel_estudios_padres = models.StringField(
+        label = 'Indica el nievl de estudio de tus padres',
+        choices = [
+            "Primaria",
+            "Secundaria",
+            "Superior no universitaria",
+            "Superior universitaria",
+            "Post-grado universitario",
+            "Ninguno"]
+    )
+
     participado_antes = models.StringField(
         label = 'Has participado antes en un experimento del E2LabUP',
+        widget = widgets.RadioSelectHorizontal,
         choices =['Si', 'No']
     )
 
-    grupo_asignado = models.StringField()
+    grupo_asignado = models.StringField() # A o B
 
-    sub_group = models.IntegerField()
+    sub_group = models.IntegerField() #id de pareja en el grupo
     
     decision = models.StringField(
         widget = widgets.RadioSelectHorizontal,
@@ -122,7 +200,7 @@ class Player(BasePlayer):
 
     final_payoff = models.CurrencyField()
 
-    comportamiento = models.StringField()
+    comportamiento = models.StringField() # que grupo indica A o B (miente o no miente)
 
     def get_sexo(self):
 

@@ -24,6 +24,57 @@ class Game(Page):
     def before_next_page(self):
         self.player.set_payoff()
 
+class Control(Page):
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control1(Page):
+
+    form_model = 'player'
+    form_fields = ['control1']
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control2(Page):
+
+    form_model = 'player'
+    form_fields = ['control2']
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control3(Page):
+
+    form_model = 'player'
+    form_fields = ['control3']
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control4(Page):
+
+    form_model = 'player'
+    form_fields = ['control4']
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control5(Page):
+
+    form_model = 'player'
+    form_fields = ['control5']
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
 class Payoffs(Page):
     
     def vars_for_template(self):
@@ -37,6 +88,12 @@ class Payoffs(Page):
 
 page_sequence = [
     Instructions,
+    Control,
+    Control1,
+    Control2,
+    Control3,
+    Control4,
+    Control5,
     Game,  
     Payoffs
     ]

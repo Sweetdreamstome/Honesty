@@ -2,15 +2,17 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
-class Initial_demograp(Page):
+class Demograp(Page):
 
     form_model = 'player'
     form_fields = [
-        'nombres',
-        'apellido_paterno',
-        'apellido_materno',
         'edad',
         'sexo',
+        'distrito_residencia',
+        'escala',
+        'ciclo',
+        'carrera',
+        'nivel_estudios_padres',
         'participado_antes'
         ]
 
@@ -50,6 +52,57 @@ class Time_Pressure(Page):
             tratamiento = self.group.treatment,
             sexo_pareja = self.player.get_partner_sexo()
         )
+
+class ControlQuestions(Page):
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control1(Page):
+
+    form_model = 'player'
+    form_fields = ['control1']
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control2(Page):
+
+    form_model = 'player'
+    form_fields = ['control2']
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control3(Page):
+
+    form_model = 'player'
+    form_fields = ['control3']
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control4(Page):
+
+    form_model = 'player'
+    form_fields = ['control4']
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
+
+class Control5(Page):
+
+    form_model = 'player'
+    form_fields = ['control5']
+
+    def is_displayed(self):
+
+        return self.player.round_number == 1 
 
 class Time_Delay(Page):
 
@@ -157,16 +210,22 @@ class Payoffs(Page):
         )
 
 page_sequence = [
-                Initial_demograp, #cuestionario inicial 
-                StartWaitPage, #waitpage para que todos los del grupo avancen en orden
-                General, #bienvenida
-                Instrucciones, #instrucciones del juego (dependiendo del tratamiento)
-                StartWaitPage, #para mantener el orden
-                Information_results, # a partir de ronda 1
-                RoundWaitPage,
-                Information_decision, 
-                Time_Pressure, 
-                Time_Delay,
+                Demograp, #cuestionario inicial 
+                # StartWaitPage, #waitpage para que todos los del grupo avancen en orden
+                # General, #bienvenida
+                # Instrucciones, #instrucciones del juego (dependiendo del tratamiento)
+                # StartWaitPage, #para mantener el orden
+                # Information_results, # a partir de ronda 1
+                # RoundWaitPage,
+                # Information_decision, 
+                # Time_Pressure, 
+                # Time_Delay,
+                ControlQuestions,
+                Control1,
+                Control2,
+                Control3,
+                Control4,
+                Control5,
                 ResultsWaitPage, # calcula los payoff 
                 Payoffs
                 ]

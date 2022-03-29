@@ -20,12 +20,10 @@ Rule Following App
 
 """
 
-
 class Constants(BaseConstants):
     name_in_url = 'RuleFollowing'
     players_per_group = None
     num_rounds = 1
-
 
 class Subsession(BaseSubsession):
     
@@ -45,6 +43,13 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
+
+    # vars que cuentan numero de intentos
+    control1 = models.IntegerField()
+    control2 = models.IntegerField()
+    control3 = models.IntegerField()
+    control4 = models.IntegerField()
+    control5 = models.IntegerField()
 
     color_order = models.BooleanField()
     
