@@ -471,10 +471,13 @@
 
 <label for="slider" class="form-label">Mueva el deslizador para escoger el número de alternativas para el plan A y para el plan B</label>
 
+<p></p>
+<div>
 <input type="range" style='width:500px;' id="slider" min = '0' step = '1' max = '14' oninput="{
   choice_A.innerText = (this.value != '0') ? parseInt(this.value)+14 : 'Ninguna';
   choice_B.innerText = (parseInt(this.value)+1 != 15) ? parseInt(this.value)+1+14 : 'Ninguna';
-  sombrear()}" >
+  sombrear()}" disabled>
+</div>
 
 <p></p>
 <label>Escojo el plan A desde la alternativa 15 hasta la alternativa:</label>
@@ -490,6 +493,10 @@
 {% next_button %}
 
 <script>
+
+$("#slider").closest("div").click(function(){
+    $(this).find("input:disabled").attr("disabled", false);
+  })
 
   function sombrear()
   {
