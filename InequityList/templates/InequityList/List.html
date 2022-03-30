@@ -1,0 +1,108 @@
+{% load otree static %}
+
+{% block content %}
+    <head>
+        <style>
+
+            input[type=range]{
+                -webkit-appearance: none;
+                margin-left: 10px;
+                width: 965px;
+                background: rgb(225, 221, 221)
+            }
+
+            input[type=range]::-webkit-slider-runnable-track {
+                height: 15px;
+                border: 1px solid rgb(30, 143, 2);
+            }
+
+            input[type=range]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                border: none;
+                height: 20px;
+                width: 5px;
+                border-radius: 0%;
+            }
+
+            .validator{
+                margin-top: 4px;
+            }
+
+        </style>
+    </head>
+
+    <div class="card bg-light" style="padding:10px">
+        <p> 
+            <b>Importante: </b>En esta tarea debes indicar tu nivel de satisfacción para cada asignación. 
+            Nota que en cada asignación obtienes 20 y lo que cambia en cada asignación es lo que gana 
+            la persona con la cual se te ha emparejado. <b>Nota: </b> Para poder indicar tu nivel de 
+            satisfacción debes dar 1 click en la barra para activarla.
+        </p>
+    </div>
+
+    <br>
+
+    <h5>¿Qué tan satisfecho estarías?</h5>
+
+    <table class = 'table table-borderless'>
+        <tr>
+            <td colspan = 5 rowspan = 3 style="color:white">aca no va nada la letra sera blanca solo es para alargar el texto y solo haces espacio para arrimar dfgdfg fffffffffff</td>
+            <td>Extremadamente Insatisfecho</td>
+            <td>Moderadamente Insatisfecho</td>
+            <td>Ligeramente Insatisfecho</td>
+            <td style="padding-top:20px">Neutral</td>
+            <td style="text-align:right">Ligeramente Satisfecho</td>
+            <td style="text-align:right">Moderadamente Satisfecho</td>
+            <td style="text-align:right">Extremadamente Satisfecho</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 9px;"><b>1</b></td>
+            <td style="padding-left: 5px;"><b>2</b></td>
+            <td style="padding-left: 3px;"><b>3</b></td>
+            <td style="text-align: center; padding-left:3px"><b>4</b></td>
+            <td style="text-align: right; padding-right:1px"><b>5</b></td>
+            <td style="text-align: right; padding-right:0px"><b>6</b></td>
+            <td style="text-align: right; padding-right:0px"><b>7</b></td>
+        </tr>
+    </table>
+
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 10</label><input type = "range" name = "choice1" id = "choice1" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice1" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 11</label><input type = "range" name = "choice2" id = "choice2" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice2" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 12</label><input type = "range" name = "choice3" id = "choice3" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice3" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 13</label><input type = "range" name = "choice4" id = "choice4" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice4" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 14</label><input type = "range" name = "choice5" id = "choice5" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice5" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 15</label><input type = "range" name = "choice6" id = "choice6" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice6" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 16</label><input type = "range" name = "choice7" id = "choice7" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice7" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 17</label><input type = "range" name = "choice8" id = "choice8" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice8" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 18</label><input type = "range" name = "choice9" id = "choice9" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice9" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 19</label><input type = "range" name = "choice10" id = "choice10" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice10" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 20</label><input type = "range" name = "choice11" id = "choice11" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice11" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 21</label><input type = "range" name = "choice12" id = "choice12" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice12" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 22</label><input type = "range" name = "choice13" id = "choice13" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice13" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 23</label><input type = "range" name = "choice14" id = "choice14" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice14" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 24</label><input type = "range" name = "choice15" id = "choice15" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice15" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 25</label><input type = "range" name = "choice16" id = "choice16" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice16" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 26</label><input type = "range" name = "choice17" id = "choice17" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice17" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 27</label><input type = "range" name = "choice18" id = "choice18" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice18" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 28</label><input type = "range" name = "choice19" id = "choice19" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice19" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 29</label><input type = "range" name = "choice20" id = "choice20" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice20" }}
+    <div class = "validator"><label>Si tú obtienes 20 y la otra persona obtiene 30</label><input type = "range" name = "choice21" id = "choice21" min = 1 step = 0.01 max = 7 disabled></div> {{ formfield_errors "choice21" }}
+
+     <p></p>
+
+    {% next_button %}
+
+    <script>
+
+        $( 'input[type=range]' ).on( 'input', function( ) {
+                let value = ((this.value - 1)/6)*100;
+                $( this ).css( 'background', 'linear-gradient(to right, green 0%, green '+value+'%, #fff ' + value + '%, white 100%)' );
+            });
+
+        $("input[type=range]").closest("div").click(function(){
+            $(this).find("input:disabled").attr("disabled", false);
+        })
+       
+    </script>
+
+{% endblock %}

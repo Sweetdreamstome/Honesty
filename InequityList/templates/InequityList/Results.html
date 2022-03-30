@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Resultados
+{% endblock %}
+
+{% block content %}
+
+    <p>Para el pago final la computadora ha elegido una de las 21 asignaciones de manera aleatoria</p>
+    <p>Por lo tanto tu pago por esta parte del experimento es: <b>{{ payoff }}</b></p>
+
+    {% next_button %}
+{% endblock %}
+
+

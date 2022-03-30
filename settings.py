@@ -41,6 +41,12 @@ SESSION_CONFIGS = [
        display_name="DieRoll",
        num_demo_participants=2,
        app_sequence=['DieRoll']
+    ),
+    dict(
+       name='InequityList',
+       display_name="InequityList",
+       num_demo_participants=2,
+       app_sequence=['InequityList']
     )
 ]
 
