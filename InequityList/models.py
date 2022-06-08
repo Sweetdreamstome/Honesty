@@ -53,6 +53,7 @@ class Group(BaseGroup):
 
         p1 , p2 = self.get_players()
         p1.payoff , p2.payoff = allocation[p1.position] , allocation[p2.position] 
+        p1.participant.vars["payoff_InequityList"] , p2.participant.vars["payoff_InequityList"] = p1.payoff , p2.payoff
 
 class Player(BasePlayer):
 

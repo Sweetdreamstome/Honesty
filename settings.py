@@ -4,9 +4,10 @@ SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=5.00, doc=""
 )
 
-PARTICIPANT_FIELDS = ['payoff_Honesty','payoff_RuleFollowing','payoff_DieRoll','payoff_measure_task']
+PARTICIPANT_FIELDS = ['payoff_Honesty','payoff_RuleFollowing','payoff_DieRoll','payoff_measure_task','payoff_InequityList']
 
 SESSION_CONFIGS = [
+
     dict(
        name='Taller',
        display_name="Taller",
@@ -14,12 +15,13 @@ SESSION_CONFIGS = [
        app_sequence=['initial_page','RuleFollowing','DieRoll'],
        app_names = {'RuleFollowing':'Primera','DieRoll':'Segunda'}
     ),
+
     dict(
        name='HonestidadaPrueba',
        display_name="HonestidadAprueba",
        num_demo_participants=12,
-       app_sequence=['Honesty','RuleFollowing','measure_task','payments'],
-       app_names = {'Honesty':'Primera','RuleFollowing':'Segunda','measure_task':'Tercera'},
+       app_sequence=['initial_page','Honesty','RuleFollowing','measure_task','InequityList','payments'],
+       app_names = {'Honesty':'Primera','RuleFollowing':'Segunda','measure_task':'Tercera','InequityList':'Cuarta'},
        participant_fee = SESSION_CONFIG_DEFAULTS["participation_fee"]
     ),
 
@@ -47,7 +49,7 @@ SESSION_CONFIGS = [
        display_name="InequityList",
        num_demo_participants=2,
        app_sequence=['InequityList']
-    )
+    ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs

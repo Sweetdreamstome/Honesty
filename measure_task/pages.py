@@ -6,7 +6,6 @@ from .models import Constants
 class Introduction(Page):
     pass
 
-
 class Example1(Page):
     pass
 
@@ -21,7 +20,6 @@ class Example3(Page):
 
 class Example4(Page):
     pass
-
 
 class Decision1(Page):
     form_model = 'player'
@@ -38,11 +36,8 @@ class Decision3(Page):
     def before_next_page(self):
         self.player.set_payoffs()
 
-
 class Results(Page):
-    def vars_for_template(self):
-        final_payoff = self.participant.payoff_plus_participation_fee()
-        return dict(f_p=final_payoff)
+    pass
 
 
 page_sequence = [

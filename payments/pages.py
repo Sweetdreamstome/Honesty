@@ -12,7 +12,7 @@ class Pagos(Page):
         pagos_apps = {}
         pago_total = 0
 
-        for app in self.session.config['app_sequence'][:-1]:
+        for app in self.session.config['app_sequence'][1:-1]:
             name = apps[app]
             pago = self.player.participant.vars['payoff_'+app]
             

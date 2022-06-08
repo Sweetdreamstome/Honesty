@@ -1,4 +1,6 @@
-{{ block content }}
+{% extends "otree/Page.html" %}
+{% load otree static %}
+{% block content %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -209,7 +211,7 @@
             document.addEventListener("dragend", function(event) {
             
                 var sum_boxes = document.getElementById('target1').childElementCount + document.getElementById('target2').childElementCount 
-                var num_balls_limit = 10 //aca se pone el numero maximo de bolas que pueden colocar
+                var num_balls_limit = 100 //aca se pone el numero maximo de bolas que pueden colocar
                 
                 var bolitas = document.getElementsByClassName('bolita');
 
@@ -327,4 +329,4 @@
         </script>   
     </body>
 </html>
-{{ endblock }}
+{% endblock %}

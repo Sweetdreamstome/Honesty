@@ -173,7 +173,7 @@ class Player(BasePlayer):
     )
 
     nivel_estudios_padres = models.StringField(
-        label = 'Indica el nievl de estudio de tus padres',
+        label = 'Indica el nivel de estudio de tus padres',
         choices = [
             "Primaria",
             "Secundaria",
@@ -184,7 +184,7 @@ class Player(BasePlayer):
     )
 
     participado_antes = models.StringField(
-        label = 'Has participado antes en un experimento del E2LabUP',
+        label = '¿Has participado antes en un experimento del E2LabUP?',
         widget = widgets.RadioSelectHorizontal,
         choices =['Si', 'No']
     )
@@ -196,11 +196,12 @@ class Player(BasePlayer):
     decision = models.StringField(
         widget = widgets.RadioSelectHorizontal,
         choices = Constants.grupo_asignado,
+        default = ""
     )
 
     final_payoff = models.CurrencyField()
 
-    comportamiento = models.StringField() # que grupo indica A o B (miente o no miente)
+    comportamiento = models.StringField(default = "") # que grupo indica A o B (miente o no miente)
 
     def get_sexo(self):
 
