@@ -26,4 +26,16 @@ class Pagos(Page):
             pago_total = pago_total
         )
 
-page_sequence = [Pagos]
+class Comments(Page):
+
+    form_model = 'player'
+    form_fields = [
+        'interfaz',
+        'instrucciones',
+        'espera',
+        'preguntas_control',
+        'sugerencia'
+        ]
+
+page_sequence = [Pagos,Comments]
+

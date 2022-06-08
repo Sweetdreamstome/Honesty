@@ -50,6 +50,12 @@ SESSION_CONFIGS = [
        num_demo_participants=2,
        app_sequence=['InequityList']
     ),
+    dict(
+       name='payments',
+       display_name="payments",
+       num_demo_participants=2,
+       app_sequence=['payments']
+    ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
