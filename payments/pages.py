@@ -37,5 +37,8 @@ class Comments(Page):
         'sugerencia'
         ]
 
-page_sequence = [Pagos,Comments]
+class Gracias(Page):
+    pass
+
+page_sequence = [Pagos,Comments,Gracias]
 
