@@ -42,7 +42,7 @@ class Time_Pressure(Page):
 
     def is_displayed(self):
 
-        return self.group.treatment == 'Time Pressure'
+        return self.group.treatment == 'Time Pressure' and self.player.round_number < Constants.num_rounds
 
     def vars_for_template(self):
 
@@ -111,7 +111,7 @@ class Time_Delay(Page):
     
     def is_displayed(self):
 
-        return self.group.treatment == 'Time Delay' 
+        return self.group.treatment == 'Time Delay' and self.player.round_number < Constants.num_rounds
 
     def vars_for_template(self):
 
@@ -211,21 +211,21 @@ class Payoffs(Page):
 
 page_sequence = [
                 Demograp, #cuestionario inicial 
-                # StartWaitPage, #waitpage para que todos los del grupo avancen en orden
-                # General, #bienvenida
-                # Instrucciones, #instrucciones del juego (dependiendo del tratamiento)
-                # StartWaitPage, #para mantener el orden
-                # Information_results, # a partir de ronda 1
-                # RoundWaitPage,
-                # Information_decision, 
-                # Time_Pressure, 
-                # Time_Delay,
+                StartWaitPage, #waitpage para que todos los del grupo avancen en orden
+                General, #bienvenida
+                Instrucciones, #instrucciones del juego (dependiendo del tratamiento)
                 ControlQuestions,
                 Control1,
                 Control2,
                 Control3,
                 Control4,
                 Control5,
+                StartWaitPage, #para mantener el orden
+                Information_results, # a partir de ronda 1
+                RoundWaitPage,
+                Information_decision, 
+                Time_Pressure, 
+                Time_Delay,
                 ResultsWaitPage, # calcula los payoff 
                 Payoffs
                 ]
