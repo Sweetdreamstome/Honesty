@@ -20,7 +20,7 @@ SESSION_CONFIGS = [
        name='HonestidadaPrueba',
        display_name="HonestidadAprueba",
        num_demo_participants=12,
-       app_sequence=['initial_page','Honesty','RuleFollowing','measure_task','InequityList','payments'],
+       app_sequence=['initial_page','Honesty','RuleFollowing','InequityList','measure_task','payments'],
        app_names = {'Honesty':'Primera','RuleFollowing':'Segunda','measure_task':'Tercera','InequityList':'Cuarta'},
        participant_fee = SESSION_CONFIG_DEFAULTS["participation_fee"]
     ),
