@@ -227,7 +227,7 @@
                         document.getElementById('blue_balls').value = document.getElementById('target1').childElementCount;
                         document.getElementById('yellow_balls').value = document.getElementById('target2').childElementCount;
                         
-                        document.getElementById("mensaje_final").innerHTML = 'Se acabaron las bolitas, por favor dar click en "Siguiente"'
+                        document.getElementById("mensaje_final").innerHTML = 'Se acabaron las bolitas, por favor dele click al botón "Siguiente"'
 
                         boton = document.getElementById('boton').removeAttribute('hidden')
                     }
@@ -274,8 +274,8 @@
                 var pago_blue = (Math.round(0.15*balls_blue * 100) / 100);
                 var pago_yellow = (Math.round(0.30*balls_yellow * 100) / 100)
 
-                document.getElementById('payi_blue').innerText = 'S/ ' + pago_blue;
-                document.getElementById('payi_yellow').innerText = 'S/ ' + pago_yellow;
+                document.getElementById('payi_blue').innerText = pago_blue + ' Puntos';
+                document.getElementById('payi_yellow').innerText = pago_yellow + ' Puntos';
 
                 document.getElementById('pay_blue').value = pago_blue;
                 document.getElementById('pay_yellow').value = pago_yellow

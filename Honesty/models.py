@@ -169,7 +169,7 @@ class Player(BasePlayer):
     carrera = models.StringField(
         label = '¿Qué carrera estás cursando?',
         choices = ["Economía","Finanzas","Marketing","Ingenieria Empresarial", "Ingenieria de la Información",
-        "Administración de Empresas","Derecho Empresarial"]
+        "Administración de Empresas","Derecho Empresarial","Contabilidad","Negocios Internacionales"]
     )
 
     nivel_estudios_padres = models.StringField(

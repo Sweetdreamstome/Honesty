@@ -178,7 +178,7 @@ class Information_decision(Page):
 
 class RoundWaitPage(Page):
 
-    timer_text = 'En breves pasara a la siguiente ronda'
+    timer_text = 'En breves podrá pasar a la siguiente ronda'
     timeout_seconds = 5
 
 class ResultsWaitPage(WaitPage):
@@ -222,7 +222,7 @@ page_sequence = [
                 Control5,
                 StartWaitPage, #para mantener el orden
                 Information_results, # a partir de ronda 1
-                RoundWaitPage,
+                RoundWaitPage,# no aparece en la ultima ronda
                 Information_decision, 
                 Time_Pressure, 
                 Time_Delay,
