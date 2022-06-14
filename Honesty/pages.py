@@ -206,7 +206,8 @@ class Payoffs(Page):
     def vars_for_template(self):
 
         return dict(
-            final_payoff = self.player.final_payoff
+            final_payoff = self.player.final_payoff,
+            pay_round = self.player.pay_round
         )
 
 page_sequence = [

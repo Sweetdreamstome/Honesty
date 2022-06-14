@@ -19,7 +19,7 @@ Concurso de Investigacion 2021
 
 Test about Honesty 
 
-Apps: Honesty, Rule Following & Tanaka (2010)
+Apps: Honesty, Rule Following, Inequity List & Tanaka (2010)
 
 """
 
@@ -43,7 +43,15 @@ class Subsession(BaseSubsession):
             self.group_randomly()
             print(self.get_group_matrix())
 
+            random_pay = random.randint(1,Constants.num_rounds - 1)
+
+            for player in self.get_players():
+                player.pay_round = random_pay
+
         else: 
+
+            for player in self.get_players():
+                player.pay_round = player.in_round(1).pay_round
         
             self.group_like_round(1)
 
@@ -200,6 +208,7 @@ class Player(BasePlayer):
     )
 
     final_payoff = models.CurrencyField()
+    pay_round = models.IntegerField(default = "")
 
     comportamiento = models.StringField(default = "") # que grupo indica A o B (miente o no miente)
 
@@ -253,7 +262,7 @@ class Player(BasePlayer):
         #randomizando el payoff obtenido final
         # random_round = random.randint(1,Constants.num_rounds)
 
-        self.final_payoff = self.in_round(2).payoff #cambiar esto a aleatorio (random_round)
+        self.final_payoff = self.in_round(self.pay_round).payoff #cambiar esto a aleatorio (random_round)
         self.participant.vars["payoff_Honesty"] = self.final_payoff
 
 
