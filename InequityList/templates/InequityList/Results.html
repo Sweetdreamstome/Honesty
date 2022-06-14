@@ -8,7 +8,8 @@
 {% block content %}
 
     <p>Para el pago final la computadora ha elegido una de las 21 asignaciones de manera aleatoria</p>
-    <p>Por lo tanto su pago por esta parte del experimento es: <b>{{ payoff }}</b></p>
+    <p>La asignación elegida ha sido la número: <strong>{{ allocation }}</strong></p>
+    <p>Por lo tanto su pago por esta parte del experimento es: <b>{{ payoff }}</b> Puntos</p>
 
     {% next_button %}
 {% endblock %}

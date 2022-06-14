@@ -19,7 +19,8 @@ class Results(Page):
     def vars_for_template(self):
 
         return dict(
-            payoff = self.player.payoff
+            payoff = self.player.payoff,
+            allocation = self.group.payment_choice + 1
         )
 
 
