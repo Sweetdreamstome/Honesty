@@ -1,7 +1,7 @@
 from os import environ
 
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=1.00, participation_fee=5.00, doc=""
+    real_world_currency_per_point=1.00, participation_fee=5.00, solex_soles = 0.003, points_soles = 0.05, doc=""
 )
 
 PARTICIPANT_FIELDS = ['payoff_Honesty','payoff_RuleFollowing','payoff_DieRoll','payoff_measure_task','payoff_InequityList']
@@ -22,7 +22,8 @@ SESSION_CONFIGS = [
        num_demo_participants=12,
        app_sequence=['initial_page','Honesty','RuleFollowing','InequityList','measure_task','payments'],
        app_names = {'Honesty':'Primera','RuleFollowing':'Segunda','measure_task':'Tercera','InequityList':'Cuarta'},
-       participant_fee = SESSION_CONFIG_DEFAULTS["participation_fee"]
+       participant_fee = SESSION_CONFIG_DEFAULTS["participation_fee"],
+       exchange_rates = {"Solex": SESSION_CONFIG_DEFAULTS["solex_soles"], "Points": SESSION_CONFIG_DEFAULTS['points_soles']}
     ),
 
     dict(
