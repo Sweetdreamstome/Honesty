@@ -37,7 +37,11 @@ class Decision3(Page):
         self.player.set_payoffs()
 
 class Results(Page):
-    pass
+    
+    def vars_for_template(self):
+        return dict(
+            pago_soles = self.player.payoff * self.session.config["exchange_rates"]["Solex"],
+        )
 
 
 page_sequence = [

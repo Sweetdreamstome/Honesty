@@ -21,9 +21,16 @@ SESSION_CONFIGS = [
        display_name="HonestidadAprueba",
        num_demo_participants=12,
        app_sequence=['initial_page','Honesty','RuleFollowing','InequityList','measure_task','payments'],
-       app_names = {'Honesty':'Primera','RuleFollowing':'Segunda','measure_task':'Tercera','InequityList':'Cuarta'},
+       app_names = {'Honesty':'Primera','RuleFollowing':'Segunda','InequityList':'Tercera','measure_task':'Cuarta'},
        participant_fee = SESSION_CONFIG_DEFAULTS["participation_fee"],
        exchange_rates = {"Solex": SESSION_CONFIG_DEFAULTS["solex_soles"], "Points": SESSION_CONFIG_DEFAULTS['points_soles']}
+    ),
+
+    dict(
+       name='Honesty',
+       display_name="Honesty",
+       num_demo_participants=12,
+       app_sequence=['Honesty']
     ),
 
     dict(

@@ -21,11 +21,14 @@
             {% endfor %}
             <tr></tr>
             <tr>
-                <td><strong>Pago Total + Pago por Participar ({{ participant_fee }})</strong></td>
+                <td><strong>Pago Total</strong></td>
                 <td><strong>{{ pago_total }}</strong></td>
             </tr>
         </tbody>
     </table>
+    <p>
+        En Soles <strong>{{ pago_total_soles }}</strong> + <strong>{{ participant_fee }}</strong> = <strong>{{ pago_total_soles_fee }}</strong>
+    </p>
     {% next_button %}
 
 {% endblock %}
