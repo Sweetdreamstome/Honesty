@@ -207,6 +207,7 @@ class Payoffs(Page):
 
         return dict(
             final_payoff = self.player.final_payoff,
+            final_payoff_soles = self.player.final_payoff * self.session.config["exchange_rates"]["Points"],
             pay_round = self.player.pay_round
         )
 

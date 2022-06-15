@@ -82,6 +82,7 @@ class Payoffs(Page):
             pay_blue = self.player.pay_blue,
             pay_yellow = self.player.pay_yellow,
             pago_final = self.player.payoff,
+            pago_final_soles = self.player.payoff * self.session.config["exchange_rates"]["Points"],
             blue_balls = self.player.blue_balls,
             yellow_balls = self.player.yellow_balls,
         )

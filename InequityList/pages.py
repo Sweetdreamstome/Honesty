@@ -20,6 +20,7 @@ class Results(Page):
 
         return dict(
             payoff = self.player.payoff,
+            payoff_soles = self.player.payoff * self.session.config["exchange_rates"]["Points"],
             allocation = self.group.payment_choice + 1
         )
 

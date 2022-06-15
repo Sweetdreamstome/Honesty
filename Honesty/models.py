@@ -208,7 +208,7 @@ class Player(BasePlayer):
     )
 
     final_payoff = models.CurrencyField()
-    pay_round = models.IntegerField(default = "")
+    pay_round = models.IntegerField(default = 0)
 
     comportamiento = models.StringField(default = "") # que grupo indica A o B (miente o no miente)
 
