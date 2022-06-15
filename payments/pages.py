@@ -40,5 +40,8 @@ class Comments(Page):
 class Gracias(Page):
     pass
 
-page_sequence = [Pagos,Comments,Gracias]
+class Pagos_info(Page):
+    pass
+
+page_sequence = [Pagos,Pagos_info]
 

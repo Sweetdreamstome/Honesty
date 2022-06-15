@@ -258,9 +258,19 @@
 
 {{ formfield_errors 'first_choice_3' }}
 
-{% next_button %}
+<button id = "boton" type = "button" class="otree-btn-next btn btn-primary" onclick="validate()">Siguiente</button>
 
 <script>
+
+  function validate(){
+    if (confirm("¿Está seguro de su decisión?")) {
+      console.log("submitea");
+      document.forms["form"].submit()
+
+    } else {
+      console.log("You pressed Cancel!");
+    }
+  }
 
 $("#slider").closest("div").click(function(){
     $(this).find("input:disabled").attr("disabled", false);

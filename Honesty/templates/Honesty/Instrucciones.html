@@ -7,9 +7,9 @@
 <h4>Instrucciones</h4>
 
 <p>
-    En esta parte del experimento, usted será asignado(a) a un grupo <strong>A</strong> o <strong>B</strong>. Luego, se te asignará una pareja que pertenece 
+    En esta parte del experimento en cada ronda usted será asignado(a) a un grupo <strong>A</strong> o <strong>B</strong>. Luego, se le asignará una pareja que pertenece 
     al otro grupo. Por ejemplo, si usted fue asignado(a) al grupo <strong>A</strong>; su pareja pertenecerá al grupo <strong>B</strong>; y, 
-    viceversa. Esta persona será elegida al azar. Usted se enterará a qué grupo fue asignado una vez que pase de esta página y empiece la primera ronda                
+    viceversa. Su pareja será elegida al azar en cada ronda.               
 </p>
 
 <p>
@@ -32,13 +32,13 @@
     <tbody>
         <tr>
             <td>Indica su grupo</td>
-            <td>(10, 10)</td>
-            <td>(8, 13)</td>
+            <td>(60, 60)</td>
+            <td>(30, 90)</td>
         </tr>
         <tr>
             <td>Indica el grupo contrario</td>
-            <td>(13, 8)</td>
-            <td>(13, 13)</td>
+            <td>(90, 30)</td>
+            <td>(90, 90)</td>
         </tr>
     </tbody>
 </table>    
@@ -46,14 +46,16 @@
 {% if group.treatment == 'Time Pressure' %}
 
 <p>
-    En este caso usted tendra que tomar una decision dentro de un <strong>plazo de 30 segundos</strong>. El cronómetro aparecerá
+    Esta parte constará de 5 rondas.
+    En este caso usted tendrá que tomar una decisión dentro de un <strong>plazo de 30 segundos</strong>. El cronómetro aparecerá
     en la parte superior de su pantalla. Usted podrá enviar su decisión antes de que el tiempo haya culminado si es que asi lo desea.
 </p>
 
 {% elif group.treatment == 'Time Delay' %}
 
 <p>
-    En este caso usted tendra que tomar una decision dentro de un <strong>plazo de 10 segundos</strong>. El cronómetro aparecerá
+    Esta parte constará de 5 rondas.
+    En este caso usted tendrá que tomar una decisión dentro de un <strong>plazo de 10 segundos</strong>. El cronómetro aparecerá
     en la parte superior de su pantalla. El botón "Siguiente" aparecerá luego de haber pasado los 10 segundos.
 </p>
 
@@ -64,14 +66,21 @@
     Esto se repetirá por <strong>6 rondas</strong>. A partir de la segunda ronda, antes de indicar su decisión, 
     se le presentará una <strong>tabla con las decisiones que realizaron los participantes en la ronda previa</strong>. 
     Por ejemplo, si usted se encuentra en la ronda 5, antes de tomar su decisión se le presentará una 
-    tabla con las decisiones que realizaron sus compañeros en la ronda 4
+    tabla con las decisiones que realizaron sus compañeros en la ronda 4.
 </p>
 
 {% endif %}
+<p>
+    <strong>
+        Recuerde que para esta parte del experimento cada Punto equivale a 0.05 Soles. 
+    </strong>
+</p>
 
 <p>
-Si terminaste de leer y de entender las instrucciones, por favor dale al botón "Siguiente"
+Si terminó de leer y de entender las instrucciones, por favor dele click al botón "Siguiente"
 </p>
+
+
 
     {% next_button %}
 
