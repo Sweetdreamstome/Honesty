@@ -50,5 +50,5 @@ class Gracias(Page):
 class Pagos_info(Page):
     pass
 
-page_sequence = [Pagos,Pagos_info]
+page_sequence = [Pagos,Comments,Pagos_info]
 

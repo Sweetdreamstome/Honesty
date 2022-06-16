@@ -1,7 +1,7 @@
 from os import environ
 
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=1.00, participation_fee=5.00, solex_soles = 0.003, points_soles = 0.05, doc=""
+    real_world_currency_per_point=1.00, participation_fee=5.00, solex_soles = 0.003, points_soles = 0.07, doc=""
 )
 
 PARTICIPANT_FIELDS = ['payoff_Honesty','payoff_RuleFollowing','payoff_DieRoll','payoff_measure_task','payoff_InequityList']
