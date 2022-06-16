@@ -23,7 +23,7 @@ class Pagos(Page):
 
             pago_total += pago
             
-            pago_total_soles += pago *  exchange_rate,
+            pago_total_soles += pago *  exchange_rate
 
         return dict(
             pagos_apps = pagos_apps,

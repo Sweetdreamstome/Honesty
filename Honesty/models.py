@@ -241,13 +241,13 @@ class Player(BasePlayer):
         payoff_matrix = {
             'Miente':
                 {
-                    'Miente': 13,
+                    'Miente': 90,
                     'No miente': 13
                 },
             'No miente':
                 {
                     'Miente': 8,
-                    'No miente': 10
+                    'No miente': 60
                 }
         }
 
