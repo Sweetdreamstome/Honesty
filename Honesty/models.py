@@ -1,3 +1,4 @@
+from email.policy import default
 from otree.api import (
     models,
     widgets,
@@ -90,10 +91,15 @@ class Player(BasePlayer):
 
     # vars que cuentan numero de intentos
     control1 = models.IntegerField()
+    control1_answers = models.LongStringField()
     control2 = models.IntegerField()
+    control2_answers = models.LongStringField()
     control3 = models.IntegerField()
+    control3_answers = models.LongStringField()
     control4 = models.IntegerField()
+    control4_answers = models.LongStringField()
     control5 = models.IntegerField()
+    control5_answers = models.LongStringField()
     
     #breve cuestionario inicial
 
@@ -241,13 +247,13 @@ class Player(BasePlayer):
         payoff_matrix = {
             'Miente':
                 {
-                    'Miente': 13,
-                    'No miente': 13
+                    'Miente': 90,
+                    'No miente': 90
                 },
             'No miente':
                 {
-                    'Miente': 8,
-                    'No miente': 10
+                    'Miente': 30,
+                    'No miente': 60
                 }
         }
 

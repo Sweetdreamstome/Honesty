@@ -1,5 +1,5 @@
 {% block title %}
-    Information
+    Parte I
 {% endblock %}
 
 {% block content %}
@@ -53,12 +53,12 @@
 </div>
 
 <input id = 'decision' name = 'decision' hidden>
-
+{{ formfield_errors 'decision' }}
 <br>
 <br>
     {% next_button %}
 
-    <script>
+    <script> 
 
     document.getElementById("A").addEventListener("click", function(){
         document.getElementById('B').disabled = false;

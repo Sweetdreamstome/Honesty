@@ -1,5 +1,5 @@
 {% block title %}
-    Time Pressure 
+    Parte I
 {% endblock %}
 
 {% block content %}
@@ -51,13 +51,14 @@
     </thbody>
 </table>
 
-<div >
+<div>
     <p>Indica el grupo al cual fuiste asignado: </p>
     <button class="btn btn-primary" id = 'A' type = 'button'>A</button>
     <button style = "margin-left: 190px;" class="btn btn-primary" id = 'B' type = 'button'>B</button>
 </div>
 
 <input id = 'decision' name = 'decision' hidden>
+{{ formfield_errors 'decision' }}
 
 <br>
 <br>

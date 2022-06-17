@@ -29,11 +29,23 @@ class General(Page):
         
         return self.player.round_number == 1
 
+    def vars_for_template(self):
+        return dict(
+            exchange_points = self.session.config['exchange_rates']['Points'],
+            exchange_solex = self.session.config['exchange_rates']['Solex']
+        )
+
 class Instrucciones(Page):
 
     def is_displayed(self):
 
         return self.player.round_number == 1
+    
+    def vars_for_template(self):
+        return dict(
+            exchange_points = self.session.config['exchange_rates']['Points'],
+            exchange_solex = self.session.config['exchange_rates']['Solex']
+        )
 
 class Time_Pressure(Page):
 
@@ -62,7 +74,7 @@ class ControlQuestions(Page):
 class Control1(Page):
 
     form_model = 'player'
-    form_fields = ['control1']
+    form_fields = ['control1','control1_answers']
 
     def is_displayed(self):
 
@@ -71,7 +83,7 @@ class Control1(Page):
 class Control2(Page):
 
     form_model = 'player'
-    form_fields = ['control2']
+    form_fields = ['control2','control2_answers']
 
     def is_displayed(self):
 
@@ -80,7 +92,7 @@ class Control2(Page):
 class Control3(Page):
 
     form_model = 'player'
-    form_fields = ['control3']
+    form_fields = ['control3','control3_answers']
 
     def is_displayed(self):
 
@@ -89,7 +101,7 @@ class Control3(Page):
 class Control4(Page):
 
     form_model = 'player'
-    form_fields = ['control4']
+    form_fields = ['control4', 'control4_answers']
 
     def is_displayed(self):
 
@@ -98,7 +110,7 @@ class Control4(Page):
 class Control5(Page):
 
     form_model = 'player'
-    form_fields = ['control5']
+    form_fields = ['control5','control5_answers']
 
     def is_displayed(self):
 
