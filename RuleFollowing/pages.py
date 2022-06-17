@@ -4,7 +4,12 @@ from .models import Constants
 import random
 
 class Instructions(Page):
-    pass
+    
+    def vars_for_template(self):
+        return dict(
+            exchange_points = self.session.config['exchange_rates']['Points'],
+            exchange_solex = self.session.config['exchange_rates']['Solex']
+        )
 
 class Game(Page):
     
