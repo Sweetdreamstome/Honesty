@@ -46,10 +46,15 @@ class Player(BasePlayer):
 
     # vars que cuentan numero de intentos
     control1 = models.IntegerField()
+    control1_answers = models.LongStringField()
     control2 = models.IntegerField()
+    control2_answers = models.LongStringField()
     control3 = models.IntegerField()
+    control3_answers = models.LongStringField()
     control4 = models.IntegerField()
+    control4_answers = models.LongStringField()
     control5 = models.IntegerField()
+    control5_answers = models.LongStringField()
 
     color_order = models.BooleanField()
     

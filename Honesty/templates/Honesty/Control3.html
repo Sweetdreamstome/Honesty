@@ -55,6 +55,7 @@
 <button id = "submit" class="otree-btn-next btn btn-primary" hidden>Siguiente</button>
 
 <input id = "control3" name = "control3" hidden>
+<input id = "control3_answers" name = "control3_answers" hidden>
     
 <script>
 
@@ -62,6 +63,8 @@
     var questions = $(".first_form");
     var intentos = 3;
     var score = 0
+    var answer = ""
+    // console.log($($($(`input[name=form1]`)[1]).parent()[0]).text())
 
     $("#enviar").click(function(){
 
@@ -75,6 +78,9 @@
             {
                 if ($(inputs[i]).prop("checked")) 
                 {
+                    answer = answer + "|" + $($(inputs[i]).parent()[0]).text()
+                    $("#control3_answers").val(answer) 
+                    console.log($("#control3_answers").val())
                     
                     if ($(inputs[i]).val() == "1") {
 

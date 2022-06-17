@@ -54,6 +54,5 @@ class Player(BasePlayer):
     )
 
     sugerencia = models.LongStringField(
-         label = 'Por favor dejanos una sugerencia general, tanto puntos positivos como negativos'
-         
+         label = 'Por favor dejanos una sugerencia general, tanto puntos positivos como negativos'  
     )
