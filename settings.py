@@ -30,39 +30,45 @@ SESSION_CONFIGS = [
        name='Honesty',
        display_name="Honesty",
        num_demo_participants=12,
-       app_sequence=['Honesty']
+       app_sequence=['Honesty'],
+       exchange_rates = {"Solex": SESSION_CONFIG_DEFAULTS["solex_soles"], "Points": SESSION_CONFIG_DEFAULTS['points_soles']}
     ),
 
     dict(
        name='RuleFollowing',
        display_name="RuleFollowing",
        num_demo_participants=2,
-       app_sequence=['RuleFollowing']
+       app_sequence=['RuleFollowing'],
+       exchange_rates = {"Solex": SESSION_CONFIG_DEFAULTS["solex_soles"], "Points": SESSION_CONFIG_DEFAULTS['points_soles']}
     ),
 
     dict(
        name='tanaka2010',
        display_name="Tanaka",
        num_demo_participants=2,
-       app_sequence=['measure_task']
+       app_sequence=['measure_task'],
+       exchange_rates = {"Solex": SESSION_CONFIG_DEFAULTS["solex_soles"], "Points": SESSION_CONFIG_DEFAULTS['points_soles']}
     ),
     dict(
        name='DieRoll',
        display_name="DieRoll",
        num_demo_participants=2,
-       app_sequence=['DieRoll']
+       app_sequence=['DieRoll'],
+       exchange_rates = {"Solex": SESSION_CONFIG_DEFAULTS["solex_soles"], "Points": SESSION_CONFIG_DEFAULTS['points_soles']}
     ),
     dict(
        name='InequityList',
        display_name="InequityList",
        num_demo_participants=2,
-       app_sequence=['InequityList']
+       app_sequence=['InequityList'],
+       exchange_rates = {"Solex": SESSION_CONFIG_DEFAULTS["solex_soles"], "Points": SESSION_CONFIG_DEFAULTS['points_soles']}
     ),
     dict(
        name='payments',
        display_name="payments",
        num_demo_participants=2,
-       app_sequence=['payments']
+       app_sequence=['payments'],
+       exchange_rates = {"Solex": SESSION_CONFIG_DEFAULTS["solex_soles"], "Points": SESSION_CONFIG_DEFAULTS['points_soles']}
     ),
 ]
 

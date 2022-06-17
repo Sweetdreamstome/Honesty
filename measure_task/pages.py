@@ -4,7 +4,12 @@ from .models import Constants
 
 
 class Introduction(Page):
-    pass
+    
+    def vars_for_template(self):
+        return dict(
+            exchange_points = self.session.config['exchange_rates']['Points'],
+            exchange_solex = self.session.config['exchange_rates']['Solex']
+        )
 
 class Example1(Page):
     pass
@@ -39,8 +44,14 @@ class Decision3(Page):
 class Results(Page):
     
     def vars_for_template(self):
+        
+        pago = Constants.endowment + self.player.payoff if self.player.payoff < 0 else self.player.payoff
+        print(pago)
+        
         return dict(
-            pago_soles = self.player.payoff * self.session.config["exchange_rates"]["Solex"],
+            loss = self.player.payoff < 0,
+            pago_soles = pago * self.session.config["exchange_rates"]["Solex"],
+            pago_points = pago
         )
 
 

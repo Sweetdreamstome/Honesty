@@ -16,8 +16,10 @@
     <tr><td>Bolilla escogida al azar:</td><td>&nbsp;&nbsp;{{ player.random_draw }}</td></tr>
 
     <tr><td>Monto obtenido:</td><td>&nbsp;&nbsp;{{ player.payoff }} Solex</td></tr>
-
-    <!-- <tr><td>Monto Final:</td><td>&nbsp;&nbsp;30 - {{ player.payoff }} Solex = </td></tr> -->
+    {% if loss %}
+        <tr><td>Dotación Base:</td><td>&nbsp;&nbsp;{{ Constants.endowment }} Solex</td></tr>
+        <tr><td>Monto obtenido Actualizado:</td><td>&nbsp;&nbsp;{{ pago_points }} Solex</td></tr>
+    {% endif %}
 
     <tr><td>Monto obtenido en Soles:</td><td>&nbsp;&nbsp;{{ pago_soles }}</td></tr>
 
