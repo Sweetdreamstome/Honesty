@@ -10,24 +10,36 @@
     <table class = 'table'>
         <thead>
             <th>Parte del Experimento</th>
-            <th>Pago en Soles</th>
+            <th>Pago en Moneda Experimental</th>
         </thead>
         <tbody>
             {% for app, pago in pagos_apps.items %}
-            <tr>
-                <td>{{ app }}</td>
-                <td>{{ pago }}</td>
-            </tr>
+                {% if app == 'Cuarta'%}
+                    <tr>
+                        <td>{{ app }}</td>
+                        <td>{{ pago }} Solex</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td>{{ app }}</td>
+                        <td>{{ pago }} Puntos</td>
+                    </tr>
+                {% endif %}
             {% endfor %}
             <tr></tr>
-            <tr>
-                <td><strong>Pago Total</strong></td>
-                <td><strong>{{ pago_total }}</strong></td>
-            </tr>
         </tbody>
     </table>
+
+    <div class="card bg-light" style = "padding: 20px;">
+        <strong>
+            <u>Recordar:</u> Para la parte I, II y III su pago será en una moneda experimental llamada “Puntos”  donde cada Punto equivale a {{ exchange_points }} Soles. 
+            Mientras que para la Parte IV la moneda experimental es “Solex” donde cada Solex equivale a {{ exchange_solex }} Soles 
+        </strong>
+    </div>
+    <br>
+
     <p>
-        En Soles <strong>{{ pago_total_soles }}</strong> + <strong>{{ participant_fee }}</strong> = <strong>{{ pago_total_soles_fee }}</strong>
+        <strong>Pago: </strong>En Soles <strong>{{ pago_total_soles }}</strong> + <strong>{{ participant_fee }}</strong> (Pago por participar) = S/.<strong>{{ pago_total_soles_fee }}</strong>
     </p>
     {% next_button %}
 

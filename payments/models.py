@@ -49,7 +49,7 @@ class Player(BasePlayer):
     )
 
     preguntas_control = models.IntegerField(
-        label = '¿Encontraste necesarias las preguntas de control previo al inicio de cada parte del experimento? 20 si sentiste que si y 0 si sentiste que era una perdida de tiempo',
+        label = '¿Encontraste necesarias las preguntas de control previo al inicio de cada parte del experimento? 20 si sentiste que sí y 0 si sentiste que era una pérdida de tiempo',
         choices = [i for i in range(0,21)]
     )
 

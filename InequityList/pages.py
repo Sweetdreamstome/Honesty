@@ -30,5 +30,4 @@ class Results(Page):
             allocation = self.group.payment_choice + 1
         )
 
-
 page_sequence = [Instructions,List,Results]

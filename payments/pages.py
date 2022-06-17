@@ -19,7 +19,7 @@ class Pagos(Page):
             pago = self.player.participant.vars['payoff_'+app]
             pagos_apps[name] = pago
 
-            exchange_rate =  self.session.config["exchange_rates"]["Points"] if name != "measure_task" else self.session.config["exchange_rates"]["Solex"]
+            exchange_rate =  self.session.config["exchange_rates"]["Points"] if name != "Cuarta" else self.session.config["exchange_rates"]["Solex"]
 
             pago_total += pago
             
@@ -30,7 +30,9 @@ class Pagos(Page):
             pago_total = pago_total,
             participant_fee = self.session.config["participant_fee"],
             pago_total_soles = pago_total_soles,
-            pago_total_soles_fee = pago_total_soles + self.session.config["participant_fee"]
+            pago_total_soles_fee = pago_total_soles + self.session.config["participant_fee"],
+            exchange_points = self.session.config['exchange_rates']['Points'],
+            exchange_solex = self.session.config['exchange_rates']['Solex']
         )
 
 class Comments(Page):
@@ -48,7 +50,8 @@ class Gracias(Page):
     pass
 
 class Pagos_info(Page):
-    pass
+    def vars_for_template(self):
+        return dict(participant_id=self.participant.label)
 
 page_sequence = [Pagos,Comments,Pagos_info]
 
