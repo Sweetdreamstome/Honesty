@@ -242,11 +242,11 @@ class Player(BasePlayer):
             'Miente':
                 {
                     'Miente': 90,
-                    'No miente': 13
+                    'No miente': 90
                 },
             'No miente':
                 {
-                    'Miente': 8,
+                    'Miente': 30,
                     'No miente': 60
                 }
         }

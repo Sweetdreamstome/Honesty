@@ -29,11 +29,23 @@ class General(Page):
         
         return self.player.round_number == 1
 
+    def vars_for_template(self):
+        return dict(
+            exchange_points = self.session.config['exchange_rates']['Points'],
+            exchange_solex = self.session.config['exchange_rates']['Solex']
+        )
+
 class Instrucciones(Page):
 
     def is_displayed(self):
 
         return self.player.round_number == 1
+    
+    def vars_for_template(self):
+        return dict(
+            exchange_points = self.session.config['exchange_rates']['Points'],
+            exchange_solex = self.session.config['exchange_rates']['Solex']
+        )
 
 class Time_Pressure(Page):
 

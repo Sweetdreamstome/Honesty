@@ -3,7 +3,9 @@
 {% endblock %}
 
 {% block content %}
-<p><strong>Este experimento consta de 4 partes</strong></p>
+<div class="card bg-light" style = "padding: 20px;">
+    <strong><u>Este experimento consta de 4 partes</u></strong>
+</div>
 
 <h4>Parte I</h4>
 
@@ -11,7 +13,7 @@
     En esta parte del experimento, usted participará con una pareja. Para ello, se 
     le asignará aleatoriamente a un grupo, <strong>A</strong> o <strong>B</strong>. Luego, se le asignará una pareja que pertenece 
     al grupo opuesto. Por ejemplo, si usted fue asignado(a) al grupo <strong>A</strong>, su pareja pertenecerá al grupo <strong>B</strong>; y, 
-    viceversa. Su pareja será elegida al azar en cada ronda.
+    viceversa. <u>Su pareja será elegida al azar en cada ronda</u>.
 </p>
 
 <p>
@@ -32,21 +34,23 @@
     <tbody>
         <tr>
             <td>Indica su grupo</td>
-            <td>(60, 60)</td>
-            <td>(30, 90)</td>
+            <td>(60 Puntos, 60 Puntos)</td>
+            <td>(30 Puntos, 90 Puntos)</td>
         </tr>
         <tr>
             <td>Indica el grupo contrario</td>
-            <td>(90, 30)</td>
-            <td>(90, 90)</td>
+            <td>(90 Puntos, 30 Puntos)</td>
+            <td>(90 Puntos, 90 Puntos)</td>
         </tr>
     </tbody>
 </table>
 
 <p>
-    Si usted indica a qué grupo fue asignado y su pareja indica a qué grupo fue asignada entonces el pago para ambos es igual a <b>60 Puntos</b>. Por otro lado, 
-    si usted indica indica el grupo contrario y su pareja sí indica a qué grupo fue asignada entonces usted recibirá un pago de <b>90 Puntos</b> mientras que su pareja recibirá un pago de 
-    <b>30 Puntos</b> y viceversa. Finalmente, si usted indica el grupo contrario y su pareja también entonces ambos recibirán un pago de <b>90 Puntos</b>. 
+    <u>Suponga que usted fue asignado al grupo <b>A</b> y su pareja fue asignada al grupo <b>B</b></u>. Por un lado, si usted indica que fue asignado al grupo <b>A</b> y su pareja indica que fue asignada
+    al grupo <b>B</b> entonces ambos reciben un pago igual a <b>60 Puntos</b>. Por otro lado, si usted indica que fue asignado al grupo <b>B</b> 
+    y su pareja indica que fue asignada al grupo <b>A</b> entonces ambos recibirán un pago de <b>90 Puntos</b>. Finalmente, si usted indica que fue asignado al grupo <b>A</b> y su 
+    pareja indica que fue asignada al grupo <b>A</b> entonces usted recibe <b>30 Puntos</b> y su pareja recibe <b>90 Puntos</b>. En cambio si ocurre lo contrario, es decir, si usted indica 
+    que fue asignado al grupo <b>B</b> mientras que su pareja indica que fue asignada al grupo <b>B</b> entonces usted recibe <b>90 Puntos</b> y su pareja <b>30 Puntos</b>
 </p>
 
 
@@ -54,7 +58,7 @@
 
 <p>
     En esta parte del experimento, usted decidirá cómo asignar 100 bolillas entre dos cestas. 
-    Las bolillas aparecerán en el centro de la pantalla, y usted asignará cada bolillas haciendo click en 
+    Las bolillas aparecerán en el centro de la pantalla, y usted asignará cada bolilla haciendo click en 
     ella y arrastrándola a la cesta de su elección. Sus ganancias por esta parte solo dependen de lo que usted haga. Así, por cada bolilla que usted coloque en la cesta azul, recibirá
     <strong>0.15 Puntos</strong> ,y por cada bolilla que coloque en la cesta amarilla, recibirá <strong>0.30 Puntos</strong>.
 </p>
@@ -75,18 +79,18 @@
 <p>
     En esta parte, sus ganancias dependerán parcialmente de sus decisiones y parcialmente del azar. <strong>Hay 3 series de preguntas.</strong> 
     La <strong>dos primeras</strong> series contienen 14 preguntas cada una; y la <strong>tercera</strong> contiene 7. Ello da un total de 35 preguntas. En cada serie, se le 
-    dará la opción de escoger entre dos planes: <strong>el plan A  y el plan B</strong>. En su elección deberás indicar alguna pregunta a partir de la cual 
-    prefieres el plan B en lugar del plan A; o si siempre prefiere el plan A o si siempre prefiere el plan B. Después de que responda las preguntas, la 
+    dará la opción de escoger entre dos planes: <strong>plan A</strong>  y el <strong>plan B</strong>. En su elección deberás indicar alguna pregunta a partir de la cual 
+    prefieres el <strong>plan B </strong>en lugar del <strong>plan A</strong>; o si siempre prefiere el <strong>plan A</strong> o si siempre prefiere el <strong>plan B</strong>. Después de que responda las preguntas, la 
     computadora elegirá aleatoriamente alguna de ellas y se implementará el plan que escogió para esa pregunta por dinero en efectivo.
 </p>
     
-<p>
+<div class="card bg-light" style = "padding: 20px;">
     <strong>
-        Importante: Para la parte I, II y III su pago será en una moneda experimental llamada “Puntos”  donde cada Punto equivale a 0.05 Soles. 
-        Mientras que para la Parte IV la moneda experimental es “Solex” donde cada Solex equivale a 0.003 Soles
+        <u>Importante:</u> Para la parte I, II y III su pago será en una moneda experimental llamada “Puntos”  donde cada Punto equivale a {{ exchange_points }} Soles. 
+        Mientras que para la Parte IV la moneda experimental es “Solex” donde cada Solex equivale a {{ exchange_solex }} Soles 
     </strong>
-</p>
-
+</div>
+ 
 <p>
 Si terminó de leer y de entender las instrucciones, por favor dele click al botón "Siguiente"
 </p>
