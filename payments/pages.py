@@ -17,13 +17,18 @@ class Pagos(Page):
 
             name = apps[app]
             pago = self.player.participant.vars['payoff_'+app]
+            
+            # pagos_apps[name] = {"Moneda":"", "Soles":""}
+
             pagos_apps[name] = pago
 
             exchange_rate =  self.session.config["exchange_rates"]["Points"] if name != "Cuarta" else self.session.config["exchange_rates"]["Solex"]
 
+            pago_soles = pago *  exchange_rate
+
             pago_total += pago
             
-            pago_total_soles += pago *  exchange_rate
+            pago_total_soles += pago_soles
 
         return dict(
             pagos_apps = pagos_apps,
