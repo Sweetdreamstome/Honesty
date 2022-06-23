@@ -44,15 +44,20 @@ class Player(BasePlayer):
     )
 
     espera = models.IntegerField(
-        label = '¿Que tal te pareció la fluidez del experimento?, 20 si no hubieron trabas o demoras inncesarias y 0 lo contrario',
+        label = '¿Que tal te pareció la fluidez del experimento?, 20 si no hubo trabas o demoras inncesarias y 0 lo contrario',
         choices = [i for i in range(0,21)]
     )
 
     preguntas_control = models.IntegerField(
-        label = '¿Encontraste necesarias las preguntas de control previo al inicio de cada parte del experimento? 20 si sentiste que sí y 0 si sentiste que era una pérdida de tiempo',
+        label = '¿Consideras que las preguntas de control previo al inicio de cada parte del experimento te ayudaron a entender mejor cada tarea involucrada? 20 si sentiste que sí y 0 si sentiste que era una pérdida de tiempo',
         choices = [i for i in range(0,21)]
     )
 
     sugerencia = models.LongStringField(
          label = 'Por favor dejanos una sugerencia general, tanto puntos positivos como negativos'  
     )
+
+    #preguntas de estereotipo
+
+    pregunta1 = models.FloatField()
+    pregunta2 = models.FloatField()
