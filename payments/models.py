@@ -59,5 +59,5 @@ class Player(BasePlayer):
 
     #preguntas de estereotipo
 
-    pregunta1 = models.FloatField()
-    pregunta2 = models.FloatField()
+    pregunta1 = models.FloatField(default = 0)
+    pregunta2 = models.FloatField(default = 0)
