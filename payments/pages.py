@@ -43,7 +43,9 @@ class Comments(Page):
         'instrucciones',
         'espera',
         'preguntas_control',
-        'sugerencia'
+        'sugerencia',
+        'pregunta1',
+        'pregunta2'
         ]
 
 class Gracias(Page):
