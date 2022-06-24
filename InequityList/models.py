@@ -22,7 +22,7 @@ class Constants(BaseConstants):
     num_rounds = 1
 
     payments = [[20,i] for i in range(10,31)]
-    allocations = [i for i in range(1,len(payments)+1)]
+    allocations = [i for i in range(1,len(payments))]
 
 class Subsession(BaseSubsession):
     
