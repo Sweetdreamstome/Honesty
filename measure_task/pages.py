@@ -46,7 +46,7 @@ class Results(Page):
     def vars_for_template(self):
         
         pago = Constants.endowment + self.player.payoff if self.player.payoff < 0 else self.player.payoff
-        print(pago)
+        print("templates",pago)
         
         return dict(
             loss = self.player.payoff < 0,

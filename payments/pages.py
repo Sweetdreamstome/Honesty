@@ -60,5 +60,7 @@ class Pagos_info(Page):
     def vars_for_template(self):
         return dict(participant_id=self.participant.label)
 
-page_sequence = [Pagos,Comments,Pagos_info]
+page_sequence = [
+    Pagos,
+Comments,Pagos_info]
 
