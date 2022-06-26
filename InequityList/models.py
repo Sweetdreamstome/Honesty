@@ -22,7 +22,7 @@ class Constants(BaseConstants):
     num_rounds = 1
 
     payments = [[20,i] for i in range(10,31)]
-    allocations = [i for i in range(1,len(payments))]
+    allocations = [i for i in range(len(payments))]
 
 class Subsession(BaseSubsession):
     
@@ -45,7 +45,7 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     
-    payment_choice = models.IntegerField()
+    payment_choice = models.IntegerField() #sumar 1 por cuenta propia porque esta var irá de 0 a 20 
 
     def set_payoffs(self):
 

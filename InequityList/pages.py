@@ -18,7 +18,7 @@ class Instructions(Page):
 class List(Page):
 
     form_model = 'player'
-    form_fields = ["choice"+str(i) for i in range(1,len(Constants.allocations)+1)]
+    form_fields = ["choice"+str(i) for i in range(1,len(Constants.payments)+1)]
 
 class Results(Page):
     
