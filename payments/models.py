@@ -11,7 +11,9 @@ from otree.api import (
 
 
 doc = """
-Your app description
+
+Payment app: Final Payments, Comments & Payment Info
+
 """
 
 

@@ -12,9 +12,6 @@ import random
 
 doc = """
 
-Concurso de Investigacion
-
-Grecia & Sergio
 
 Rule Following App
 
