@@ -61,6 +61,6 @@ class Pagos_info(Page):
         return dict(participant_id=self.participant.label)
 
 page_sequence = [
-    #Pagos,
+    Pagos,
 Comments,Pagos_info]
 
