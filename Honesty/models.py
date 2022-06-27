@@ -20,8 +20,6 @@ Concurso de Investigacion 2021
 
 Test about Honesty 
 
-Apps: Honesty, Rule Following, Inequity List & Tanaka (2010)
-
 """
 
 
